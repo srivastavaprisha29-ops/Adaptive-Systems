@@ -1,0 +1,31 @@
+<!doctype html>
+<html lang="en"><head><meta charset="UTF-8"/><meta name="viewport" content="width=device-width,initial-scale=1"/><title>Adaptive Systems — Controller Simulator</title>
+<style>
+:root{font:16px system-ui,sans-serif;color:#e3f2ed;background:#071b22}*{box-sizing:border-box}body{margin:0;padding:32px 15px;background:radial-gradient(ellipse at 10% 0%,#163c45 0,transparent 50%),#071b22}.wrap{max-width:960px;margin:auto}h1{font-size:clamp(26px,4vw,42px)}p{line-height:1.65;color:#a9c7c7}.lead{font-size:18px}.card{background:#102b34;border:1px solid #2f5760;border-radius:20px;padding:24px;margin:20px 0}.cols{display:grid;grid-template-columns:1fr 1fr;gap:20px}@media(max-width:680px){.cols{grid-template-columns:1fr}}label{display:flex;justify-content:space-between;margin-bottom:14px}input[type=range]{width:100%;accent-color:#72e8b8}.mini{color:#a4c6c4;font-size:13px}.result{font-size:34px;font-weight:800;color:#83edbd}.pill{padding:5px 10px;border:1px solid #7cd8ba;border-radius:40px;font-size:12px}.track{height:23px;border-radius:15px;background:#1e414a;overflow:hidden}.fill{height:100%;background:linear-gradient(90deg,#3c9fc5,#70edb4);transition:width .2s}table{width:100%;border-collapse:collapse}td,th{padding:10px;border-bottom:1px solid #31505c;text-align:left}button{background:#80e6bb;color:#102d29;border:0;border-radius:12px;padding:12px 18px;cursor:pointer;font-weight:700}select{padding:8px;background:#0b242d;color:#e4f4ee;border:1px solid #568c92;border-radius:8px}a{color:#86eabf}.status{color:#f4d99b}
+</style></head><body><main class="wrap"><p><a href="../README.md">← Research README</a></p><h1>Resource-aware feature controller</h1><p class="lead">An interactive, illustrative model of how runtime resource conditions can influence intermediate feature width and numeric precision. No actual AI inference is being performed here.</p>
+<div class="cols"><section class="card"><h2>1 · Observed resource state</h2>
+<label for="memory">Available memory <b id="memTxt">65%</b></label><input id="memory" type="range" min="0" max="100" value="65"/>
+<label for="load">Processor workload <b id="loadTxt">45%</b></label><input id="load" type="range" min="0" max="100" value="45"/>
+<label for="quality">Quality policy</label><select id="quality"><option value="adaptive">Adaptive / balanced</option><option value="full">Always retain full representation</option></select>
+<p class="mini">This controller uses fictional thresholds to illustrate a heuristic. Real controller inputs require measured telemetry and calibration.</p></section>
+<section class="card"><h2>2 · Controller decision</h2><span class="pill">Illustrative policy</span><p class="result" id="mode">Balanced</p><p id="cfg">512 dimensions · FP16</p><p class="mini" id="why">Moderate observed workload</p>
+<h3>Raw feature storage</h3><div class="track"><div class="fill" id="bar" style="width:25%"></div></div><p id="storage">1,024 / 4,096 bytes (25%)</p><p class="mini">This excludes encoder memory, temporary tensors, model weights and format metadata.</p></section></div>
+<section class="card"><h2>3 · Does adaptation actually help?</h2><p>Compare a hypothetical full downstream stage taking 20 ms with an adapted downstream stage taking 9 ms. Move the slider to add control and conversion overhead.</p>
+<label for="overhead">Controller + conversion overhead <b id="overTxt">8 ms</b></label><input id="overhead" type="range" min="0" max="25" value="8"/>
+<table><thead><tr><th>Path</th><th>Downstream</th><th>Overhead</th><th>Total</th></tr></thead><tbody><tr><td>Full</td><td>20 ms</td><td>0 ms</td><td>20 ms</td></tr><tr><td>Adapted</td><td>9 ms</td><td id="overCell">8 ms</td><td id="totalCell">17 ms</td></tr></tbody></table><p class="status" id="verdict">Net improvement: 3 ms</p><p class="mini">Shared encoder and preprocessing time are omitted from this *simplified* comparison. Actual project measurements must include the full pipeline and avoid double-counting.</p></section>
+<section class="card"><h2>4 · What should the experiment measure?</h2><p>Accuracy/quality, median/p95 end-to-end latency, throughput, allocated and peak memory, measured energy per inference, and switching/monitoring overhead. Compare the controller to both full and best-feasible static configurations.</p><button id="reset">Reset illustrative scenario</button><p class="mini">No external API calls, data collection or model execution. All values are teaching examples.</p></section></main>
+<script>
+const $=id=>document.getElementById(id);let configs={Full:{d:1024,b:32},Balanced:{d:512,b:16},Compact:{d:256,b:8}};
+function update(){const m=+$('memory').value,l=+$('load').value,o=+$('overhead').value,quality=$('quality').value;
+$('memTxt').textContent=m+'%';$('loadTxt').textContent=l+'%';$('overTxt').textContent=o+' ms';
+let mode=quality==='full'?'Full':m<35||l>80?'Compact':m>70&&l<40?'Full':'Balanced';
+let c=configs[mode],bytes=c.d*c.b/8,percent=100*bytes/4096;
+$('mode').textContent=mode;$('cfg').textContent=c.d+' dimensions · '+(c.b===8?'INT8':'FP'+c.b);
+$('why').textContent=quality==='full'?'Quality-first policy selected.':mode==='Compact'?'Illustrative resource pressure detected.':mode==='Full'?'Illustrative plentiful-resource state.':'Illustrative moderate-resource state.';
+$('bar').style.width=percent+'%';$('storage').textContent=bytes.toLocaleString()+' / 4,096 bytes ('+percent.toFixed(2)+'%)';
+let total=9+o;$('overCell').textContent=o+' ms';$('totalCell').textContent=total+' ms';
+$('verdict').textContent=total<20?'Net improvement: '+(20-total)+' ms':total>20?'Net regression: '+(total-20)+' ms':'Break-even: no net downstream saving';
+}
+['memory','load','overhead','quality'].forEach(id=>$(id).addEventListener('input',update));
+$('reset').addEventListener('click',()=>{$('memory').value=65;$('load').value=45;$('overhead').value=8;$('quality').value='adaptive';update()});update();
+</script></body></html>
