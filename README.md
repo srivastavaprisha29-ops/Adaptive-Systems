@@ -296,9 +296,105 @@ Choose the task/model/device based on available data, hardware, energy instrumen
 - [ ] Audit research novelty against closest published methods.
 - [ ] Release code, configurations, scripts and provenance before claiming reproducibility.
 
+
+## Visual walkthrough: how we compress intermediate features
+
+![Feature tiles before and after reduction](assets/feature-dimensions.svg)
+
+### Methods for reducing feature dimensions
+
+| 🧭 **PCA** | 🧠 **Learned projection** | 🪆 **Nested / ordered features** |
+|---|---|---|
+| Project features along high-variance directions. | Train a layer to map 1024D → 256D. | Train or organize feature prefixes so smaller widths remain useful. |
+| **Benefit:** explainable linear baseline. | **Benefit:** optimize for downstream prediction. | **Benefit:** potentially cheap runtime width switching. |
+| **Cost:** projection execution; high variance ≠ best task information. | **Cost:** extra training and projection work. | **Cost:** specialized training/design. |
+
+**Pipeline:**
+
+~~~mermaid
+flowchart LR
+A["Full feature vector"] --> B{"Reduction method"}
+B --> C["PCA projection"]
+B --> D["Learned projection"]
+B --> E["Nested-width selection"]
+C --> F["Compatible downstream head"]
+D --> F
+E --> F
+~~~
+
+The downstream head must match the adapted representation; truncation of arbitrary features is not guaranteed safe.
+
+### Raw storage — original vs adapted
+
+![Two cuboid storage comparison showing 4096 vs 256 bytes](assets/storage-reduction.svg)
+
+**Calculation:** \(1024\times 32/8=4096\) raw bytes; \(256\times 8/8=256\) raw bytes. This is **93.75% fewer raw feature bytes**, not automatically 93.75% less execution time, system RAM or energy.
+
+### Interactive controller — try it yourself
+
+[**Open the interactive HTML simulator**](demo/controller.html) · **[Hosted version (once GitHub Pages is enabled)](https://srivastavaprisha29-ops.github.io/Adaptive-Systems/demo/controller.html)**
+
+**Controls:** available memory · processor load · quality policy · controller/conversion overhead.
+
+~~~mermaid
+flowchart LR
+M["Memory slider"] --> C["Rule-based controller"]
+L["Workload slider"] --> C
+Q["Quality mode"] --> C
+C --> A["Full / Balanced / Compact"]
+A --> V["Selected dimensions, bit width and bytes"]
+O["Overhead slider"] --> T["Latency break-even visualization"]
+~~~
+
+GitHub Markdown and Notion content do not execute JavaScript. The HTML demo contains the working sliders; the site can be embedded in Notion once GitHub Pages is published.
+
+### Hypothetical end-to-end latency — why overhead changes everything
+
+![Downstream execution vs conversion overhead, 20ms full / 17ms adapted / 23ms adapted](assets/hypothetical-latency.svg)
+
+| Example | Downstream | Controller + conversion | Total | Outcome |
+|---|---:|---:|---:|---|
+| Full | 20 ms | 0 ms | **20 ms** | Baseline |
+| Adapted A | 9 ms | 8 ms | **17 ms** | 3 ms saved |
+| Adapted B | 9 ms | 14 ms | **23 ms** | 3 ms slower |
+
+*Hypothetical values, simplified to the downstream segment; real research must measure full end-to-end execution.*
+
+### What exactly will we build?
+
+| Stage | Prototype deliverable | Suggested starting point |
+|---|---|---|
+| 01 · Input | Labeled sample pipeline | CIFAR-10, with verified train/validation/test splits |
+| 02 · Encoder | Frozen pretrained feature extractor | PyTorch / ResNet-18 (pooled embedding typically 512D) |
+| 03 · Adapter | Multiple compatible feature widths | PCA and/or learned projections, e.g. 512→256→128 |
+| 04 · Precision | Valid low-precision modes | FP32, FP16, INT8 only if target backend supports them |
+| 05 · Controller | Resource monitor + selection policy | Rule-based baseline → profiled constrained optimizer |
+| 06 · Evaluator | End-to-end benchmark suite | Quality, p50/p95, memory, energy if measured, overhead |
+
+~~~mermaid
+flowchart TD
+A["CIFAR-10 image"] --> B["Frozen ResNet-18 encoder"]
+B --> C["Feature adapter: width & dtype"]
+R["Runtime workload and resources"] --> D["Controller: select valid mode"]
+D --> C
+C --> E["Matching classification head"]
+E --> F["Prediction and instrumented measurements"]
+~~~
+
+All model and device selections are **suggested, not finalized**. Profile fixed representations first; if the encoder dominates, the scope may need revision.
+
+
 ## Research contribution and limitations
 
-PCA, quantization and resource-monitoring controllers already have established literature. **Simply combining them is not proof of publication-level novelty.** A defensible contribution needs a new validated decision mechanism, rigorously characterized overhead/quality trade-off, identified failure regime or materially stronger empirical result than existing adaptive inference work.
+### Where novelty might lie
+
+| Research axis | Specific contribution to investigate |
+|---|---|
+| **Decision quality** | A robust, resource-conditioned width + precision policy, demonstrably better than strong static and existing adaptive baselines. |
+| **Net efficiency** | Joint optimization **including** monitoring, conversion, switching, and measurable end-to-end costs. |
+| **Quality preservation** | Empirical quality guarantees or calibrated constraints across workload/resource changes. |
+
+**Novelty remains a hypothesis:** PCA, quantization and resource monitoring already exist. The literature review and held-out experiments must establish a genuinely new method or result.
 
 Major risks: encoder dominates cost; conversion erases savings; unsupported low-bit kernels; quality degradation; energy instrumentation unavailable; unstable policy switching; dataset leakage; and novelty overlap.
 
