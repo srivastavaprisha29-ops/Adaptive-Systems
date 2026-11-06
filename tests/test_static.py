@@ -2,6 +2,7 @@ import contextlib
 import io
 import json
 import tempfile
+import shutil
 import unittest
 from pathlib import Path
 from types import SimpleNamespace
@@ -12,7 +13,7 @@ import torch
 from PIL import Image
 
 from adaptive_systems.experiment import (benchmark, classify, configuration, decode,
-    encode, fit_states, paired_quality_interval, partition, prepare)
+    encode, fit_states, paired_quality_interval, paired_latency_interval, partition, prepare, tensor_storage_bytes)
 
 
 class FakeCIFAR:
@@ -52,6 +53,10 @@ class StaticTests(unittest.TestCase):
         with self.assertRaises(ValueError):
             partition(labels, 29, 9, 1)
 
+    def test_memory_inventory_counts_shared_storage_once(self):
+        value = torch.zeros(10)
+        self.assertEqual(tensor_storage_bytes({'first': value[:5], 'second': value[5:]}), 40)
+
     def test_quantization_error_and_real_payload(self):
         x = torch.tensor([[-1., -.31, 0., .31, 1.]])
         packed = encode(x, 'int8_storage', 1 / 127)
@@ -75,6 +80,32 @@ class StaticTests(unittest.TestCase):
         self.assertEqual(delta, -100)
         self.assertEqual(ci, [-100, -100])
 
+    def test_repeat_uncertainty_and_invalid_config(self):
+        gain, ci = paired_latency_interval([10., 20., 30.], [8., 16., 24.], 100, 29)
+        self.assertAlmostEqual(gain, 20.)
+        self.assertTrue(all(abs(value - 20) < 1e-10 for value in ci))
+        with self.assertRaises(ValueError):
+            paired_latency_interval([10.], [8.], 100, 29)
+        config_path = Path(__file__).parents[1] / 'configs' / 'static.json'
+        base = json.loads(config_path.read_text())
+        with tempfile.TemporaryDirectory() as tmp:
+            path = Path(tmp) / 'config.json'
+            for key, value in [('threads', True), ('repeats', 1), ('ridge', float('nan')),
+                               ('reduced_width', 0), ('quality_tolerance_pp', 101)]:
+                bad = dict(base, **{key: value})
+                path.write_text(json.dumps(bad))
+                with self.assertRaises(ValueError):
+                    configuration(path)
+
+    def test_real_encoder_and_preprocessing_shape(self):
+        from torchvision.models import resnet18, ResNet18_Weights
+        model = resnet18(weights=None).eval()
+        model.fc = torch.nn.Identity()
+        image = Image.new('RGB', (32, 32))
+        with torch.inference_mode():
+            result = model(ResNet18_Weights.IMAGENET1K_V1.transforms()(image).unsqueeze(0))
+        self.assertEqual(tuple(result.shape), (1, 512))
+
     def test_prepare_benchmark_and_heldout_selection(self):
         # Synthetic wiring test only: never use these values as research evidence.
         with tempfile.TemporaryDirectory() as tmp:
@@ -82,7 +113,7 @@ class StaticTests(unittest.TestCase):
             c = dict(seed=29, device='cpu', threads=1, reduced_width=2, ridge=1.,
                 validation_per_class=1, calibration_per_class=1, quality_tolerance_pp=1.,
                 minimum_latency_reduction_pct=5., warmup=1, timed_examples=2,
-                repeats=2, bootstrap_samples=20)
+                repeats=3, bootstrap_samples=100)
             config = root / 'config.json'
             config.write_text(json.dumps(c))
             self.assertEqual(configuration(config), c)
@@ -105,9 +136,21 @@ class StaticTests(unittest.TestCase):
                 selection = json.loads(Path(args.selection).read_text())
                 self.assertEqual(summary['selected_static'], selection['configuration'])
                 self.assertEqual(len(summary['metrics']), 4)
-                self.assertEqual(len((test/'timings.jsonl').read_text().splitlines()), 16)
+                self.assertTrue((test/'briefing.md').exists())
+                self.assertEqual(len(summary['selected_mean_latency_reduction_95ci_pct']), 2)
+                shutil.move(args.artifacts, root/'relocated')
+                args.artifacts = str(root/'relocated')
+                benchmark(args, c)
+                broken = json.loads(Path(args.selection).read_text())
+                broken['encoder_sha256'] = 'wrong'
+                bad = root/'bad-selection.json'
+                bad.write_text(json.dumps(broken))
+                args.selection = str(bad)
+                with self.assertRaisesRegex(ValueError, 'Selection does not match'):
+                    benchmark(args, c)
+                self.assertEqual(len((test/'timings.jsonl').read_text().splitlines()), 24)
                 # Mutating a fitted artifact must fail before evaluation.
-                with open(root/'prepared'/'states.pt', 'ab') as f:
+                with open(root/'relocated'/'states.pt', 'ab') as f:
                     f.write(b'changed')
                 with self.assertRaisesRegex(ValueError, 'checksum'):
                     benchmark(args, c)

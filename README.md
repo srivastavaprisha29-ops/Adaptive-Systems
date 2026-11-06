@@ -13,7 +13,7 @@ The repository now includes a CPU-only experimental scaffold. **No measured rese
 - [Pilot configuration](configs/static.json)
 - [Executable pipeline](src/adaptive_systems/experiment.py)
 
-The minimum grid crosses full/PCA-reduced width with FP32/INT8 feature storage. It fits compatible heads, measures actual preprocessing/encoder/projection/conversion/head costs, and selects the best quality-feasible static action on validation data. INT8 is quantized storage followed by FP32 reconstruction; it does not imply integer arithmetic acceleration. Energy and peak per-action memory remain unmeasured. The existing HTML demo remains illustrative.
+The minimum grid crosses full/PCA-reduced width with FP32/INT8 feature storage. It fits compatible heads, measures complete inference with a single outer timer, diagnoses stage costs separately, reports paired timing uncertainty and tensor-memory inventories, and selects the best quality-feasible static action on validation data. INT8 is quantized storage followed by FP32 reconstruction; it does not imply integer arithmetic acceleration. Energy and peak per-action memory remain unmeasured. Each benchmark writes a readable `briefing.md` alongside raw records. Prepared artifacts are portable and checksummed. The existing HTML demo remains illustrative.
 
 ```bash
 python -m pip install -e .

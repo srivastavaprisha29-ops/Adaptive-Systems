@@ -14,13 +14,13 @@ adaptive-static benchmark --config configs/static.json --artifacts runs/prepared
 
 Preparation downloads CIFAR-10 and ImageNet-pretrained ResNet-18 weights if needed, extracts training/calibration features, fits PCA and four classifiers, and saves provenance. The 224px pretrained input transform is intentionally used for all actions. Full CPU preparation can take substantial time; this is a feasibility study, not a promise of a quick benchmark. Feature caches during fitting also consume RAM. Use an otherwise idle machine, record its power/thermal conditions, and keep the config unchanged between preparation and benchmarking.
 
-Benchmark prints a unique validation run directory containing `summary.json`, `selection.json`, `timings.jsonl`, `correctness.pt`, and `manifest.json`. Review its quality floor, conversion cost, encoder share and repeat variability. To evaluate the **locked validation selection** once on the official test set, replace the path below with the printed validation directory:
+Benchmark prints a unique validation run directory containing `briefing.md`, `summary.json`, `selection.json`, `timings.jsonl`, `correctness.pt`, and `manifest.json`. Review its quality floor, conversion cost, encoder share and repeat variability. To evaluate the **locked validation selection** once on the official test set, replace the path below with the printed validation directory:
 
 ```bash
 adaptive-static benchmark --config configs/static.json --artifacts runs/prepared --split test --selection runs/benchmarks/validation-RUN_ID/selection.json
 ```
 
-Do not change the config or refit after seeing test results. New candidate development requires a new development/evaluation protocol. Keep prepared artifacts at their recorded path: the first manifest records local dataset/artifact paths for checksum validation. Back up `runs/` and data outside Git; they are intentionally ignored. `environment-freeze.txt` may be included with a reviewed experiment artifact, not mistaken for a universal cross-platform lock.
+Do not change the config or refit after seeing test results. New candidate development requires a new development/evaluation protocol. Prepared artifacts and datasets can move: verification resolves relative filenames beneath the current `--artifacts` and `--data` locations. Manifest schema 2 is required; regenerate artifacts created by the original scaffold. Back up `runs/` and data outside Git; they are intentionally ignored. `environment-freeze.txt` may be included with a reviewed experiment artifact, not mistaken for a universal cross-platform lock.
 
 ## Interpreting output
 
@@ -29,6 +29,9 @@ Do not change the config or refit after seeing test results. New candidate devel
 - `p50_ms`, `p95_ms`, `repeat_mean_ms`, `throughput_per_s`: complete declared inference boundary. Throughput is sequential, not server concurrency throughput.
 - `feature_payload_bytes`: actual adapted tensor storage, excluding metadata and other allocations.
 - `max_observed_rss_bytes`: largest post-inference RSS sample, with all configurations resident; not peak or per-action memory.
-- `pilot_pass`: provisional quality/point-estimate latency gate; not a validated research claim.
+- `selected_mean_latency_reduction_95ci_pct`: paired repeat-bootstrap interval; the pilot requires its lower bound to meet the configured useful improvement. Repeats within one session do not establish cross-session reproducibility.
+- `baseline_rss_bytes`, `resident_tensor_storage_bytes`, `action_tensor_storage_bytes`: baseline process observation and unique backing tensor-storage inventory. They do not replace peak memory profiling.
+- `pilot_pass`: provisional quality and uncertainty-aware latency gate; not a validated research claim.
+- `diagnostic_total_ms` and stage timings: separate diagnostic inference; headline `total_ms` uses a single outer timer. Diagnostic work is excluded from headline throughput.
 
 Energy and controller performance remain unmeasured. Synthetic tests validate plumbing only and produce no publishable accuracy or efficiency evidence. See [the contract](experiment-contract.md) before interpreting any result.

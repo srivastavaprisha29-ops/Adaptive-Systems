@@ -6,6 +6,8 @@ import argparse
 import hashlib
 import json
 import platform
+import math
+import importlib.metadata
 import subprocess
 import sys
 import time
@@ -100,12 +102,89 @@ def configuration(path):
     c = json.loads(Path(path).read_text())
     if c['device'] != 'cpu':
         raise ValueError('Pilot supports CPU only; adding another backend requires timing validation')
-    for key in ('threads', 'warmup', 'timed_examples', 'repeats', 'bootstrap_samples'):
-        if not isinstance(c[key], int) or c[key] < 1:
-            raise ValueError(f'{key} must be a positive integer')
-    if c['quality_tolerance_pp'] < 0 or not 0 <= c['minimum_latency_reduction_pct'] < 100:
-        raise ValueError('Invalid acceptance threshold')
+    integer_fields = ('seed', 'threads', 'warmup', 'timed_examples', 'repeats',
+                      'bootstrap_samples', 'reduced_width', 'validation_per_class', 'calibration_per_class')
+    for key in integer_fields:
+        value = c[key]
+        if type(value) is not int or value < (0 if key == 'seed' else 1):
+            raise ValueError(f'{key} must be an integer in its valid range')
+    if c['repeats'] < 3 or c['bootstrap_samples'] < 100:
+        raise ValueError('Use at least 3 timing repeats and 100 bootstrap samples')
+    for key in ('ridge', 'quality_tolerance_pp', 'minimum_latency_reduction_pct'):
+        if type(c[key]) not in (int, float) or not math.isfinite(c[key]):
+            raise ValueError(f'{key} must be finite')
+    if c['ridge'] <= 0 or not 0 <= c['quality_tolerance_pp'] <= 100 or not 0 <= c['minimum_latency_reduction_pct'] < 100:
+        raise ValueError('Invalid acceptance threshold or regularization')
     return c
+
+
+def paired_latency_interval(reference, candidate, samples, seed):
+    """Bootstrap paired repeat means, not correlated individual requests."""
+    reference, candidate = np.asarray(reference), np.asarray(candidate)
+    if reference.shape != candidate.shape or len(reference) < 3 or np.any(reference <= 0):
+        raise ValueError('Need at least three paired repeats with positive reference latency')
+    rng = np.random.default_rng(seed)
+    gains = []
+    for _ in range(samples):
+        indices = rng.integers(0, len(reference), len(reference))
+        gains.append(100 * (1 - candidate[indices].mean() / reference[indices].mean()))
+    return float(100 * (1 - candidate.mean() / reference.mean())), np.quantile(gains, [.025, .975]).tolist()
+
+
+def verify_preparation(artifacts, data):
+    provenance = json.loads((artifacts / 'manifest.json').read_text())
+    if provenance.get('schema_version') != 2:
+        raise ValueError('Prepare fresh artifacts with schema version 2')
+    for name in ('states.pt', 'encoder.pt', 'splits.json', 'config.json'):
+        expected = provenance['prepared_files'].get(name)
+        if digest(artifacts / name) != expected:
+            raise ValueError(f'Artifact checksum mismatch: {name}')
+    for name, expected in provenance['dataset_files'].items():
+        if digest(Path(data) / 'cifar-10-batches-py' / name) != expected:
+            raise ValueError(f'Dataset checksum mismatch: {name}')
+    return provenance
+
+
+def validate_selection(path, artifacts, names):
+    selection = json.loads(Path(path).read_text())
+    required = {'states_sha256': 'states.pt', 'config_sha256': 'config.json',
+                'encoder_sha256': 'encoder.pt', 'splits_sha256': 'splits.json'}
+    if selection.get('source_split') != 'validation':
+        raise ValueError('Selection must come from validation')
+    for key, filename in required.items():
+        if selection.get(key) != digest(artifacts / filename):
+            raise ValueError('Selection does not match prepared artifacts')
+    if selection.get('configuration') not in names:
+        raise ValueError('Selected action is absent')
+    return selection
+
+
+def tensor_storage_bytes(value):
+    """Count unique backing tensor allocations; shared views counted once."""
+    storages = {}
+    def visit(item):
+        if isinstance(item, torch.Tensor):
+            storage = item.untyped_storage()
+            storages[(item.device.type, item.device.index, storage.data_ptr())] = storage.nbytes()
+        elif isinstance(item, dict):
+            for child in item.values():
+                visit(child)
+    visit(value)
+    return sum(storages.values())
+
+
+def write_brief(run, report):
+    lines = ['# Static pilot results', '',
+             f"Split: {report['split']}. Selected action: `{report['selected_static']}`.", '',
+             '| Configuration | Accuracy % | Quality feasible | p50 ms | p95 ms | Payload B |',
+             '|---|---:|---|---:|---:|---:|']
+    for name, m in report['metrics'].items():
+        lines.append(f"| {name} | {m['accuracy_pct']:.3f} | {m['quality_feasible']} | {m['p50_ms']:.3f} | {m['p95_ms']:.3f} | {m['feature_payload_bytes']} |")
+    lo, hi = report['selected_mean_latency_reduction_95ci_pct']
+    lines += ['', f"Paired repeat-mean latency reduction: {report['selected_mean_latency_reduction_pct']:.2f}% (95% interval {lo:.2f}% to {hi:.2f}%).",
+              f"Pilot pass: {report['pilot_pass']}.", '', report['limitation'], '',
+              'Validation selection is exploratory. Repeats share one process and machine; they are not independent machine/session trials. Confirm any effect across fresh sessions.']
+    (run / 'briefing.md').write_text('\n'.join(lines) + '\n')
 
 
 def backbone():
@@ -142,6 +221,9 @@ def manifest(root, config, artifacts):
                 cpu_count=psutil.cpu_count(), ram_bytes=psutil.virtual_memory().total,
                 torch=torch.__version__, torchvision=torchvision.__version__,
                 numpy=np.__version__, pillow=PIL.__version__,
+                installed_packages={d.metadata['Name']: d.version for d in importlib.metadata.distributions() if d.metadata['Name']},
+                torch_threads=torch.get_num_threads(),
+                source_sha256=digest(Path(__file__)),
                 artifacts={str(p): digest(p) for p in artifacts},
                 config_sha256=hashlib.sha256(json.dumps(config, sort_keys=True).encode()).hexdigest(),
                 energy_joules=None, boundary='PIL image in host memory -> preprocessing -> prediction; batch=1')
@@ -164,7 +246,11 @@ def prepare(args, c):
     files = [out / p for p in ('states.pt', 'encoder.pt', 'splits.json', 'config.json')]
     files += sorted((Path(args.data) / 'cifar-10-batches-py').glob('*'))
     files = [p for p in files if p.is_file()]
-    (out / 'manifest.json').write_text(json.dumps(manifest(out, c, files), indent=2))
+    provenance = manifest(out, c, files)
+    provenance.update(schema_version=2,
+        prepared_files={name: digest(out / name) for name in ('states.pt', 'encoder.pt', 'splits.json', 'config.json')},
+        dataset_files={p.name: digest(p) for p in files if p.parent.name == 'cifar-10-batches-py'})
+    (out / 'manifest.json').write_text(json.dumps(provenance, indent=2))
     print(f'Prepared {len(states)} static actions in {out}')
 
 
@@ -174,19 +260,12 @@ def benchmark(args, c):
     saved = json.loads((artifacts / 'config.json').read_text())
     if c != saved:
         raise ValueError('Benchmark config differs from preparation config; prepare fresh artifacts')
-    provenance = json.loads((artifacts / 'manifest.json').read_text())
-    for name in ('states.pt', 'encoder.pt', 'splits.json', 'config.json'):
-        path = artifacts / name
-        if provenance['artifacts'].get(str(path)) != digest(path):
-            raise ValueError(f'Artifact checksum mismatch: {path}')
+    verify_preparation(artifacts, args.data)
     dataset = datasets.CIFAR10(args.data, train=args.split == 'validation', download=args.download)
-    # Verify the actual local data, not only the artifact files.
-    for path, expected in provenance['artifacts'].items():
-        if 'cifar-10-batches-py' in path and digest(path) != expected:
-            raise ValueError(f'Dataset checksum mismatch: {path}')
     splits = json.loads((artifacts / 'splits.json').read_text())
     indices = splits['validation'] if args.split == 'validation' else list(range(len(dataset)))
     states = torch.load(artifacts / 'states.pt', weights_only=True, map_location='cpu')
+    selection = validate_selection(args.selection, artifacts, states) if args.split == 'test' else None
     model = models.resnet18(weights=None).eval()
     model.fc = torch.nn.Identity()
     model.load_state_dict(torch.load(artifacts / 'encoder.pt', weights_only=True, map_location='cpu'))
@@ -197,17 +276,27 @@ def benchmark(args, c):
     labels = torch.tensor(dataset.targets)[indices]
     correct = {name: classify(x, state).argmax(1).eq(labels) for name, state in states.items()}
     torch.save(correct, run / 'correctness.pt')
+    full_width = x.shape[1]
+    del x  # Quality cache must not remain live during inference measurements.
+    baseline_rss = psutil.Process().memory_info().rss
     rng = np.random.default_rng(c['seed'])
     timed = rng.permutation(indices)[:c['timed_examples']].tolist()
+    if len(timed) != c['timed_examples']:
+        raise ValueError('timed_examples exceeds evaluation partition size')
     images = [(i, dataset[i][0]) for i in timed]  # Decode/loading intentionally outside timing.
     records = []
     process = psutil.Process()
     for repeat in range(c['repeats']):
+        rng.shuffle(images)  # Same shuffled example order for every action in this repeat.
         for name in rng.permutation(list(states)):
             state = states[name]
             for j in range(c['warmup']):
                 classify(model(transform(images[j % len(images)][1]).unsqueeze(0)), state)
             for index, image in images:
+                start = time.perf_counter_ns()
+                classify(model(transform(image).unsqueeze(0)), state).argmax(1)
+                total_ms = (time.perf_counter_ns() - start) / 1e6
+                # Separate diagnostic pass: stage timers are not the headline latency.
                 t0 = time.perf_counter_ns()
                 tensor = transform(image).unsqueeze(0)
                 t1 = time.perf_counter_ns()
@@ -223,14 +312,14 @@ def benchmark(args, c):
                 records.append(dict(config=name, repeat=repeat, example=index,
                     preprocess_ms=(t1-t0)/1e6, encoder_ms=(t2-t1)/1e6,
                     projection_ms=(t3-t2)/1e6, conversion_ms=(t4-t3)/1e6,
-                    head_ms=(t5-t4)/1e6, total_ms=(t5-t0)/1e6,
+                    head_ms=(t5-t4)/1e6, diagnostic_total_ms=(t5-t0)/1e6, total_ms=total_ms,
                     feature_payload_bytes=packed.numel()*packed.element_size(),
                     rss_after_inference_bytes=process.memory_info().rss,
                     prediction=int(prediction.item())))
     with open(run / 'timings.jsonl', 'w') as f:
         for record in records:
             f.write(json.dumps(record) + '\n')
-    reference = f'{x.shape[1]}_fp32'
+    reference = f'{full_width}_fp32'
     summary = {}
     for name in states:
         delta, interval = paired_quality_interval(correct[reference], correct[name], c['bootstrap_samples'], c['seed'])
@@ -243,27 +332,31 @@ def benchmark(args, c):
             throughput_per_s=1000/float(np.mean(times)),
             repeat_mean_ms=[float(np.mean([r['total_ms'] for r in rows if r['repeat']==j])) for j in range(c['repeats'])],
             feature_payload_bytes=rows[0]['feature_payload_bytes'],
+            action_tensor_storage_bytes=tensor_storage_bytes(states[name]),
             max_observed_rss_bytes=max(r['rss_after_inference_bytes'] for r in rows))
     if args.split == 'validation':
         eligible = [name for name in summary if summary[name]['quality_feasible']]
         best = min(eligible, key=lambda name: summary[name]['p50_ms'])
         selection = dict(configuration=best, criterion='lowest validation p50 under paired quality CI floor',
-                         states_sha256=digest(artifacts / 'states.pt'), config_sha256=digest(artifacts / 'config.json'))
+                         source_split='validation', states_sha256=digest(artifacts / 'states.pt'),
+                         config_sha256=digest(artifacts / 'config.json'),
+                         encoder_sha256=digest(artifacts / 'encoder.pt'), splits_sha256=digest(artifacts / 'splits.json'))
         (run / 'selection.json').write_text(json.dumps(selection, indent=2))
     else:
-        selection = json.loads(Path(args.selection).read_text())
-        if selection['states_sha256'] != digest(artifacts / 'states.pt') or selection['config_sha256'] != digest(artifacts / 'config.json'):
-            raise ValueError('Selection does not match prepared artifacts')
         best = selection['configuration']
-        if best not in summary:
-            raise ValueError('Selected action is absent')
     gain = 100 * (1-summary[best]['p50_ms']/summary[reference]['p50_ms'])
-    report = dict(split=args.split, reference=reference, selected_static=best, metrics=summary,
-                  selected_latency_reduction_pct=gain,
-                  pilot_pass=best != reference and summary[best]['quality_feasible'] and gain >= c['minimum_latency_reduction_pct'],
+    mean_gain, latency_ci = paired_latency_interval(summary[reference]['repeat_mean_ms'],
+        summary[best]['repeat_mean_ms'], c['bootstrap_samples'], c['seed'])
+    report = dict(schema_version=2, baseline_rss_bytes=baseline_rss,
+                  resident_tensor_storage_bytes=tensor_storage_bytes({'encoder': model.state_dict(), 'actions': states}),
+                  split=args.split, reference=reference, selected_static=best, metrics=summary,
+                  selected_latency_reduction_pct=gain, selected_mean_latency_reduction_pct=mean_gain,
+                  selected_mean_latency_reduction_95ci_pct=latency_ci,
+                  pilot_pass=best != reference and summary[best]['quality_feasible'] and latency_ci[0] >= c['minimum_latency_reduction_pct'],
                   limitation='RSS is sampled after inference with all heads resident, not per-action peak memory; energy unmeasured')
+    write_brief(run, report)
     (run / 'summary.json').write_text(json.dumps(report, indent=2))
-    (run / 'manifest.json').write_text(json.dumps(manifest(run, c, [artifacts / 'manifest.json', run / 'timings.jsonl', run / 'correctness.pt']), indent=2))
+    (run / 'manifest.json').write_text(json.dumps(manifest(run, c, [artifacts / 'manifest.json', run / 'timings.jsonl', run / 'correctness.pt', run / 'summary.json', run / 'briefing.md'] + ([Path(args.selection)] if args.split == 'test' else [run / 'selection.json'])), indent=2))
     print(json.dumps(report, indent=2))
     print(f'Artifacts: {run}')
 
