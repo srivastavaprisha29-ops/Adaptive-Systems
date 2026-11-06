@@ -1,0 +1,34 @@
+# Run the static pilot
+
+Use Python 3.10–3.12 on the target CPU. The commands below start from the repository root. The direct scientific dependencies are pinned in `pyproject.toml`; each run records installed versions. Preserve a full environment freeze for archival reproduction.
+
+```bash
+python3 -m venv .venv
+source .venv/bin/activate
+python -m pip install -e .
+python -m pip freeze > environment-freeze.txt
+python -m unittest discover -s tests -v
+adaptive-static prepare --config configs/static.json --artifacts runs/prepared --download
+adaptive-static benchmark --config configs/static.json --artifacts runs/prepared
+```
+
+Preparation downloads CIFAR-10 and ImageNet-pretrained ResNet-18 weights if needed, extracts training/calibration features, fits PCA and four classifiers, and saves provenance. The 224px pretrained input transform is intentionally used for all actions. Full CPU preparation can take substantial time; this is a feasibility study, not a promise of a quick benchmark. Feature caches during fitting also consume RAM. Use an otherwise idle machine, record its power/thermal conditions, and keep the config unchanged between preparation and benchmarking.
+
+Benchmark prints a unique validation run directory containing `summary.json`, `selection.json`, `timings.jsonl`, `correctness.pt`, and `manifest.json`. Review its quality floor, conversion cost, encoder share and repeat variability. To evaluate the **locked validation selection** once on the official test set, replace the path below with the printed validation directory:
+
+```bash
+adaptive-static benchmark --config configs/static.json --artifacts runs/prepared --split test --selection runs/benchmarks/validation-RUN_ID/selection.json
+```
+
+Do not change the config or refit after seeing test results. New candidate development requires a new development/evaluation protocol. Keep prepared artifacts at their recorded path: the first manifest records local dataset/artifact paths for checksum validation. Back up `runs/` and data outside Git; they are intentionally ignored. `environment-freeze.txt` may be included with a reviewed experiment artifact, not mistaken for a universal cross-platform lock.
+
+## Interpreting output
+
+- `accuracy_pct`, `delta_accuracy_pp`, and `delta_accuracy_95ci_pp`: quality and paired uncertainty relative to full FP32.
+- `quality_feasible`: lower interval bound is within the configured degradation margin.
+- `p50_ms`, `p95_ms`, `repeat_mean_ms`, `throughput_per_s`: complete declared inference boundary. Throughput is sequential, not server concurrency throughput.
+- `feature_payload_bytes`: actual adapted tensor storage, excluding metadata and other allocations.
+- `max_observed_rss_bytes`: largest post-inference RSS sample, with all configurations resident; not peak or per-action memory.
+- `pilot_pass`: provisional quality/point-estimate latency gate; not a validated research claim.
+
+Energy and controller performance remain unmeasured. Synthetic tests validate plumbing only and produce no publishable accuracy or efficiency evidence. See [the contract](experiment-contract.md) before interpreting any result.

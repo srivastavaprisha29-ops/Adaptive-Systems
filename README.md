@@ -3,6 +3,27 @@
 > **Status:** Research proposal and prototype design · **No measured results yet**  
 > **Research question:** Can inference-time selection of feature width and numerical precision reduce *measured end-to-end* latency, feature memory and energy while preserving an acceptable quality floor?
 
+
+## Runnable static feasibility pilot
+
+The repository now includes a CPU-only experimental scaffold. **No measured research results are provided.** The task, tolerance and hardware defaults remain provisional.
+
+- [Experiment contract and limitations](docs/experiment-contract.md)
+- [Setup, preparation, benchmarking and held-out evaluation](docs/running-static.md)
+- [Pilot configuration](configs/static.json)
+- [Executable pipeline](src/adaptive_systems/experiment.py)
+
+The minimum grid crosses full/PCA-reduced width with FP32/INT8 feature storage. It fits compatible heads, measures actual preprocessing/encoder/projection/conversion/head costs, and selects the best quality-feasible static action on validation data. INT8 is quantized storage followed by FP32 reconstruction; it does not imply integer arithmetic acceleration. Energy and peak per-action memory remain unmeasured. The existing HTML demo remains illustrative.
+
+```bash
+python -m pip install -e .
+python -m unittest discover -s tests -v
+adaptive-static prepare --download
+adaptive-static benchmark
+```
+
+Read the contract before running: the default CIFAR-10/ResNet-18 study, 1 percentage-point quality margin and 5% useful latency reduction are **pilot assumptions awaiting research confirmation**. Preparation can take substantial CPU time. Static feasibility precedes controller implementation.
+
 [Concept](#the-intuition) · [Architecture](#system-architecture) · [Controller](#controller-algorithms) · [Interactive simulation](#interactive-controller-simulation) · [Experiments](#experiments-and-baselines) · [Roadmap](#implementation-roadmap)
 
 ## The intuition
@@ -410,3 +431,4 @@ Major risks: encoder dominates cost; conversion erases savings; unsupported low-
 **[Team workflow and detailed implementation plan](https://app.notion.com/p/404ab997ab4881579979cf8f4d7a3a90)**
 
 > Documentation and simulations here explain the proposed system. They do not represent completed experiments or verified research outcomes.
+

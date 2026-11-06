@@ -1,0 +1,16 @@
+{
+  "status": "provisional pilot; not a confirmed research contract",
+  "seed": 29,
+  "device": "cpu",
+  "threads": 1,
+  "reduced_width": 128,
+  "ridge": 1.0,
+  "validation_per_class": 500,
+  "calibration_per_class": 100,
+  "quality_tolerance_pp": 1.0,
+  "minimum_latency_reduction_pct": 5.0,
+  "warmup": 10,
+  "timed_examples": 100,
+  "repeats": 5,
+  "bootstrap_samples": 2000
+}
