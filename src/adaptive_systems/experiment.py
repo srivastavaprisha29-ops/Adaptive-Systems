@@ -63,6 +63,15 @@ def classify(x, state):
     return z @ state['weight'] + state['bias']
 
 
+def ridge_head(x, labels, ridge):
+    augmented = torch.cat((x.double(), torch.ones(len(x), 1, dtype=torch.float64)), 1)
+    targets = torch.nn.functional.one_hot(labels, 10).double()
+    penalty = torch.eye(x.shape[1] + 1, dtype=torch.float64) * ridge
+    penalty[-1, -1] = 0
+    weights = torch.linalg.solve(augmented.T @ augmented + penalty, augmented.T @ targets).float()
+    return weights[:-1], weights[-1]
+
+
 def fit_states(train, labels, calibration, width, ridge):
     full = train.shape[1]
     if not 0 < width < min(full, len(train)) or ridge <= 0:
@@ -79,14 +88,10 @@ def fit_states(train, labels, calibration, width, ridge):
         scale = max(float(cal.abs().max()) / 127, 1e-8)
         for precision in ('fp32', 'int8_storage'):
             z = decode(encode(x, precision, scale), precision, scale)
-            augmented = torch.cat((z.double(), torch.ones(len(z), 1, dtype=torch.float64)), 1)
-            targets = torch.nn.functional.one_hot(labels, 10).double()
-            penalty = torch.eye(d + 1, dtype=torch.float64) * ridge
-            penalty[-1, -1] = 0
-            weights = torch.linalg.solve(augmented.T @ augmented + penalty, augmented.T @ targets).float()
+            weight, bias = ridge_head(z, labels, ridge)
             name = f'{d}_{precision}'
             states[name] = dict(width=d, precision=precision, scale=scale, mean=mean,
-                                projection=p, weight=weights[:-1], bias=weights[-1])
+                                projection=p, weight=weight, bias=bias)
     return states
 
 
@@ -197,13 +202,13 @@ def backbone():
 
 
 @torch.inference_mode()
-def features(model, transform, dataset, indices):
+def features(model, transform, dataset, indices, expected_width=512):
     rows = []
     for start in range(0, len(indices), 32):
         batch = torch.stack([transform(dataset[i][0]) for i in indices[start:start+32]])
         rows.append(model(batch))
     result = torch.cat(rows)
-    if result.shape[1] != 512:
+    if result.shape[1] != expected_width:
         raise ValueError(f'Unexpected feature shape: {result.shape}')
     return result
 

@@ -35,3 +35,20 @@ Do not change the config or refit after seeing test results. New candidate devel
 - `diagnostic_total_ms` and stage timings: separate diagnostic inference; headline `total_ms` uses a single outer timer. Diagnostic work is excluded from headline throughput.
 
 Energy and controller performance remain unmeasured. Synthetic tests validate plumbing only and produce no publishable accuracy or efficiency evidence. See [the contract](experiment-contract.md) before interpreting any result.
+
+## Stage-three early-exit pilot
+
+This follow-up compares the original full-width FP32 head with a separate FP32 ridge head on the globally pooled 256-channel output of ResNet-18's third residual stage. The candidate skips the fourth stage. Both paths use the same pretrained encoder weights, input transform, and CIFAR-10 splits as the static pilot.
+
+Reuse the checksummed static preparation artifacts. The early-exit preparation fits its head on the training split and records paired validation accuracy. Each fresh benchmark process then measures both paths on the same examples in a randomized order.
+
+```bash
+python -m adaptive_systems.early_exit prepare --artifacts runs/prepared --output runs/early-exit/head.pt
+for seed in 29 30 31; do
+  python -m adaptive_systems.early_exit benchmark --artifacts runs/prepared \
+    --head runs/early-exit/head.pt --output "runs/early-exit/session-${seed}.json" \
+    --order-seed "$seed" || break
+done
+```
+
+Use the paired validation accuracy interval and the paired repeat-mean latency intervals to assess the configured gates. Fresh processes on one CPU check session-to-session consistency. This exploratory command evaluates only the validation split.
