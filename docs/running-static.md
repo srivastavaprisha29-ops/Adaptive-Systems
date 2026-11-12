@@ -97,3 +97,27 @@ measured mean wall-clock latency reductions of 11.05%, 11.11%, and 10.54%.
 The corresponding within-session 95% intervals were 9.88–12.07%,
 10.41–11.90%, and 9.79–11.05%. All three cleared the 5% gate on this setup.
 The earlier Intel Xeon sessions used block ordering and remain inconclusive.
+
+## BranchyNet entropy-gate comparison
+
+[BranchyNet](https://arxiv.org/abs/1709.01686) uses softmax entropy to decide
+whether to exit at an intermediate classifier. This adaptation uses one
+stage-three branch on the existing frozen ResNet-18 and ridge heads. It keeps
+the heads fixed to isolate the inference rule from the paper's joint training
+procedure. The entropy cutoff includes ties.
+
+```bash
+python -m adaptive_systems.branchynet --artifacts runs/prepared \
+  --head runs/early-exit/head.pt --output runs/branchynet/validation.json
+```
+
+The command calibrates the entropy and top-two margin cutoffs separately on
+the calibration split under the same accuracy constraint. It evaluates both
+cutoffs on validation and records interleaved wall-clock timings against the
+full model. The official test split is reserved for a frozen policy.
+
+On 5,000 CIFAR-10 validation images, the entropy gate exited on 19.98% and
+achieved 84.62% accuracy. The margin gate exited on 42.04% and achieved
+84.74% accuracy, against 84.72% for full ResNet-18. In one single-thread AMD
+EPYC 9V74 session, mean end-to-end latency fell by 6.41% for entropy (95%
+interval 5.33–7.47%) and 11.21% for margin (10.95–11.50%).

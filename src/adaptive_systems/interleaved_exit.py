@@ -13,7 +13,7 @@ from torchvision.datasets import CIFAR10
 from . import confidence_exit, early_exit, experiment
 
 
-def benchmark(full, early, transform, dataset, indices, head, baseline, threshold, config, seed):
+def benchmark(full, early, transform, dataset, indices, head, baseline, threshold, config, seed, *, gated_predict=confidence_exit.predict_gated):
     rng = np.random.default_rng(seed)
     indices = np.random.default_rng(config['seed']).permutation(indices)[:config['timed_examples']]
     if len(indices) != config['timed_examples']:
@@ -21,7 +21,7 @@ def benchmark(full, early, transform, dataset, indices, head, baseline, threshol
     images = [dataset[int(index)][0] for index in indices]
     paths = {
         'full': lambda image: early_exit.predict(full, transform, image, baseline['weight'], baseline['bias']),
-        'gated': lambda image: confidence_exit.predict_gated(full, early, transform, image, head, baseline, threshold),
+        'gated': lambda image: gated_predict(full, early, transform, image, head, baseline, threshold),
     }
     wall = {name: [] for name in paths}
     cpu = {name: [] for name in paths}
