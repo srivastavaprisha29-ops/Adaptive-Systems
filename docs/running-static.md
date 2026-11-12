@@ -76,3 +76,24 @@ single-thread Intel Xeon Platinum 8573C sessions, median validation latency
 fell by 6.7% to 14.9%. Only one session met the 5% mean-latency reduction
 target at the lower confidence bound. The held-out accuracy target was met,
 and the latency target remains unconfirmed across sessions.
+
+### Interleaved confirmation
+
+Run each timing session in a fresh process using the saved validation report
+and its frozen threshold. The two paths run back-to-back on each sampled image
+with balanced randomized order. Wall-clock latency is the acceptance metric,
+and thread CPU time is recorded as a diagnostic. All timing samples are retained.
+
+```bash
+for seed in 33 34 35; do
+  python -m adaptive_systems.interleaved_exit --artifacts runs/prepared \
+    --head runs/early-exit/head.pt --validation runs/confidence-exit/validation.json \
+    --output "runs/confidence-exit/interleaved-${seed}.json" --seed "$seed" || break
+done
+```
+
+On one AMD EPYC 9V74 with one PyTorch thread, the three interleaved sessions
+measured mean wall-clock latency reductions of 11.05%, 11.11%, and 10.54%.
+The corresponding within-session 95% intervals were 9.88–12.07%,
+10.41–11.90%, and 9.79–11.05%. All three cleared the 5% gate on this setup.
+The earlier Intel Xeon sessions used block ordering and remain inconclusive.
