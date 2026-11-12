@@ -52,3 +52,27 @@ done
 ```
 
 Use the paired validation accuracy interval and the paired repeat-mean latency intervals to assess the configured gates. Fresh processes on one CPU check session-to-session consistency. This exploratory command evaluates only the validation split.
+
+## Confidence-gated stage-three exit
+
+The gate uses the margin between the two largest stage-three logits. It selects
+the highest-coverage threshold that meets the paired accuracy criterion on the
+calibration split. The threshold is then fixed for validation and timing.
+Uncertain inputs continue from the stage-three activation through stage four.
+
+```bash
+python -m adaptive_systems.confidence_exit --artifacts runs/prepared \
+  --head runs/early-exit/head.pt --output runs/confidence-exit/validation.json
+```
+
+The JSON records calibration and validation accuracy, early-exit coverage, and
+paired latency measurements. The latency interval covers repeats within one
+process. Re-run in fresh sessions before drawing a cross-session conclusion.
+
+In the held-out CIFAR-10 run, the frozen threshold exited early on 41.21% of
+10,000 images. Accuracy was 84.63% gated and 84.52% full, a paired difference of
++0.11 percentage points (95% interval −0.07 to +0.29). In three fresh
+single-thread Intel Xeon Platinum 8573C sessions, median validation latency
+fell by 6.7% to 14.9%. Only one session met the 5% mean-latency reduction
+target at the lower confidence bound. The held-out accuracy target was met,
+and the latency target remains unconfirmed across sessions.
