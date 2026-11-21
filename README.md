@@ -432,3 +432,7 @@ Major risks: encoder dominates cost; conversion erases savings; unsupported low-
 
 > Documentation and simulations here explain the proposed system. They do not represent completed experiments or verified research outcomes.
 
+
+## Knowledge distillation experiment
+
+A matched three-seed pilot implements temperature-scaled teacher-to-student distillation for the stage-three exit. See [the paper fundamentals and reproduction guide](docs/research/knowledge-distillation.md) for the objective, supervised control, split boundaries and limitations. The default inference policy remains unchanged.
