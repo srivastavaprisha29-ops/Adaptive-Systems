@@ -436,3 +436,5 @@ Major risks: encoder dominates cost; conversion erases savings; unsupported low-
 ## Knowledge distillation experiment
 
 A matched three-seed pilot implements temperature-scaled teacher-to-student distillation for the stage-three exit. See [the paper fundamentals and reproduction guide](docs/research/knowledge-distillation.md) for the objective, supervised control, split boundaries and limitations. The default inference policy remains unchanged.
+
+The [full-training distillation follow-up](docs/research/distillation-full.md) reports a 3.43 pp mean gain over its matched supervised control across three seeds. The existing ridge early head remains stronger. Training traces and compact evidence are included.

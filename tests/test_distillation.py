@@ -37,3 +37,18 @@ class DistillationTests(unittest.TestCase):
         b = fit(x, teacher, target, 29, 2, 4., .7)
         for key in a:
             torch.testing.assert_close(a[key], b[key], rtol=0, atol=0)
+
+    def test_convergence_trace_and_cosine_schedule(self):
+        torch.manual_seed(5)
+        x, teacher = torch.randn(16, 4), torch.randn(16, 3)
+        target = torch.arange(16) % 3
+        history = []
+        traced = fit(x, teacher, target, 29, 6, 4., .7, history=history, cosine=True)
+        plain = fit(x, teacher, target, 29, 6, 4., .7, cosine=True)
+        self.assertEqual([row['epoch'] for row in history], [1, 5, 6])
+        self.assertGreater(history[0]['lr'], history[-1]['lr'])
+        for row in history:
+            self.assertTrue(torch.isfinite(torch.tensor(row['loss'])))
+            self.assertTrue(0 <= row['train_accuracy_pct'] <= 100)
+        for key in traced:
+            torch.testing.assert_close(traced[key], plain[key], rtol=0, atol=0)
