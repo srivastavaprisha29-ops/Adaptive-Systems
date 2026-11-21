@@ -1,12 +1,12 @@
 # Resource-Aware Adaptive Feature Representations for AI Inference
 
-> **Status:** Research proposal and prototype design · **No measured results yet**  
+> **Status:** CPU experiments completed · fixed early-exit and representation baselines evaluated
 > **Research question:** Can inference-time selection of feature width and numerical precision reduce *measured end-to-end* latency, feature memory and energy while preserving an acceptable quality floor?
 
 
 ## Runnable static feasibility pilot
 
-The repository now includes a CPU-only experimental scaffold. **No measured research results are provided.** The task, tolerance and hardware defaults remain provisional.
+The repository includes CPU experiment code and recorded results for CIFAR-10 with a frozen ResNet-18. See the [completed experiment summary and reproduction commands](docs/reproducing-followups.md).
 
 - [Experiment contract and limitations](docs/experiment-contract.md)
 - [Setup, preparation, benchmarking and held-out evaluation](docs/running-static.md)
