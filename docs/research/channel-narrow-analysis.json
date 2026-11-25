@@ -1,0 +1,25 @@
+{
+  "mean_session_metrics": {
+    "full": {
+      "encoder_mean_ms": 57.58224045442708,
+      "mean_service_ms": 59.737074561197915,
+      "p95_wait_ms": 1086.9582721416666,
+      "p95_response_ms": 1147.7298939916666,
+      "accuracy_pct": 81.25
+    },
+    "narrow": {
+      "encoder_mean_ms": 56.539807899739586,
+      "mean_service_ms": 58.72284527734375,
+      "p95_wait_ms": 1036.2775432333333,
+      "p95_response_ms": 1097.281688525,
+      "accuracy_pct": 81.640625
+    }
+  },
+  "parameter_reduction_pct": 9.237658403623595,
+  "convolution_mac_reduction_pct": 2.7888446215139417,
+  "encoder_time_reduction_pct": 1.8103369137095648,
+  "feature_bytes": {
+    "full": 2048,
+    "narrow": 2048
+  }
+}

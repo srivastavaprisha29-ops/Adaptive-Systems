@@ -1,0 +1,11 @@
+{
+  "selected_internal_layer4_width": 448,
+  "selection_status": "diagnostic_only_no_calibration_width_qualified",
+  "calibration_qualified": false,
+  "held_out_quality_pass": false,
+  "latency_pass": false,
+  "adopted": false,
+  "production_carry_forward_unchanged": true,
+  "next_candidate": "accuracy-recovery training for a meaningfully reduced-work ResNet channel model, with matched full-reference training and new calibration selection",
+  "scope": "This rejects the tested structured-pruning plus BN/ridge adaptation protocol, not all narrower encoders."
+}

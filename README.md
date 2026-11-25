@@ -26,6 +26,10 @@ The [matched-head live comparison](docs/research/live-pca-comparison.md) selects
 
 The [four fixed configurations](docs/research/width-precision-grid.md) compare 512D/256D features in FP32 and INT8 storage on matched traces at three loads. INT8 is reconstructed to FP32 inside timing. Raw feature payloads are 2,048/1,024/512/256 bytes; no supported performance crossover establishes a controller case. The conditional MobileNetV3-Small architecture control then reduces actual encoder work: 83.65% held-out accuracy versus 82.50% for matched ResNet, with 80.04% lower paired p95 versus the calibration-selected grid reference. This is a one-load matched-head pilot, not a pure ResNet-width ablation or a production adoption. The compact FP32 model is the next fixed candidate to validate.
 
+## Structurally reduced-channel ResNet-18
+
+The [same-family channel benchmark](docs/research/channel-narrow-encoder.md) narrows the two final-stage residual blocks internally, with physically smaller Conv2d tensors and an unchanged 512D FP32 output. No tested width passes calibration qualification; 448 channels are retained only as a diagnostic. Encoder time improves 1.81%, but held-out quality and paired p95 gates fail. The candidate is not adopted. The next same-family experiment needs accuracy-recovery training and meaningful whole-encoder work reduction; INT8 storage remains separate.
+
 ## Runnable static feasibility pilot
 
 The repository includes CPU experiment code and recorded results for CIFAR-10 with a frozen ResNet-18. See the [completed experiment summary and reproduction commands](docs/reproducing-followups.md).

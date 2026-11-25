@@ -1,0 +1,63 @@
+{
+  "status": "ResNet18_structurally_narrowed_layer4_FP32",
+  "research_validated": false,
+  "selected_inner_width": 448,
+  "calibration_qualified": false,
+  "quality": {
+    "examples": 2000,
+    "reference_accuracy_pct": 83.0,
+    "narrow_accuracy_pct": 82.35,
+    "delta_pp": -0.6499999761581421,
+    "interval_95_pp": [
+      -1.7999999523162842,
+      0.6000000238418579
+    ],
+    "quality_pass": false
+  },
+  "timing": {
+    "mean_p95_reduction_pct": -8.855857101169613,
+    "interval_95_pct": [
+      -57.275921251196074,
+      38.11220695281577
+    ],
+    "per_session_gains_pct": [
+      10.458606831443795,
+      -12.415102530317812,
+      42.08606946587254,
+      -82.59622009889573,
+      77.584799530135,
+      -88.25329580525548
+    ],
+    "latency_pass": false
+  },
+  "matched_pilot_gate_passed": false,
+  "adopted": false,
+  "lock_sha256": "304e47a9e707b24f63666587a5bffbdac463b3ab8736ebbeac8c32f4719d473d",
+  "evidence_sha256": {
+    "lock.json": "304e47a9e707b24f63666587a5bffbdac463b3ab8736ebbeac8c32f4719d473d",
+    "held-out-predictions.json": "921d8b6e7a35bbf179d47b9df06c7792a8959f4c5fc1045468e958f444d3750e",
+    "checkpoint.pt": "7298bbacf5cbe7645585e9b6fa24fcda13d2872e78f5fa390263c99b6c4aa0cb",
+    "prior-sweep-lock.json": "23c41594d658a0c650ed8ac3aa0c621febf76f42e20f1e24bdaefff69634f065",
+    "prior-pca-lock.json": "c09a99b7978ba1306288e43524ebaac769f3558bca15c1bd869c4452e3fbd6a3",
+    "sessions.json": "3f628302b3732c89cdd1804bb549f3ae6f6e5261cb8c19cd09156035d27c8265",
+    "session-1/full.json": "eac0dfac1861636059c2603644b8ef9c83ad8474bf9e3127519beb9455f51ba6",
+    "session-1/narrow.json": "12416d37b43c925f965900b4f4610e67eaf401467270a45da75192c7a580c52a",
+    "session-0/full.json": "f42861b688f8c0facf092263ed7b5985cc4b33bb0d883d687e1028421fbf2b57",
+    "session-0/narrow.json": "f4738614e4fac539c4f7ef0c8e60b925e0a9930f6415d5b34948a68c750faadf",
+    "session-2/full.json": "e39c3aba81a88935bf897adda34fbc0c47f3b777caa32cf49b76caad253a9c4c",
+    "session-2/narrow.json": "101ac9568579e3b512250372062085db81a24c2b7ff0b955ff1292e7ca02efb9",
+    "session-5/full.json": "33260aa9565f67ff7f2884c2bac8a401b21cdc3beb45496563f5094e4b625851",
+    "session-5/narrow.json": "b7b37b50baacdab0ac6e0fd7eb15e76976807991f90f083a93be0c329f9d7ad2",
+    "session-3/full.json": "f8103834f1605efa0c18ded1493f8db82954d337d13f803044b6af9cbf23b0b4",
+    "session-3/narrow.json": "b98daa9547c961a69f3d0752ebdb9726ed90d749e8ca8a9fd97f34c7f1f4d05f",
+    "session-4/full.json": "b98e9728014aae3b3e8a1b98bbf95eeb1f9ef291fd2003b2e06df1d9d173350a",
+    "session-4/narrow.json": "32cac815d03e0449e5ebb2e444db50619ad4732d532a779830cad15d64008519"
+  },
+  "limitations": [
+    "Only layer4 internal channels are narrowed; the output embedding stays 512D FP32.",
+    "Structured selection uses pretrained outgoing-filter energy, with training-only BN-statistics adaptation; no gradient fine-tuning.",
+    "Both models use matching 4000 fitting examples and BN/ridge procedure; this differs from the older frozen-BN checkpoint.",
+    "Fresh test panels exclude previous PCA and load-sweep panels, but historical static aggregates used the official test dataset.",
+    "One shared host and six paired sessions; no precision/storage change, energy or peak-memory claim."
+  ]
+}

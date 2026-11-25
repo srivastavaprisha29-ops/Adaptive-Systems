@@ -6,6 +6,8 @@ The [matched live PCA experiment](live-pca-comparison.md) selected 256D, halved 
 
 The [four-configuration study](width-precision-grid.md) found no supported load-dependent crossover. INT8 is timed feature storage with FP32 reconstruction. Its conditional compact-encoder control passed the matched pilot quality/latency gates, while changing architecture as well as channel widths. No width/precision controller or production replacement is adopted. Native encoder arithmetic precision remains untested.
 
+The [structurally narrowed ResNet experiment](channel-narrow-encoder.md) now tests final-stage internal channels directly. It confirms smaller convolution tensors but fails calibration and held-out quality/latency gates under weight-energy pruning plus BN/ridge adaptation. This motivates accuracy-recovery training before claiming a same-family narrow-encoder win; it does not overturn the separate compact-architecture pilot.
+
 ## Research question
 
 Do quality-feasible width/precision configurations offer a measured cost or resource advantage after projection, conversion and dispatch costs, and are there distinct regimes where adaptation beats the strongest fixed configuration?

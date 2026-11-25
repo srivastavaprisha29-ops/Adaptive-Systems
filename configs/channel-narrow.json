@@ -1,0 +1,14 @@
+{
+  "seed": 20261130,
+  "inner_widths": [256, 384, 448],
+  "held_out_examples": 2000,
+  "sessions": 6,
+  "requests": 128,
+  "warmup": 3,
+  "profile_examples": 32,
+  "nominal_load": 0.8,
+  "bootstrap_samples": 8000,
+  "quality_tolerance_pp": 1.0,
+  "p95_target_pct": 5.0,
+  "preparation_workers": 8
+}
