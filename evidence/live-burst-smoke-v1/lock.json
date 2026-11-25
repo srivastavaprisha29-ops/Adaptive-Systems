@@ -1,0 +1,859 @@
+{
+  "protocol": {
+    "schema_version": 1,
+    "name": "burst-smoke-v1",
+    "seed": 20261125,
+    "requests": 160,
+    "period_requests": 20,
+    "fast_requests": 12,
+    "fast_gap_ms": 12.0,
+    "slow_gap_ms": 96.0,
+    "warmup": 5,
+    "policies": {
+      "best_fixed": {
+        "thresholds": [
+          0.21725761890411377,
+          0.21725761890411377
+        ],
+        "depth": 1
+      },
+      "queue_aware": {
+        "thresholds": [
+          0.21725761890411377,
+          0.09145951271057129
+        ],
+        "depth": 3
+      }
+    },
+    "historical_lock_sha256": "ce73b5a7e32b4bae1ba2dda1b4543f58f19e4616b410978bdc072f31013ebe7f",
+    "identity": {
+      "preparation": "22ed32b84058c42d06b6d9a4659fef8e819e580c9f3694bcbe0bdf81448bc787",
+      "head": "23e1f3daabb8991fa5f5145d68ef752630c3a5084b1cb6554bdbcfa0918286d4",
+      "source": "42d8cdad452513c01cf052c310bf6bd8e125722ed7746ad9d1ac27c0d1be9657"
+    },
+    "quality_tolerance_pp": 1.0,
+    "p95_target_pct": 5.0
+  },
+  "trace": [
+    {
+      "request_id": 0,
+      "image_id": 887,
+      "arrival_ns": 0
+    },
+    {
+      "request_id": 1,
+      "image_id": 26125,
+      "arrival_ns": 12000000
+    },
+    {
+      "request_id": 2,
+      "image_id": 36872,
+      "arrival_ns": 24000000
+    },
+    {
+      "request_id": 3,
+      "image_id": 45725,
+      "arrival_ns": 36000000
+    },
+    {
+      "request_id": 4,
+      "image_id": 20107,
+      "arrival_ns": 48000000
+    },
+    {
+      "request_id": 5,
+      "image_id": 3114,
+      "arrival_ns": 60000000
+    },
+    {
+      "request_id": 6,
+      "image_id": 42710,
+      "arrival_ns": 72000000
+    },
+    {
+      "request_id": 7,
+      "image_id": 32569,
+      "arrival_ns": 84000000
+    },
+    {
+      "request_id": 8,
+      "image_id": 14875,
+      "arrival_ns": 96000000
+    },
+    {
+      "request_id": 9,
+      "image_id": 39300,
+      "arrival_ns": 108000000
+    },
+    {
+      "request_id": 10,
+      "image_id": 10261,
+      "arrival_ns": 120000000
+    },
+    {
+      "request_id": 11,
+      "image_id": 24651,
+      "arrival_ns": 132000000
+    },
+    {
+      "request_id": 12,
+      "image_id": 36869,
+      "arrival_ns": 144000000
+    },
+    {
+      "request_id": 13,
+      "image_id": 4417,
+      "arrival_ns": 240000000
+    },
+    {
+      "request_id": 14,
+      "image_id": 25852,
+      "arrival_ns": 336000000
+    },
+    {
+      "request_id": 15,
+      "image_id": 3632,
+      "arrival_ns": 432000000
+    },
+    {
+      "request_id": 16,
+      "image_id": 2160,
+      "arrival_ns": 528000000
+    },
+    {
+      "request_id": 17,
+      "image_id": 23545,
+      "arrival_ns": 624000000
+    },
+    {
+      "request_id": 18,
+      "image_id": 46056,
+      "arrival_ns": 720000000
+    },
+    {
+      "request_id": 19,
+      "image_id": 14450,
+      "arrival_ns": 816000000
+    },
+    {
+      "request_id": 20,
+      "image_id": 6546,
+      "arrival_ns": 912000000
+    },
+    {
+      "request_id": 21,
+      "image_id": 19799,
+      "arrival_ns": 924000000
+    },
+    {
+      "request_id": 22,
+      "image_id": 22778,
+      "arrival_ns": 936000000
+    },
+    {
+      "request_id": 23,
+      "image_id": 35479,
+      "arrival_ns": 948000000
+    },
+    {
+      "request_id": 24,
+      "image_id": 27091,
+      "arrival_ns": 960000000
+    },
+    {
+      "request_id": 25,
+      "image_id": 19812,
+      "arrival_ns": 972000000
+    },
+    {
+      "request_id": 26,
+      "image_id": 30664,
+      "arrival_ns": 984000000
+    },
+    {
+      "request_id": 27,
+      "image_id": 30707,
+      "arrival_ns": 996000000
+    },
+    {
+      "request_id": 28,
+      "image_id": 21983,
+      "arrival_ns": 1008000000
+    },
+    {
+      "request_id": 29,
+      "image_id": 48253,
+      "arrival_ns": 1020000000
+    },
+    {
+      "request_id": 30,
+      "image_id": 27147,
+      "arrival_ns": 1032000000
+    },
+    {
+      "request_id": 31,
+      "image_id": 1777,
+      "arrival_ns": 1044000000
+    },
+    {
+      "request_id": 32,
+      "image_id": 26930,
+      "arrival_ns": 1056000000
+    },
+    {
+      "request_id": 33,
+      "image_id": 35933,
+      "arrival_ns": 1152000000
+    },
+    {
+      "request_id": 34,
+      "image_id": 32237,
+      "arrival_ns": 1248000000
+    },
+    {
+      "request_id": 35,
+      "image_id": 37730,
+      "arrival_ns": 1344000000
+    },
+    {
+      "request_id": 36,
+      "image_id": 10022,
+      "arrival_ns": 1440000000
+    },
+    {
+      "request_id": 37,
+      "image_id": 36274,
+      "arrival_ns": 1536000000
+    },
+    {
+      "request_id": 38,
+      "image_id": 12306,
+      "arrival_ns": 1632000000
+    },
+    {
+      "request_id": 39,
+      "image_id": 18665,
+      "arrival_ns": 1728000000
+    },
+    {
+      "request_id": 40,
+      "image_id": 33916,
+      "arrival_ns": 1824000000
+    },
+    {
+      "request_id": 41,
+      "image_id": 35734,
+      "arrival_ns": 1836000000
+    },
+    {
+      "request_id": 42,
+      "image_id": 16289,
+      "arrival_ns": 1848000000
+    },
+    {
+      "request_id": 43,
+      "image_id": 48486,
+      "arrival_ns": 1860000000
+    },
+    {
+      "request_id": 44,
+      "image_id": 35654,
+      "arrival_ns": 1872000000
+    },
+    {
+      "request_id": 45,
+      "image_id": 4094,
+      "arrival_ns": 1884000000
+    },
+    {
+      "request_id": 46,
+      "image_id": 49905,
+      "arrival_ns": 1896000000
+    },
+    {
+      "request_id": 47,
+      "image_id": 16384,
+      "arrival_ns": 1908000000
+    },
+    {
+      "request_id": 48,
+      "image_id": 25148,
+      "arrival_ns": 1920000000
+    },
+    {
+      "request_id": 49,
+      "image_id": 40084,
+      "arrival_ns": 1932000000
+    },
+    {
+      "request_id": 50,
+      "image_id": 5875,
+      "arrival_ns": 1944000000
+    },
+    {
+      "request_id": 51,
+      "image_id": 10349,
+      "arrival_ns": 1956000000
+    },
+    {
+      "request_id": 52,
+      "image_id": 9924,
+      "arrival_ns": 1968000000
+    },
+    {
+      "request_id": 53,
+      "image_id": 43993,
+      "arrival_ns": 2064000000
+    },
+    {
+      "request_id": 54,
+      "image_id": 32956,
+      "arrival_ns": 2160000000
+    },
+    {
+      "request_id": 55,
+      "image_id": 44021,
+      "arrival_ns": 2256000000
+    },
+    {
+      "request_id": 56,
+      "image_id": 15230,
+      "arrival_ns": 2352000000
+    },
+    {
+      "request_id": 57,
+      "image_id": 47159,
+      "arrival_ns": 2448000000
+    },
+    {
+      "request_id": 58,
+      "image_id": 26134,
+      "arrival_ns": 2544000000
+    },
+    {
+      "request_id": 59,
+      "image_id": 45928,
+      "arrival_ns": 2640000000
+    },
+    {
+      "request_id": 60,
+      "image_id": 36004,
+      "arrival_ns": 2736000000
+    },
+    {
+      "request_id": 61,
+      "image_id": 38042,
+      "arrival_ns": 2748000000
+    },
+    {
+      "request_id": 62,
+      "image_id": 48185,
+      "arrival_ns": 2760000000
+    },
+    {
+      "request_id": 63,
+      "image_id": 23530,
+      "arrival_ns": 2772000000
+    },
+    {
+      "request_id": 64,
+      "image_id": 2471,
+      "arrival_ns": 2784000000
+    },
+    {
+      "request_id": 65,
+      "image_id": 1749,
+      "arrival_ns": 2796000000
+    },
+    {
+      "request_id": 66,
+      "image_id": 14621,
+      "arrival_ns": 2808000000
+    },
+    {
+      "request_id": 67,
+      "image_id": 6017,
+      "arrival_ns": 2820000000
+    },
+    {
+      "request_id": 68,
+      "image_id": 25936,
+      "arrival_ns": 2832000000
+    },
+    {
+      "request_id": 69,
+      "image_id": 9404,
+      "arrival_ns": 2844000000
+    },
+    {
+      "request_id": 70,
+      "image_id": 20608,
+      "arrival_ns": 2856000000
+    },
+    {
+      "request_id": 71,
+      "image_id": 42165,
+      "arrival_ns": 2868000000
+    },
+    {
+      "request_id": 72,
+      "image_id": 30325,
+      "arrival_ns": 2880000000
+    },
+    {
+      "request_id": 73,
+      "image_id": 22303,
+      "arrival_ns": 2976000000
+    },
+    {
+      "request_id": 74,
+      "image_id": 33802,
+      "arrival_ns": 3072000000
+    },
+    {
+      "request_id": 75,
+      "image_id": 34278,
+      "arrival_ns": 3168000000
+    },
+    {
+      "request_id": 76,
+      "image_id": 5585,
+      "arrival_ns": 3264000000
+    },
+    {
+      "request_id": 77,
+      "image_id": 19535,
+      "arrival_ns": 3360000000
+    },
+    {
+      "request_id": 78,
+      "image_id": 20236,
+      "arrival_ns": 3456000000
+    },
+    {
+      "request_id": 79,
+      "image_id": 29811,
+      "arrival_ns": 3552000000
+    },
+    {
+      "request_id": 80,
+      "image_id": 33503,
+      "arrival_ns": 3648000000
+    },
+    {
+      "request_id": 81,
+      "image_id": 36747,
+      "arrival_ns": 3660000000
+    },
+    {
+      "request_id": 82,
+      "image_id": 39524,
+      "arrival_ns": 3672000000
+    },
+    {
+      "request_id": 83,
+      "image_id": 49929,
+      "arrival_ns": 3684000000
+    },
+    {
+      "request_id": 84,
+      "image_id": 4889,
+      "arrival_ns": 3696000000
+    },
+    {
+      "request_id": 85,
+      "image_id": 4088,
+      "arrival_ns": 3708000000
+    },
+    {
+      "request_id": 86,
+      "image_id": 44675,
+      "arrival_ns": 3720000000
+    },
+    {
+      "request_id": 87,
+      "image_id": 9336,
+      "arrival_ns": 3732000000
+    },
+    {
+      "request_id": 88,
+      "image_id": 47990,
+      "arrival_ns": 3744000000
+    },
+    {
+      "request_id": 89,
+      "image_id": 13742,
+      "arrival_ns": 3756000000
+    },
+    {
+      "request_id": 90,
+      "image_id": 18232,
+      "arrival_ns": 3768000000
+    },
+    {
+      "request_id": 91,
+      "image_id": 22790,
+      "arrival_ns": 3780000000
+    },
+    {
+      "request_id": 92,
+      "image_id": 47858,
+      "arrival_ns": 3792000000
+    },
+    {
+      "request_id": 93,
+      "image_id": 27131,
+      "arrival_ns": 3888000000
+    },
+    {
+      "request_id": 94,
+      "image_id": 8631,
+      "arrival_ns": 3984000000
+    },
+    {
+      "request_id": 95,
+      "image_id": 491,
+      "arrival_ns": 4080000000
+    },
+    {
+      "request_id": 96,
+      "image_id": 34668,
+      "arrival_ns": 4176000000
+    },
+    {
+      "request_id": 97,
+      "image_id": 49348,
+      "arrival_ns": 4272000000
+    },
+    {
+      "request_id": 98,
+      "image_id": 19611,
+      "arrival_ns": 4368000000
+    },
+    {
+      "request_id": 99,
+      "image_id": 20385,
+      "arrival_ns": 4464000000
+    },
+    {
+      "request_id": 100,
+      "image_id": 15646,
+      "arrival_ns": 4560000000
+    },
+    {
+      "request_id": 101,
+      "image_id": 4152,
+      "arrival_ns": 4572000000
+    },
+    {
+      "request_id": 102,
+      "image_id": 26302,
+      "arrival_ns": 4584000000
+    },
+    {
+      "request_id": 103,
+      "image_id": 45944,
+      "arrival_ns": 4596000000
+    },
+    {
+      "request_id": 104,
+      "image_id": 4024,
+      "arrival_ns": 4608000000
+    },
+    {
+      "request_id": 105,
+      "image_id": 49806,
+      "arrival_ns": 4620000000
+    },
+    {
+      "request_id": 106,
+      "image_id": 3333,
+      "arrival_ns": 4632000000
+    },
+    {
+      "request_id": 107,
+      "image_id": 2135,
+      "arrival_ns": 4644000000
+    },
+    {
+      "request_id": 108,
+      "image_id": 685,
+      "arrival_ns": 4656000000
+    },
+    {
+      "request_id": 109,
+      "image_id": 47027,
+      "arrival_ns": 4668000000
+    },
+    {
+      "request_id": 110,
+      "image_id": 39366,
+      "arrival_ns": 4680000000
+    },
+    {
+      "request_id": 111,
+      "image_id": 40594,
+      "arrival_ns": 4692000000
+    },
+    {
+      "request_id": 112,
+      "image_id": 8464,
+      "arrival_ns": 4704000000
+    },
+    {
+      "request_id": 113,
+      "image_id": 3229,
+      "arrival_ns": 4800000000
+    },
+    {
+      "request_id": 114,
+      "image_id": 2585,
+      "arrival_ns": 4896000000
+    },
+    {
+      "request_id": 115,
+      "image_id": 24733,
+      "arrival_ns": 4992000000
+    },
+    {
+      "request_id": 116,
+      "image_id": 15918,
+      "arrival_ns": 5088000000
+    },
+    {
+      "request_id": 117,
+      "image_id": 22690,
+      "arrival_ns": 5184000000
+    },
+    {
+      "request_id": 118,
+      "image_id": 48647,
+      "arrival_ns": 5280000000
+    },
+    {
+      "request_id": 119,
+      "image_id": 29746,
+      "arrival_ns": 5376000000
+    },
+    {
+      "request_id": 120,
+      "image_id": 46890,
+      "arrival_ns": 5472000000
+    },
+    {
+      "request_id": 121,
+      "image_id": 30588,
+      "arrival_ns": 5484000000
+    },
+    {
+      "request_id": 122,
+      "image_id": 27318,
+      "arrival_ns": 5496000000
+    },
+    {
+      "request_id": 123,
+      "image_id": 7525,
+      "arrival_ns": 5508000000
+    },
+    {
+      "request_id": 124,
+      "image_id": 3117,
+      "arrival_ns": 5520000000
+    },
+    {
+      "request_id": 125,
+      "image_id": 15891,
+      "arrival_ns": 5532000000
+    },
+    {
+      "request_id": 126,
+      "image_id": 38029,
+      "arrival_ns": 5544000000
+    },
+    {
+      "request_id": 127,
+      "image_id": 31485,
+      "arrival_ns": 5556000000
+    },
+    {
+      "request_id": 128,
+      "image_id": 13182,
+      "arrival_ns": 5568000000
+    },
+    {
+      "request_id": 129,
+      "image_id": 16719,
+      "arrival_ns": 5580000000
+    },
+    {
+      "request_id": 130,
+      "image_id": 43423,
+      "arrival_ns": 5592000000
+    },
+    {
+      "request_id": 131,
+      "image_id": 48745,
+      "arrival_ns": 5604000000
+    },
+    {
+      "request_id": 132,
+      "image_id": 26802,
+      "arrival_ns": 5616000000
+    },
+    {
+      "request_id": 133,
+      "image_id": 33959,
+      "arrival_ns": 5712000000
+    },
+    {
+      "request_id": 134,
+      "image_id": 45736,
+      "arrival_ns": 5808000000
+    },
+    {
+      "request_id": 135,
+      "image_id": 32137,
+      "arrival_ns": 5904000000
+    },
+    {
+      "request_id": 136,
+      "image_id": 34379,
+      "arrival_ns": 6000000000
+    },
+    {
+      "request_id": 137,
+      "image_id": 38349,
+      "arrival_ns": 6096000000
+    },
+    {
+      "request_id": 138,
+      "image_id": 40300,
+      "arrival_ns": 6192000000
+    },
+    {
+      "request_id": 139,
+      "image_id": 33990,
+      "arrival_ns": 6288000000
+    },
+    {
+      "request_id": 140,
+      "image_id": 37500,
+      "arrival_ns": 6384000000
+    },
+    {
+      "request_id": 141,
+      "image_id": 26479,
+      "arrival_ns": 6396000000
+    },
+    {
+      "request_id": 142,
+      "image_id": 46845,
+      "arrival_ns": 6408000000
+    },
+    {
+      "request_id": 143,
+      "image_id": 743,
+      "arrival_ns": 6420000000
+    },
+    {
+      "request_id": 144,
+      "image_id": 49748,
+      "arrival_ns": 6432000000
+    },
+    {
+      "request_id": 145,
+      "image_id": 10182,
+      "arrival_ns": 6444000000
+    },
+    {
+      "request_id": 146,
+      "image_id": 30876,
+      "arrival_ns": 6456000000
+    },
+    {
+      "request_id": 147,
+      "image_id": 10399,
+      "arrival_ns": 6468000000
+    },
+    {
+      "request_id": 148,
+      "image_id": 2204,
+      "arrival_ns": 6480000000
+    },
+    {
+      "request_id": 149,
+      "image_id": 28989,
+      "arrival_ns": 6492000000
+    },
+    {
+      "request_id": 150,
+      "image_id": 46457,
+      "arrival_ns": 6504000000
+    },
+    {
+      "request_id": 151,
+      "image_id": 4260,
+      "arrival_ns": 6516000000
+    },
+    {
+      "request_id": 152,
+      "image_id": 32454,
+      "arrival_ns": 6528000000
+    },
+    {
+      "request_id": 153,
+      "image_id": 46568,
+      "arrival_ns": 6624000000
+    },
+    {
+      "request_id": 154,
+      "image_id": 35731,
+      "arrival_ns": 6720000000
+    },
+    {
+      "request_id": 155,
+      "image_id": 45113,
+      "arrival_ns": 6816000000
+    },
+    {
+      "request_id": 156,
+      "image_id": 13684,
+      "arrival_ns": 6912000000
+    },
+    {
+      "request_id": 157,
+      "image_id": 34440,
+      "arrival_ns": 7008000000
+    },
+    {
+      "request_id": 158,
+      "image_id": 13005,
+      "arrival_ns": 7104000000
+    },
+    {
+      "request_id": 159,
+      "image_id": 45122,
+      "arrival_ns": 7200000000
+    }
+  ],
+  "order": [
+    "queue_aware",
+    "best_fixed"
+  ],
+  "preparation": {
+    "manifest.json": "22ed32b84058c42d06b6d9a4659fef8e819e580c9f3694bcbe0bdf81448bc787",
+    "config.json": "77ee7cb3df727ac86bbf24752fa242d03db3efaa139436e8e1122a2e344f2be9",
+    "splits.json": "a3c7a8d6755e7a0a0172174c61c409991e2b86754f3c52a80f8ba9bef98e2ff4",
+    "states.pt": "8386be26d97c02baf78954b1a1dd75c7692e4042f93015e0c668a9819137d426",
+    "encoder.pt": "e4916352cafc4c1510c67b343b830a0ffadf08c0cf37e5be86f0b2e18598dba7",
+    "early_exit_source": "9d4d0023a7839e0da59f5f6f8bbcedb57843bbbf78709ae30be5c95f2ffe684b",
+    "experiment_source": "13b93ba2b52a21ffce57b8192aad0a719331ffae393efae36387bd7e1c89adb9"
+  },
+  "source_sha256": "ff8b4b5a9a5fafacf8ce6c2fe8ca47905fe61891704ba9e3a119f1b1b997a12e",
+  "prediction_source_sha256": "9c86ab1ba8b732256d7babaa33127b0d0e2dceedaaa9e3ee021871327179b16e",
+  "head_sha256": "23e1f3daabb8991fa5f5145d68ef752630c3a5084b1cb6554bdbcfa0918286d4",
+  "platform": "Linux-6.18.57-x86_64-with-glibc2.41",
+  "processor": "",
+  "torch_version": "2.5.1+cpu",
+  "threads": 1
+}

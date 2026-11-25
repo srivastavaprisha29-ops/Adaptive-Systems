@@ -4,7 +4,7 @@
 > **Research question:** Can inference-time selection of feature width and numerical precision reduce *measured end-to-end* latency, feature memory and energy while preserving an acceptable quality floor?
 
 
-See the [controller validation audit and next live protocol](docs/research/controller-validation.md). Saved burst trials improve p95 latency in 6/6 runs, but only 2/6 meet the quality tolerance. Monitoring/switching boundaries and the original live generator remain unresolved.
+See the [controller validation audit and next live protocol](docs/research/controller-validation.md). Saved burst trials improve p95 latency in 6/6 runs, but only 2/6 meet the quality tolerance. A [replacement live burst benchmark](docs/research/live-burst-smoke.md) now records queueing and controller overhead and completes a checked paired session. Repeated independent sessions and broader controller validation remain outstanding.
 
 ## Runnable static feasibility pilot
 

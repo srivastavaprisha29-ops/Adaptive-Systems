@@ -1,0 +1,35 @@
+{
+  "schema_version": 1,
+  "name": "burst-smoke-v1",
+  "seed": 20261125,
+  "requests": 160,
+  "period_requests": 20,
+  "fast_requests": 12,
+  "fast_gap_ms": 12.0,
+  "slow_gap_ms": 96.0,
+  "warmup": 5,
+  "policies": {
+    "best_fixed": {
+      "thresholds": [
+        0.21725761890411377,
+        0.21725761890411377
+      ],
+      "depth": 1
+    },
+    "queue_aware": {
+      "thresholds": [
+        0.21725761890411377,
+        0.09145951271057129
+      ],
+      "depth": 3
+    }
+  },
+  "historical_lock_sha256": "ce73b5a7e32b4bae1ba2dda1b4543f58f19e4616b410978bdc072f31013ebe7f",
+  "identity": {
+    "preparation": "22ed32b84058c42d06b6d9a4659fef8e819e580c9f3694bcbe0bdf81448bc787",
+    "head": "23e1f3daabb8991fa5f5145d68ef752630c3a5084b1cb6554bdbcfa0918286d4",
+    "source": "42d8cdad452513c01cf052c310bf6bd8e125722ed7746ad9d1ac27c0d1be9657"
+  },
+  "quality_tolerance_pp": 1.0,
+  "p95_target_pct": 5.0
+}

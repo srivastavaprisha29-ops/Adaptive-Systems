@@ -2,6 +2,8 @@
 
 **The broader controller is not validated.** Fixed early-exit and representation experiments establish useful components. Distillation improves its matched supervised control but remains weaker than the existing ridge early head. Those results do not establish resource-conditioned width/precision selection or net controller benefit.
 
+A [replacement reproducible live burst benchmark](live-burst-smoke.md) now completes one checked paired session with explicit arrival-to-prediction timing. This repairs the ability to run a new experiment; the missing historical generator is not reconstructed exactly, and independent-session research validation remains outstanding.
+
 ## Audit of the saved live queue matrix
 
 The executable audit verifies the policy-lock checksum, disjoint session image panels, stored request counts and summary arithmetic. It recomputes paired accuracy intervals relative to both the full model and the saved calibration-selected fixed comparator. It identifies aliased matched-fixed records so they are not counted as independent executions.

@@ -1,0 +1,7 @@
+{
+  "checked_policy_predictions": 320,
+  "checked_full_predictions": 160,
+  "mismatches": 0,
+  "method": "Post-run comparison to previously extracted frozen validation features; never used in timed inference",
+  "feature_cache_sha256": "8460089d76e20c6f1afa16f1720f4c3ce5e1659a910c4dc5e29a49ad83a78f2d"
+}
