@@ -1,0 +1,22 @@
+# Next research phase: width and precision action profiling
+
+**Status: next phase selected; these experiments have not yet been run.** The frozen load sweep found no supported winning range for queue-aware confidence relaxation. Carry the calibrated fixed margin policy forward and return to the project's original representation question.
+
+## Research question
+
+Do quality-feasible width/precision configurations offer a measured cost or resource advantage after projection, conversion and dispatch costs, and are there distinct regimes where adaptation beats the strongest fixed configuration?
+
+## Immediate work
+
+1. Preserve `configs/carry-forward-fixed.json` as the inference reference. Freeze model family, checkpoints, task quality tolerance, dataset splits and deployment boundary before selecting representation actions.
+2. Inventory compatible trained widths from the existing representation implementations. Compare width-only and precision-only controls as well as their cross-product. Every action needs a head trained for its representation; dropping arbitrary coordinates is insufficient.
+3. Separate storage precision from compute precision. Label INT8 storage followed by FP32 reconstruction as storage compression. Include a low-precision arithmetic action only after verifying that its actual operators/backend support it on the named machine.
+4. Profile the complete inference boundary and component costs with paired timing. Record encoder, projection, quantize/dequantize, head, dispatch and any measured transfer costs. Address the wall/thread-CPU outliers and timing variability seen in the controller experiments before interpreting small latency differences.
+5. Measure raw feature bytes separately from allocated/peak system memory. Do not infer total memory or energy savings from tensor width. Any energy claim requires its own instrumented measurement.
+6. Use calibration to select a strongest feasible fixed representation before evaluating adaptation. Freeze selection and test on reserved new traces or panels, with paired uncertainty and explicit quality checks.
+
+## Go/no-go gate
+
+Do not build a new adaptive policy until action profiles show at least two compatible, quality-feasible choices with credible differences in cost or measured resource-budget feasibility. A latency win retains the existing 5% lower end-to-end p95 and at most one-point accuracy-loss criterion against the relevant strongest fixed comparator. A separate storage/memory result must state its own measured objective and must not be presented as a latency win.
+
+If the shared encoder dominates runtime, a smaller pooled representation may improve payload size without materially improving complete inference. Report that boundary honestly. The next implementation decision should follow the measured action surface, rather than more queue-threshold tuning on already evaluated traces.

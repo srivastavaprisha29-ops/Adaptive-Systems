@@ -1,0 +1,24 @@
+{
+  "status": "carry_forward_selected_fixed",
+  "policy": {
+    "thresholds": [
+      0.2750557065010071,
+      0.2750557065010071
+    ],
+    "depth": 1
+  },
+  "device": "cpu",
+  "threads": 1,
+  "head_sha256": "23e1f3daabb8991fa5f5145d68ef752630c3a5084b1cb6554bdbcfa0918286d4",
+  "preparation": {
+    "manifest.json": "22ed32b84058c42d06b6d9a4659fef8e819e580c9f3694bcbe0bdf81448bc787",
+    "config.json": "77ee7cb3df727ac86bbf24752fa242d03db3efaa139436e8e1122a2e344f2be9",
+    "splits.json": "a3c7a8d6755e7a0a0172174c61c409991e2b86754f3c52a80f8ba9bef98e2ff4",
+    "states.pt": "8386be26d97c02baf78954b1a1dd75c7692e4042f93015e0c668a9819137d426",
+    "encoder.pt": "e4916352cafc4c1510c67b343b830a0ffadf08c0cf37e5be86f0b2e18598dba7"
+  },
+  "calibration_lock_sha256": "23c41594d658a0c650ed8ac3aa0c621febf76f42e20f1e24bdaefff69634f065",
+  "source": "machine calibration load-sweep",
+  "queue_aware_adopted": false,
+  "next_research": "width and precision action profiling; pass static quality/cost gate before adaptive control"
+}

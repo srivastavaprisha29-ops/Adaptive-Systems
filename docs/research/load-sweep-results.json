@@ -1,0 +1,419 @@
+{
+  "status": "frozen_policy_fresh_trace_load_sweep",
+  "research_validated": false,
+  "results": {
+    "below": {
+      "comparisons": {
+        "bounded_queue_vs_best_fixed": {
+          "latency": {
+            "mean": 2.9968613621186564,
+            "interval_95": [
+              -2.9023402425535343,
+              9.023576569073274
+            ],
+            "adoption_lower": -4.755381629321048
+          },
+          "quality": {
+            "mean": 0.0,
+            "interval_95": [
+              0.0,
+              0.0
+            ],
+            "adoption_lower": 0.0
+          },
+          "per_session_gains_pct": [
+            4.637327855597551,
+            7.373790455500451,
+            -6.484882320706742,
+            15.05961139612182,
+            -6.480903888205436,
+            3.876224674404294
+          ],
+          "per_session_accuracy_delta_pp": [
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ]
+        },
+        "bounded_queue_vs_always_active": {
+          "latency": {
+            "mean": 2.554173496661988,
+            "interval_95": [
+              -3.4531757738385407,
+              9.201571091486871
+            ],
+            "adoption_lower": -4.234180034361323
+          },
+          "quality": {
+            "mean": 0.0,
+            "interval_95": [
+              0.0,
+              0.0
+            ],
+            "adoption_lower": 0.0
+          },
+          "per_session_gains_pct": [
+            -5.100119812669268,
+            -3.0647324496730244,
+            -3.975255868814087,
+            0.49642916960849215,
+            15.855519681095554,
+            11.11320026042426
+          ],
+          "per_session_accuracy_delta_pp": [
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ]
+        },
+        "always_active_vs_best_fixed": {
+          "latency": {
+            "mean": -0.5119834498798919,
+            "interval_95": [
+              -12.592598978955076,
+              9.944415280269215
+            ],
+            "adoption_lower": -16.614539938015056
+          },
+          "quality": {
+            "mean": 0.0,
+            "interval_95": [
+              0.0,
+              0.0
+            ],
+            "adoption_lower": 0.0
+          },
+          "per_session_gains_pct": [
+            9.264925373655963,
+            10.128123032066917,
+            -2.4136766300042245,
+            14.635838799531076,
+            -26.545322384364113,
+            -8.14178889016497
+          ],
+          "per_session_accuracy_delta_pp": [
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ]
+        }
+      },
+      "beats_best_fixed_target": false,
+      "adds_value_over_always_active": false,
+      "claimed_win": false
+    },
+    "near": {
+      "comparisons": {
+        "bounded_queue_vs_best_fixed": {
+          "latency": {
+            "mean": -1.7256958359229915,
+            "interval_95": [
+              -36.498536114631925,
+              26.566629754074604
+            ],
+            "adoption_lower": -48.19657197477757
+          },
+          "quality": {
+            "mean": 0.0,
+            "interval_95": [
+              -0.390625,
+              0.390625
+            ],
+            "adoption_lower": -0.5208333333333334
+          },
+          "per_session_gains_pct": [
+            27.62964017857563,
+            -74.39020333190977,
+            -19.24825869960194,
+            11.370783678535801,
+            -4.2019881710358975,
+            48.48585132989823
+          ],
+          "per_session_accuracy_delta_pp": [
+            0.0,
+            0.0,
+            0.78125,
+            0.0,
+            0.0,
+            -0.78125
+          ]
+        },
+        "bounded_queue_vs_always_active": {
+          "latency": {
+            "mean": -36.7004641470534,
+            "interval_95": [
+              -72.77847777733318,
+              -9.874798980816694
+            ],
+            "adoption_lower": -87.13477294723549
+          },
+          "quality": {
+            "mean": 0.0,
+            "interval_95": [
+              -0.390625,
+              0.390625
+            ],
+            "adoption_lower": -0.5208333333333334
+          },
+          "per_session_gains_pct": [
+            -19.75723188776597,
+            -48.33214471412279,
+            -9.247659758722593,
+            4.635280768560168,
+            -119.77794343446257,
+            -27.72308585580665
+          ],
+          "per_session_accuracy_delta_pp": [
+            0.0,
+            0.0,
+            0.78125,
+            0.0,
+            0.0,
+            -0.78125
+          ]
+        },
+        "always_active_vs_best_fixed": {
+          "latency": {
+            "mean": 22.027580865986366,
+            "interval_95": [
+              -2.4478055588003054,
+              45.08856073954885
+            ],
+            "adoption_lower": -9.255673701257406
+          },
+          "quality": {
+            "mean": 0.0,
+            "interval_95": [
+              0.0,
+              0.0
+            ],
+            "adoption_lower": 0.0
+          },
+          "per_session_gains_pct": [
+            39.56911104187145,
+            -17.567371299058678,
+            -9.154062396362583,
+            7.0628875796606705,
+            52.587604314302475,
+            59.667315955504854
+          ],
+          "per_session_accuracy_delta_pp": [
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ]
+        }
+      },
+      "beats_best_fixed_target": false,
+      "adds_value_over_always_active": false,
+      "claimed_win": false
+    },
+    "above": {
+      "comparisons": {
+        "bounded_queue_vs_best_fixed": {
+          "latency": {
+            "mean": 5.333571221733775,
+            "interval_95": [
+              -11.45304756882622,
+              21.255499417426012
+            ],
+            "adoption_lower": -16.217508694944208
+          },
+          "quality": {
+            "mean": -0.5208333333333334,
+            "interval_95": [
+              -1.0416666666666667,
+              -0.13020833333333334
+            ],
+            "adoption_lower": -1.171875
+          },
+          "per_session_gains_pct": [
+            38.175329085879575,
+            8.679656644569855,
+            -17.158013431008424,
+            12.337115836749179,
+            -25.10363391036561,
+            15.070973104578078
+          ],
+          "per_session_accuracy_delta_pp": [
+            0.0,
+            0.0,
+            0.0,
+            -0.78125,
+            -0.78125,
+            -1.5625
+          ]
+        },
+        "bounded_queue_vs_always_active": {
+          "latency": {
+            "mean": 12.64747455522284,
+            "interval_95": [
+              -0.49127337915772173,
+              25.40928299499866
+            ],
+            "adoption_lower": -5.688434579089667
+          },
+          "quality": {
+            "mean": -0.5208333333333334,
+            "interval_95": [
+              -1.0416666666666667,
+              -0.13020833333333334
+            ],
+            "adoption_lower": -1.171875
+          },
+          "per_session_gains_pct": [
+            21.086354811555342,
+            27.322423834047548,
+            -10.488366649195125,
+            19.769557537023974,
+            -11.413409662567698,
+            29.608287460472994
+          ],
+          "per_session_accuracy_delta_pp": [
+            0.0,
+            0.0,
+            0.0,
+            -0.78125,
+            -0.78125,
+            -1.5625
+          ]
+        },
+        "always_active_vs_best_fixed": {
+          "latency": {
+            "mean": -8.706037843308334,
+            "interval_95": [
+              -19.02639250480338,
+              4.331590351374858
+            ],
+            "adoption_lower": -21.548978828965897
+          },
+          "quality": {
+            "mean": 0.0,
+            "interval_95": [
+              0.0,
+              0.0
+            ],
+            "adoption_lower": 0.0
+          },
+          "per_session_gains_pct": [
+            21.655284372577132,
+            -25.651333152482515,
+            -6.036514959977346,
+            -9.263867270462377,
+            -12.287770645616924,
+            -20.652025403887976
+          ],
+          "per_session_accuracy_delta_pp": [
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ]
+        }
+      },
+      "beats_best_fixed_target": false,
+      "adds_value_over_always_active": false,
+      "claimed_win": false
+    }
+  },
+  "claimed_load_wins": [],
+  "next_direction": "carry machine-selected best fixed forward; shift research to width/precision adaptation",
+  "lock_sha256": "23c41594d658a0c650ed8ac3aa0c621febf76f42e20f1e24bdaefff69634f065",
+  "evidence_sha256": {
+    "lock.json": "23c41594d658a0c650ed8ac3aa0c621febf76f42e20f1e24bdaefff69634f065",
+    "prior-lock.json": "158824d12688030709dfe6fa1956113df6ed2e1a8b0548d647f460ef5e68a2fa",
+    "evaluation-frozen.json": "cdc00444e8cc6da09a4b9ee5c722452061b20dff160431d3828de742af6be432",
+    "sessions.json": "effde921304e886189b7e29b02332abe6de8225c881ad641c337055b0dce2a74",
+    "session-1/below/bounded_queue.json": "25dcf02348d978964e6bded25b3fde7ec6ed026924713941ec7ffdc0307b7b37",
+    "session-1/below/always_active.json": "4502c04125632426fb34a6cd9b15ae9486302902aeacd1479f8cf3c7141f6000",
+    "session-1/below/best_fixed.json": "32650e4f864356055cf442f4111c18c915b66086b844436ca147c9f1dcc15af9",
+    "session-1/above/bounded_queue.json": "dc41fe2db3a089e3d182f1ee7b042113a60e41fbbaee6222aed894d074268daf",
+    "session-1/above/always_active.json": "1589b152fd4d74aaf7434f7eac3c317260f43b6b89a5aa61bdf9ead029b49898",
+    "session-1/above/best_fixed.json": "401696b159a0ff4a369b3423f607e0e064ef4646e96c332fb5ea42cc459406d4",
+    "session-1/near/bounded_queue.json": "50b655bacda2b827474e4ba97345bd11e1c65e464224215f8d7e0a1cb4255ad7",
+    "session-1/near/always_active.json": "182c418c684d3003641cb5b5c121be1bd5b6c04485e4d08599c8ad2109f62769",
+    "session-1/near/best_fixed.json": "c41997baf5d1067033648c73ead73cf0cd63ca1a0d48884303e1b979cf7f703d",
+    "session-0/below/bounded_queue.json": "60336a5f2a6cc6dff95de0484021dd263578606790e7daf8b0cac835dd0e0235",
+    "session-0/below/always_active.json": "0342a9c0cc64d13409533fd6e11adfaafacb606720c464fc89c196b6ee84320a",
+    "session-0/below/best_fixed.json": "2c9c8f2f38dee46e3b1a41838e7e3adede2ec4ba3cb202ac8f2c7c9ad531a635",
+    "session-0/above/bounded_queue.json": "a587a20b4f638589f79886af13f075d6bedb2154afb11af1fdc9335ec1cc12c6",
+    "session-0/above/always_active.json": "9e5062f99b772a017bfbdfc6605aca2fa1d0cd508b85913d0c3844d1bd2570cb",
+    "session-0/above/best_fixed.json": "0a65f9ac0dae1033e6021a93b2fe313ac49ba713b80b3059c73ff094baf62006",
+    "session-0/near/bounded_queue.json": "2d7c08b6a4260eab2f138c72b96f666bcb0c8d1c0da2693a854532c59ca91191",
+    "session-0/near/always_active.json": "0a84db2383081555a82e48f506fca947a50343e91e3a234b13d63c440a2dd4db",
+    "session-0/near/best_fixed.json": "dc916bc90db4724ff140debd04058d6002aeef757a59525c07d9098bbdb09495",
+    "session-2/below/bounded_queue.json": "3798408bfb7219f2ee4f65c56be7346c41d7a736a3d6dfd101f049b34506dc92",
+    "session-2/below/always_active.json": "83324548281d0465f897a6c3ff4d54cf54c03a7bca1f5681a2d0ef5e13c57c0d",
+    "session-2/below/best_fixed.json": "d7466b60cc4e38bf2127c0a5251200793a78208224f64b5f7fd08147c0b4558b",
+    "session-2/above/bounded_queue.json": "c3e8708db48c804a33d5c9b8e49f861f5fe800371e619da16642c20952593732",
+    "session-2/above/always_active.json": "205a3b4493f7195a698213c717320b85c49671095f5a7e57caeda954f63b69ba",
+    "session-2/above/best_fixed.json": "c0b9ca6d3a34c0c9c95bb0bc956883bb8bceaf04dec889be8ed4bb76e1d25861",
+    "session-2/near/bounded_queue.json": "75429b82b68280e7f9637dfb7e27ec000b78738f9bfbdd3aca84f17806a4398d",
+    "session-2/near/always_active.json": "ee83842484a54db9117e10919d4850bed2a2ebccbe20604070df59a964cb3f22",
+    "session-2/near/best_fixed.json": "ecef42ec5133b2332500f997d4333b44623514ae3b988ec8834e1497566b4b25",
+    "session-5/below/bounded_queue.json": "d4f8a6cb43f38068d873b540e4eb61f1356d22312a94d8464326b19e87bebd48",
+    "session-5/below/always_active.json": "ca4ba7d50805d04bdfcca80db26bfb31b8d07f40c542568ce367602d6bd3c8b4",
+    "session-5/below/best_fixed.json": "26717aaa33a0bfa5bae2ba2619a030fd85ef1c04a4e8c49f5d763b60740d0177",
+    "session-5/above/bounded_queue.json": "c4406295395ac8ecb97397b4c71db9b370a07b81b894ab1fed3d9e8cd310b16f",
+    "session-5/above/always_active.json": "4a2fba05951ad1826cc2258b0a4ded423d85e54f1df001f35c519f29f05e7b03",
+    "session-5/above/best_fixed.json": "64949e03c3292cfcdda63b2558a9e0f9f2011ba1caa11e891916ae694a2d4225",
+    "session-5/near/bounded_queue.json": "98da6b24aa96ac21896d1dbf9c9ed38e28fa093683401c9c1bb4d2d558f1dbd9",
+    "session-5/near/always_active.json": "754bf99ea208e785da7e674f9d2e4e7a27d330a4a9c60d1c3806e212f3a50270",
+    "session-5/near/best_fixed.json": "3bc4d4c730a39ca5f6e8b671e361461ac16b727fb973e414bd3dd2d99126e345",
+    "session-3/below/bounded_queue.json": "335f2a9f0d6285a805d3dd6f9cc71c91056c779495ee192f23e3c508e3125342",
+    "session-3/below/always_active.json": "e237c9282f31bb86bfb1a7cef56540cb6d68fe67be64c92c00c0450b14d09ddb",
+    "session-3/below/best_fixed.json": "f81dec37f2fc767b2a3156225f4fffac93ed16671c44159ace2ea4e0e2699359",
+    "session-3/above/bounded_queue.json": "f097a643ff770ef7e28dc667d164bb544a49ca623e33aece86b7ac52a67d7f4f",
+    "session-3/above/always_active.json": "c1ba5af746e86ddad15723e725ba2ff71176e570a489ad6df06cc1cd21ccac6c",
+    "session-3/above/best_fixed.json": "fc24a7bb036bb81af81475b9487cd1cd288d73a9b5ede8a8276e425c4f04889f",
+    "session-3/near/bounded_queue.json": "66b03cae4b33ec771ef6a0aff101601117a215b79f0b0e3ab033fed5976a1369",
+    "session-3/near/always_active.json": "d9877577e61043eb5ad2ae24d8aaa08041ab28872aec37c00249c8cbf8c8b3fb",
+    "session-3/near/best_fixed.json": "a49a830295ae020661d7696f99cc12f325fd2ae4eb783d1142f4ce20e7600e96",
+    "session-4/below/bounded_queue.json": "9d17622bb163c0b92433728caeebc055d21e4e95c37647dee315f3a8783fde4e",
+    "session-4/below/always_active.json": "92f38dfc9b8242e6510cfb9d41f3caf7948c8407d870894fd58a7c4713254677",
+    "session-4/below/best_fixed.json": "fcd7a203346778d71f1983f2e0ed808d70bc75ef83b42dd3a351b2609a341a2a",
+    "session-4/above/bounded_queue.json": "a30f46af1fbd2e8c9edfc6d43a35620a7ff6a0f8602345fd5419ce64c288b21a",
+    "session-4/above/always_active.json": "d177411c41d3d6aa2755bf63136ad1cf7ed322d90106ae94e4a5e4d711ca6fd9",
+    "session-4/above/best_fixed.json": "513ac9db0eb492aaea635c96aaf1cde415b0aa9b1b5ae351ad030db91c14d08a",
+    "session-4/near/bounded_queue.json": "7b392e32337be17652cab4de15d482c658b8abeaf646f51a75ec2d4279151d8a",
+    "session-4/near/always_active.json": "7a72f97e4c9bf5a5443020116596f2a03f7f2853ae22389ed8b320205d23f4ab",
+    "session-4/near/best_fixed.json": "1b9fc6db0c79d09708e9ac271847d6a12edcabfb351d3522e51640781cfea501",
+    "calibration-profile/0/fixed-4.json": "349407e26235412aed8cadfd8bb0bdb449f1c8492be9ca51057564ea201f1b36",
+    "calibration-profile/0/fixed-1.json": "9e4af2c62a2fe433bbbd31b7bbb42c596dd7c7dda9f0d52fff0c29f494f5fd6b",
+    "calibration-profile/0/fixed-5.json": "38ed8f4e185539e4376611542e33664ce427569d3ba45fef351aba4cb12ed45c",
+    "calibration-profile/0/fixed-3.json": "efeedb5b33c0b0f27122c8d7b68085a0a5ba16a705604b7e6eec7cd8dfb7ec4b",
+    "calibration-profile/0/fixed-2.json": "2cbdd0eaef1e2ab561edf1953910c4b3a6d85001069e6e91c393713f49b47245",
+    "calibration-profile/1/fixed-4.json": "26e7a744edc6a24c91ff32009eb3585bde707d5b352b5b791cc4277c181a5e7e",
+    "calibration-profile/1/fixed-1.json": "30c231a2796c5b6485a240743d198ea036418caf396c04340bed799e37aa4df3",
+    "calibration-profile/1/fixed-5.json": "9335fec3b9434c2713bae58301a41e50df21a3f873fe426c867e8eae14c5b4ef",
+    "calibration-profile/1/fixed-3.json": "aa75b2a76e78d7736cc477bb6dd19ea0deb9bb8b7f9537898e5df7d6a7b0d55c",
+    "calibration-profile/1/fixed-2.json": "1cd4d629702af51ecdd79feedeb1c7066c8a73a62c40b4fd15406ff02b84e4df",
+    "calibration-profile/2/fixed-4.json": "61c2a304086a83b63a64625007c4d75e98e477ff29bbc5bdca820dd284359bd7",
+    "calibration-profile/2/fixed-1.json": "5fb1256f01acd1f3e681c397620aa6270d64ad3e1bc396e5e6f724d8deb7e04a",
+    "calibration-profile/2/fixed-5.json": "5ab3fae8f4ffdaa3edaa7c1f66927d0c2429f021d94c6dcf1e82d97ba65873ed",
+    "calibration-profile/2/fixed-3.json": "fad41e8563ea90b8beba23f331457de182f99c346668b58a5a023960c3fb90d7",
+    "calibration-profile/2/fixed-2.json": "ac1564e5744ce8a59fad15e49955b39c5fb6413c7c0ce0a55e743badd4811376"
+  },
+  "limitations": [
+    "Six paired sessions per range on one shared host; percentile bootstrap is approximate.",
+    "Official test data have prior static aggregate results, but these dynamic traces and image panels are fresh.",
+    "Nominal load is defined by calibration capacity; observed service utilization is also reported.",
+    "Best fixed means fastest quality-feasible member of the declared calibration grid, not all possible policies.",
+    "Confidence-gate parameters are copied unchanged from the prior lock.",
+    "No energy, peak-memory or actual width/precision adaptation claim."
+  ]
+}

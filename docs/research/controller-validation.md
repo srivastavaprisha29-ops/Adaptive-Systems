@@ -8,6 +8,8 @@ A [six-session confidence-safeguard study](confidence-safeguard.md) now tests pr
 
 A [controlled relaxation replay](calibration-bounded-relaxation.md) now keeps the default gate active and permits a calibration-bounded relaxation under pressure. It restores exits but fails the adoption target: burst p95 is 3.16% worse than best fixed. The original anomalous steady panel was also replayed with its original policies.
 
+The [fresh-trace frozen load sweep](frozen-load-sweep.md) reselects the fixed baseline on the current machine and tests below/near/above calibration capacity. No load range clears the uncertainty-aware target. The selected fixed gate is retained, and the research direction returns to width/precision action profiling.
+
 ## Audit of the saved live queue matrix
 
 The executable audit verifies the policy-lock checksum, disjoint session image panels, stored request counts and summary arithmetic. It recomputes paired accuracy intervals relative to both the full model and the saved calibration-selected fixed comparator. It identifies aliased matched-fixed records so they are not counted as independent executions.

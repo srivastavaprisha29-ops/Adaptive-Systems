@@ -1,6 +1,6 @@
 # Resource-Aware Adaptive Feature Representations for AI Inference
 
-> **Status:** Fixed early-exit and representation baselines evaluated. Broader adaptive-controller validation remains incomplete.
+> **Status:** Fixed gating retained after a frozen load sweep. Width/precision action profiling is the next phase; broader controller validation remains incomplete.
 > **Research question:** Can inference-time selection of feature width and numerical precision reduce *measured end-to-end* latency, feature memory and energy while preserving an acceptable quality floor?
 
 
@@ -13,6 +13,10 @@ See the [controller validation audit and next live protocol](docs/research/contr
 ## Controlled relaxation replay
 
 [Always-active default with calibration-bounded queue relaxation](docs/research/calibration-bounded-relaxation.md) restores early exits on the exact prior model/image/arrival traces. Across six burst replays, queue-aware p95 is 3.16% worse than best fixed and 7.81% better than the always-active confidence gate by point estimate, with unchanged average accuracy. The adoption target fails. The exact original steady anomaly does not recur, but other long-service outliers remain. Retain fixed gating; no queue-aware candidate is promoted.
+
+## Frozen load sweep and current research direction
+
+The [machine-calibrated frozen-policy load sweep](docs/research/frozen-load-sweep.md) compares six matched sessions at each of three offered loads using 2,304 fresh dynamic-controller test images. No load range clears the quality/latency evidence bar. Above-capacity point estimates improve p95 by 5.33% with 0.52 points accuracy loss, but the uncertainty bounds fail the target. Carry [the selected fixed configuration](configs/carry-forward-fixed.json) forward and shift to [width/precision action profiling](docs/research/width-precision-phase.md). The two confidence gates were not retuned during evaluation.
 
 ## Runnable static feasibility pilot
 

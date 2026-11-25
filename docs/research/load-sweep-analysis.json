@@ -1,0 +1,101 @@
+{
+  "below": {
+    "mean_session_metrics": {
+      "best_fixed": {
+        "exit_pct": 41.927083333333336,
+        "mean_service_ms": 57.71170055208333,
+        "p95_wait_ms": 0.2789685333333328,
+        "p95_response_ms": 70.90716960833333,
+        "accuracy_pct": 83.85416666666667,
+        "observed_offered_load": 0.7060956064196813
+      },
+      "always_active": {
+        "exit_pct": 41.927083333333336,
+        "mean_service_ms": 57.116719227864586,
+        "p95_wait_ms": 0.433257941666664,
+        "p95_response_ms": 70.48671159166666,
+        "accuracy_pct": 83.85416666666667,
+        "observed_offered_load": 0.6988160825984505
+      },
+      "bounded_queue": {
+        "exit_pct": 41.927083333333336,
+        "mean_service_ms": 57.3136047734375,
+        "p95_wait_ms": 0.2043581166666666,
+        "p95_response_ms": 68.33243056666666,
+        "accuracy_pct": 83.85416666666667,
+        "observed_offered_load": 0.7012249531977689
+      }
+    },
+    "queue_vs_always_different_exit_decisions": 0,
+    "observed_best_fixed_load_range": [
+      0.6414076966787201,
+      0.7384583336073437
+    ]
+  },
+  "near": {
+    "mean_session_metrics": {
+      "best_fixed": {
+        "exit_pct": 40.234375,
+        "mean_service_ms": 57.38362737630209,
+        "p95_wait_ms": 224.61884350833333,
+        "p95_response_ms": 281.8008068333333,
+        "accuracy_pct": 83.33333333333333,
+        "observed_offered_load": 1.026119370414208
+      },
+      "always_active": {
+        "exit_pct": 40.234375,
+        "mean_service_ms": 56.127498615885415,
+        "p95_wait_ms": 150.23196391666667,
+        "p95_response_ms": 206.69813729166665,
+        "accuracy_pct": 83.33333333333333,
+        "observed_offered_load": 1.0036575967039907
+      },
+      "bounded_queue": {
+        "exit_pct": 42.838541666666664,
+        "mean_service_ms": 56.98525189713541,
+        "p95_wait_ms": 197.79157651666665,
+        "p95_response_ms": 254.74000815833332,
+        "accuracy_pct": 83.33333333333333,
+        "observed_offered_load": 1.0189957218307832
+      }
+    },
+    "queue_vs_always_different_exit_decisions": 20,
+    "observed_best_fixed_load_range": [
+      0.9930177052573937,
+      1.063055050191375
+    ]
+  },
+  "above": {
+    "mean_session_metrics": {
+      "best_fixed": {
+        "exit_pct": 41.276041666666664,
+        "mean_service_ms": 56.187240251302086,
+        "p95_wait_ms": 1215.00316265,
+        "p95_response_ms": 1270.4335630249998,
+        "accuracy_pct": 85.41666666666667,
+        "observed_offered_load": 1.2162471115429379
+      },
+      "always_active": {
+        "exit_pct": 41.276041666666664,
+        "mean_service_ms": 56.93734029036458,
+        "p95_wait_ms": 1310.027168475,
+        "p95_response_ms": 1364.6080674833333,
+        "accuracy_pct": 85.41666666666667,
+        "observed_offered_load": 1.2324840187446022
+      },
+      "bounded_queue": {
+        "exit_pct": 52.083333333333336,
+        "mean_service_ms": 55.3337600234375,
+        "p95_wait_ms": 1099.6214164583332,
+        "p95_response_ms": 1155.8635207333332,
+        "accuracy_pct": 84.89583333333333,
+        "observed_offered_load": 1.1977724034551838
+      }
+    },
+    "queue_vs_always_different_exit_decisions": 83,
+    "observed_best_fixed_load_range": [
+      1.1568321710737426,
+      1.2893641824263078
+    ]
+  }
+}
