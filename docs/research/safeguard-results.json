@@ -1,0 +1,277 @@
+{
+  "status": "six_session_exploratory_study",
+  "research_validated": false,
+  "comparisons": {
+    "burst": {
+      "safeguarded_queue_vs_best_fixed": {
+        "latency_reduction_pct": {
+          "mean": -21.157474168285834,
+          "interval_95": [
+            -35.882970459950926,
+            -8.82482475389356
+          ]
+        },
+        "accuracy_delta_pp": {
+          "mean": 0.0,
+          "interval_95": [
+            -0.625,
+            0.625
+          ]
+        },
+        "per_session_gain_pct": [
+          -7.677195832934047,
+          -4.561645717599028,
+          -34.46867978253911,
+          -11.581841211786159,
+          -52.5551535178647,
+          -16.100328946991958
+        ],
+        "per_session_accuracy_delta_pp": [
+          1.25,
+          0.0,
+          0.0,
+          0.625,
+          -0.625,
+          -1.25
+        ],
+        "joint_lower_bound_pass": false
+      },
+      "safeguarded_queue_vs_fixed_confidence": {
+        "latency_reduction_pct": {
+          "mean": -10.958705270550203,
+          "interval_95": [
+            -33.04190541204083,
+            4.3550335034236
+          ]
+        },
+        "accuracy_delta_pp": {
+          "mean": 0.0,
+          "interval_95": [
+            0.0,
+            0.0
+          ]
+        },
+        "per_session_gain_pct": [
+          -6.503674294737127,
+          -11.01430522023692,
+          -62.3782890552167,
+          10.912045133878912,
+          8.494982823958708,
+          -5.262991010948093
+        ],
+        "per_session_accuracy_delta_pp": [
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "joint_lower_bound_pass": false
+      },
+      "fixed_confidence_vs_best_fixed": {
+        "latency_reduction_pct": {
+          "mean": -13.393958534442614,
+          "interval_95": [
+            -36.41832551527377,
+            6.13092273938333
+          ]
+        },
+        "accuracy_delta_pp": {
+          "mean": 0.0,
+          "interval_95": [
+            -0.625,
+            0.625
+          ]
+        },
+        "per_session_gain_pct": [
+          -1.101860143293587,
+          5.812457673663518,
+          17.18801782865622,
+          -25.249077026707223,
+          -66.71780217730851,
+          -10.295487361666101
+        ],
+        "per_session_accuracy_delta_pp": [
+          1.25,
+          0.0,
+          0.0,
+          0.625,
+          -0.625,
+          -1.25
+        ],
+        "joint_lower_bound_pass": false
+      }
+    },
+    "steady": {
+      "safeguarded_queue_vs_best_fixed": {
+        "latency_reduction_pct": {
+          "mean": -30.75137653238728,
+          "interval_95": [
+            -99.07326807116735,
+            5.868982621284172
+          ]
+        },
+        "accuracy_delta_pp": {
+          "mean": -0.20833333333333334,
+          "interval_95": [
+            -0.8333333333333334,
+            0.5208333333333334
+          ]
+        },
+        "per_session_gain_pct": [
+          6.268983778509762,
+          10.442662325235707,
+          -3.5086428139397663,
+          1.9579085388535145,
+          -0.32604378211877894,
+          -199.3431272408641
+        ],
+        "per_session_accuracy_delta_pp": [
+          1.25,
+          -0.625,
+          -0.625,
+          0.625,
+          -0.625,
+          -1.25
+        ],
+        "joint_lower_bound_pass": false
+      },
+      "safeguarded_queue_vs_fixed_confidence": {
+        "latency_reduction_pct": {
+          "mean": -36.07640521375589,
+          "interval_95": [
+            -109.50873589328464,
+            5.903488980437199
+          ]
+        },
+        "accuracy_delta_pp": {
+          "mean": -0.20833333333333334,
+          "interval_95": [
+            -0.4166666666666667,
+            0.0
+          ]
+        },
+        "per_session_gain_pct": [
+          -8.591589261217504,
+          17.719241617295367,
+          -0.541103296746237,
+          -8.258363714668926,
+          -1.2200635399250537,
+          -215.566553087273
+        ],
+        "per_session_accuracy_delta_pp": [
+          0.0,
+          -0.625,
+          -0.625,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "joint_lower_bound_pass": false
+      },
+      "fixed_confidence_vs_best_fixed": {
+        "latency_reduction_pct": {
+          "mean": 2.8918148768481013,
+          "interval_95": [
+            -3.1936970527630377,
+            8.71311380965528
+          ]
+        },
+        "accuracy_delta_pp": {
+          "mean": 0.0,
+          "interval_95": [
+            -0.625,
+            0.625
+          ]
+        },
+        "per_session_gain_pct": [
+          13.684828761443113,
+          -8.843597743976561,
+          -2.951568482827227,
+          9.436935773802146,
+          0.8832436243765396,
+          5.141047328270599
+        ],
+        "per_session_accuracy_delta_pp": [
+          1.25,
+          0.0,
+          0.0,
+          0.625,
+          -0.625,
+          -1.25
+        ],
+        "joint_lower_bound_pass": false
+      }
+    }
+  },
+  "frozen_threshold": 0.2750557065010071,
+  "calibration": {
+    "examples": 1000,
+    "exit_pct": 40.0,
+    "accuracy_pct": 83.39999999999999,
+    "baseline_accuracy_pct": 83.7,
+    "delta_pp": -0.30000001192092896,
+    "delta_95ci_pp": [
+      -0.8999999761581421,
+      0.20000000298023224
+    ],
+    "quality_pass": true
+  },
+  "lock_sha256": "6389a8af5b49d3703c8335273ade1d2332688f8834d88c5da57c22a90b6453db",
+  "evidence_sha256": {
+    "lock.json": "6389a8af5b49d3703c8335273ade1d2332688f8834d88c5da57c22a90b6453db",
+    "evaluation-frozen.json": "11a5bdf2a22b1e7f6481d35a527b3e31e3d7b425b8b534c1d3a77614669caae8",
+    "sessions.json": "69c63f64cc625a56cad4e88de4382711e6baaac444080a5bd655239176a83bd3",
+    "calibration-live/fixed_confidence.json": "477c23bed92de0ba32192a8c9a18bcb2282f41c3b0597f835b89678089e4afc1",
+    "calibration-live/safeguarded_queue.json": "1051785770fc7c84cc164d21999f67e9bb5805266d46e3dce697d4e6de539ebc",
+    "calibration-live/best_fixed.json": "f4b0b4db1aeb592e2e5a5e472b3138069f20af5752c15fd28e3866cc528a742a",
+    "session-1/steady/fixed_confidence.json": "bee8ac9fff8a43da62161834e866e2c1640b9ef95c3f094c6049a0ff2995fc77",
+    "session-1/steady/safeguarded_queue.json": "0519e7f9f719314f99bdb84549e51af6e1eb40cad24f11faf18dfbe68b494e34",
+    "session-1/steady/best_fixed.json": "21e7c5d089f5decce1cd9da56971e66abae03fe26d25d83bee0abdab67b4f668",
+    "session-1/burst/fixed_confidence.json": "af4b0c4411476126bebda59e05cb59a62807404edb1a0c5024379d74b5954060",
+    "session-1/burst/safeguarded_queue.json": "91f521518482e1763efb8cc341f47fbc4aac73d01514661bf2860877af820c3a",
+    "session-1/burst/best_fixed.json": "e3d6fcabf52905a6c2d15727c94af73739963e7ba4abd32a59c3e7efaeab78c8",
+    "session-0/steady/fixed_confidence.json": "0c9e59c6e541e2b751cd9be51f20f75e7b0d3f18a7ed8d21ce2dceb5964d1f86",
+    "session-0/steady/safeguarded_queue.json": "ea27748086c2fe743d70cddc437b12ed2b7657faa9db3465b074ad643f710513",
+    "session-0/steady/best_fixed.json": "4b1d8140e96b75e8498ea0184538bf717cb0d010da4556c6e57b15fd3501344e",
+    "session-0/burst/fixed_confidence.json": "a5dfe26453e408fce9701b7c6d4fccde68fddc52aad0dd5c1010ab7bdf7b8484",
+    "session-0/burst/safeguarded_queue.json": "31c946bf66e98eb3919a5ada4111fff54bb97826326f9b8dd795dfc17959db37",
+    "session-0/burst/best_fixed.json": "e2d12a09bb126449337977a69f61fc08bf9ec2357ecfa7df04bb4df13e15890e",
+    "session-2/steady/fixed_confidence.json": "fd57aef05fa562cc10f946e48075c480437591eb7eb1eb40468a180c43730184",
+    "session-2/steady/safeguarded_queue.json": "2425cbbd03bae85b794dbead1f080195e0d55bb74d497a369c8d6f279d3434a7",
+    "session-2/steady/best_fixed.json": "3805f9923ec3b808a18d228b80d5c49d59c074e11c903c765d91ac446c7e2501",
+    "session-2/burst/fixed_confidence.json": "f94ddcda22fbc9add60bc19c500e341ba7ae3bb6d0676fcac54cfb7fe679474c",
+    "session-2/burst/safeguarded_queue.json": "91099316ed78e88a5d5399e9e948317d24cbff1375b5ba77064f3acc28d2f16e",
+    "session-2/burst/best_fixed.json": "e8707c8793261061c37a0df53f8dd50b8a1a469044dc6e5b4e0ef7c480060695",
+    "session-5/steady/fixed_confidence.json": "adaa2851c193eeb020b90e1031c05358867158151409578e48ec8edc5e4c44b9",
+    "session-5/steady/safeguarded_queue.json": "7dc718d8fb525f7948856a451d3374118fd5b078e8f35de9a0b7df6f084ffaad",
+    "session-5/steady/best_fixed.json": "1dc3e7525964c6ade0ea820eaf322cd5ce85915c42b620756ba85c27c5836a00",
+    "session-5/burst/fixed_confidence.json": "559bdee81128cd6b6154cbae441115d3833774f6deef25e0e2cf0f32321af418",
+    "session-5/burst/safeguarded_queue.json": "5629af954a0129da2a4106b9602fa74c03bce408c871f97f90beec67d9921e28",
+    "session-5/burst/best_fixed.json": "3f20c8cd6d9c2900647afd968e524800b8e65a0a5c31686be94e54b2243a1867",
+    "session-3/steady/fixed_confidence.json": "d4edac3e2308daa1fe2f6f7dc2444a1b085243cf0d2813bffe0cec0fa1da38bf",
+    "session-3/steady/safeguarded_queue.json": "7310e474cf57282224d0d33d2fecfe0a89db94e44c8e4358434c577e7efd8063",
+    "session-3/steady/best_fixed.json": "59bbe41638382f78723877ab2f91822eaf66faadd1a6aa41160d4452b8234bdb",
+    "session-3/burst/fixed_confidence.json": "6778b9d565923c9d189eeda4967b7610059692a90e0d58d152fdec5ee8aebc90",
+    "session-3/burst/safeguarded_queue.json": "6b50214c2340caa82a2b448ac6f9ad282469397fb40d224775b27dbc49509cf4",
+    "session-3/burst/best_fixed.json": "b3fcadcd50fc2cbfab9fcf92f4ee4ce209b3d59990013a222e5da02603d966cc",
+    "session-4/steady/fixed_confidence.json": "120d84ce7ab1156ab9c42f948e6d1f810c0f7906c2bd3ed4def5a9d01b6439e6",
+    "session-4/steady/safeguarded_queue.json": "b5d69cf660f0cdfa70694309160e1c6f3d84a2e9b5c20b0c1a6f62cd2d69a605",
+    "session-4/steady/best_fixed.json": "f03944ebc6c59da7a669b31c0e782a4ee062c03ef82c9593146eb17b811e8dcf",
+    "session-4/burst/fixed_confidence.json": "2a4fe3c79fceb64c5464b738116ca1fbcf0fc712e0b28bdb07463bceda525d07",
+    "session-4/burst/safeguarded_queue.json": "4ad3b7885f981b4a9c728b7fb2e12135c36382ab02ed0277f637611fe9466e85",
+    "session-4/burst/best_fixed.json": "a9a83e81b7152187a58c6f053f702ce7e95bdc6cbf56690f5cf096c7569caca7"
+  },
+  "limitations": [
+    "Six balanced sessions on one host; bootstrap uncertainty remains unstable at this sample size.",
+    "Same images reused for burst and steady within a session; panels disjoint across sessions.",
+    "Cached features used only for offline calibration and post-run diagnostics, never timed inference.",
+    "Top softmax probability from ridge scores is logged but is not a calibrated probability.",
+    "Best fixed is historical calibration-selected; no exhaustive current-machine reoptimization.",
+    "Only the burst queue-vs-best-fixed comparison is primary; other intervals are descriptive.",
+    "The primary two endpoints use one-sided 97.5% lower bounds (Bonferroni); bootstrap is approximate.",
+    "Timing includes confidence diagnostics and scalar switching; no format switching/energy claim.",
+    "Gating only under pressure can save no more per-image compute than the same fixed confidence gate."
+  ]
+}

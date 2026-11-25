@@ -82,7 +82,9 @@ def run_fifo(trace, images, policy, predict, *, clock=time.perf_counter_ns, slee
         changed = mode != previous_mode
         previous_mode = mode
         decision_end = clock()
-        prediction, exited = predict(image, threshold)
+        result = predict(image, threshold)
+        prediction, exited = result[:2]
+        diagnostics = result[2] if len(result) == 3 else {}
         prediction = int(prediction)
         exited = bool(exited)
         finish = clock()  # Completed scalar prediction, before logging or label lookup.
@@ -93,7 +95,7 @@ def run_fifo(trace, images, policy, predict, *, clock=time.perf_counter_ns, slee
                          decision_ns=decision_end-monitor_end,
                          state_update_ns=decision_end-switch_start,
                          threshold=threshold, relaxed=bool(mode), state_changed=changed,
-                         prediction=prediction, early_exit=exited))
+                         prediction=prediction, early_exit=exited, confidence=diagnostics))
     return rows
 
 

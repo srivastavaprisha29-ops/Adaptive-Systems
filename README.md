@@ -6,6 +6,10 @@
 
 See the [controller validation audit and next live protocol](docs/research/controller-validation.md). Saved burst trials improve p95 latency in 6/6 runs, but only 2/6 meet the quality tolerance. A [replacement live burst benchmark](docs/research/live-burst-smoke.md) now records queueing and controller overhead and completes a checked paired session. Repeated independent sessions and broader controller validation remain outstanding.
 
+## Confidence safeguard study
+
+[Six paired burst sessions plus steady checks](docs/research/confidence-safeguard.md) now log per-request confidence and queue-conditioned errors. Calibration freezes the confidence floor before evaluation. Harmful burst exits fall from 7 to 2, but mean accuracy is unchanged and safeguarded queue-aware p95 is 21.16% worse than the historical best fixed comparator. The joint 5% latency/one-point accuracy target fails. The fixed confidence-gate ablation shows no demonstrated benefit from queue awareness in this design. Full raw evidence, grouped errors and an independent verifier are available.
+
 ## Runnable static feasibility pilot
 
 The repository includes CPU experiment code and recorded results for CIFAR-10 with a frozen ResNet-18. See the [completed experiment summary and reproduction commands](docs/reproducing-followups.md).

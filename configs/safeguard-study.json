@@ -1,0 +1,14 @@
+{
+  "seed": 20261126,
+  "sessions": 6,
+  "requests": 160,
+  "calibration_requests": 80,
+  "queue_depth": 3,
+  "warmup": 3,
+  "steady_gap_ms": 72.0,
+  "bootstrap_samples": 8000,
+  "quality_tolerance_pp": 1.0,
+  "p95_target_pct": 5.0,
+  "confidence_bins_margin": [0.0, 0.1, 0.2, 0.3, 0.5],
+  "queue_bins": [0, 1, 3, 8]
+}

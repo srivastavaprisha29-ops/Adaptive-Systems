@@ -4,6 +4,8 @@
 
 A [replacement reproducible live burst benchmark](live-burst-smoke.md) now completes one checked paired session with explicit arrival-to-prediction timing. This repairs the ability to run a new experiment; the missing historical generator is not reconstructed exactly, and independent-session research validation remains outstanding.
 
+A [six-session confidence-safeguard study](confidence-safeguard.md) now tests prediction failures, a calibration-frozen confidence floor, a fixed confidence-gate ablation and steady load. The guarded controller fails the joint target: burst p95 is 21.16% worse on average than the historical best fixed comparator, with unchanged mean accuracy. It is not promoted.
+
 ## Audit of the saved live queue matrix
 
 The executable audit verifies the policy-lock checksum, disjoint session image panels, stored request counts and summary arithmetic. It recomputes paired accuracy intervals relative to both the full model and the saved calibration-selected fixed comparator. It identifies aliased matched-fixed records so they are not counted as independent executions.

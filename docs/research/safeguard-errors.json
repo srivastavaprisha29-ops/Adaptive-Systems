@@ -1,0 +1,546 @@
+{
+  "burst": {
+    "best_fixed": {
+      "total": {
+        "requests": 960,
+        "potential_early_wrong_full_right": 125,
+        "harmful_actual_exits": 7,
+        "beneficial_actual_exits": 9,
+        "actual_exits": 477
+      },
+      "groups": {
+        "margin-bin-4/queue-bin-0": {
+          "requests": 2,
+          "early_wrong_full_right": 0,
+          "harmful_actual_exits": 0,
+          "actual_exits": 2
+        },
+        "margin-bin-4/queue-bin-1": {
+          "requests": 2,
+          "early_wrong_full_right": 0,
+          "harmful_actual_exits": 0,
+          "actual_exits": 2
+        },
+        "margin-bin-4/queue-bin-2": {
+          "requests": 18,
+          "early_wrong_full_right": 0,
+          "harmful_actual_exits": 0,
+          "actual_exits": 18
+        },
+        "margin-bin-0/queue-bin-3": {
+          "requests": 200,
+          "early_wrong_full_right": 60,
+          "harmful_actual_exits": 0,
+          "actual_exits": 0
+        },
+        "margin-bin-0/queue-bin-2": {
+          "requests": 46,
+          "early_wrong_full_right": 19,
+          "harmful_actual_exits": 0,
+          "actual_exits": 0
+        },
+        "margin-bin-1/queue-bin-2": {
+          "requests": 39,
+          "early_wrong_full_right": 8,
+          "harmful_actual_exits": 0,
+          "actual_exits": 0
+        },
+        "margin-bin-2/queue-bin-2": {
+          "requests": 26,
+          "early_wrong_full_right": 0,
+          "harmful_actual_exits": 0,
+          "actual_exits": 23
+        },
+        "margin-bin-3/queue-bin-2": {
+          "requests": 51,
+          "early_wrong_full_right": 0,
+          "harmful_actual_exits": 0,
+          "actual_exits": 51
+        },
+        "margin-bin-2/queue-bin-3": {
+          "requests": 101,
+          "early_wrong_full_right": 7,
+          "harmful_actual_exits": 5,
+          "actual_exits": 76
+        },
+        "margin-bin-3/queue-bin-3": {
+          "requests": 191,
+          "early_wrong_full_right": 1,
+          "harmful_actual_exits": 1,
+          "actual_exits": 191
+        },
+        "margin-bin-4/queue-bin-3": {
+          "requests": 104,
+          "early_wrong_full_right": 0,
+          "harmful_actual_exits": 0,
+          "actual_exits": 104
+        },
+        "margin-bin-1/queue-bin-3": {
+          "requests": 147,
+          "early_wrong_full_right": 24,
+          "harmful_actual_exits": 0,
+          "actual_exits": 0
+        },
+        "margin-bin-0/queue-bin-1": {
+          "requests": 8,
+          "early_wrong_full_right": 1,
+          "harmful_actual_exits": 0,
+          "actual_exits": 0
+        },
+        "margin-bin-2/queue-bin-1": {
+          "requests": 5,
+          "early_wrong_full_right": 1,
+          "harmful_actual_exits": 0,
+          "actual_exits": 2
+        },
+        "margin-bin-3/queue-bin-0": {
+          "requests": 2,
+          "early_wrong_full_right": 0,
+          "harmful_actual_exits": 0,
+          "actual_exits": 2
+        },
+        "margin-bin-1/queue-bin-0": {
+          "requests": 3,
+          "early_wrong_full_right": 0,
+          "harmful_actual_exits": 0,
+          "actual_exits": 0
+        },
+        "margin-bin-0/queue-bin-0": {
+          "requests": 4,
+          "early_wrong_full_right": 2,
+          "harmful_actual_exits": 0,
+          "actual_exits": 0
+        },
+        "margin-bin-1/queue-bin-1": {
+          "requests": 5,
+          "early_wrong_full_right": 1,
+          "harmful_actual_exits": 0,
+          "actual_exits": 0
+        },
+        "margin-bin-3/queue-bin-1": {
+          "requests": 5,
+          "early_wrong_full_right": 0,
+          "harmful_actual_exits": 0,
+          "actual_exits": 5
+        },
+        "margin-bin-2/queue-bin-0": {
+          "requests": 1,
+          "early_wrong_full_right": 1,
+          "harmful_actual_exits": 1,
+          "actual_exits": 1
+        }
+      }
+    },
+    "fixed_confidence": {
+      "total": {
+        "requests": 960,
+        "potential_early_wrong_full_right": 125,
+        "harmful_actual_exits": 2,
+        "beneficial_actual_exits": 4,
+        "actual_exits": 404
+      },
+      "groups": {
+        "margin-bin-4/queue-bin-0": {
+          "requests": 2,
+          "early_wrong_full_right": 0,
+          "harmful_actual_exits": 0,
+          "actual_exits": 2
+        },
+        "margin-bin-4/queue-bin-1": {
+          "requests": 1,
+          "early_wrong_full_right": 0,
+          "harmful_actual_exits": 0,
+          "actual_exits": 1
+        },
+        "margin-bin-4/queue-bin-2": {
+          "requests": 19,
+          "early_wrong_full_right": 0,
+          "harmful_actual_exits": 0,
+          "actual_exits": 19
+        },
+        "margin-bin-0/queue-bin-2": {
+          "requests": 37,
+          "early_wrong_full_right": 12,
+          "harmful_actual_exits": 0,
+          "actual_exits": 0
+        },
+        "margin-bin-0/queue-bin-3": {
+          "requests": 211,
+          "early_wrong_full_right": 67,
+          "harmful_actual_exits": 0,
+          "actual_exits": 0
+        },
+        "margin-bin-1/queue-bin-2": {
+          "requests": 32,
+          "early_wrong_full_right": 8,
+          "harmful_actual_exits": 0,
+          "actual_exits": 0
+        },
+        "margin-bin-2/queue-bin-2": {
+          "requests": 23,
+          "early_wrong_full_right": 0,
+          "harmful_actual_exits": 0,
+          "actual_exits": 8
+        },
+        "margin-bin-3/queue-bin-1": {
+          "requests": 5,
+          "early_wrong_full_right": 0,
+          "harmful_actual_exits": 0,
+          "actual_exits": 5
+        },
+        "margin-bin-3/queue-bin-3": {
+          "requests": 215,
+          "early_wrong_full_right": 1,
+          "harmful_actual_exits": 1,
+          "actual_exits": 215
+        },
+        "margin-bin-4/queue-bin-3": {
+          "requests": 104,
+          "early_wrong_full_right": 0,
+          "harmful_actual_exits": 0,
+          "actual_exits": 104
+        },
+        "margin-bin-1/queue-bin-3": {
+          "requests": 155,
+          "early_wrong_full_right": 24,
+          "harmful_actual_exits": 0,
+          "actual_exits": 0
+        },
+        "margin-bin-2/queue-bin-3": {
+          "requests": 106,
+          "early_wrong_full_right": 7,
+          "harmful_actual_exits": 1,
+          "actual_exits": 21
+        },
+        "margin-bin-3/queue-bin-2": {
+          "requests": 27,
+          "early_wrong_full_right": 0,
+          "harmful_actual_exits": 0,
+          "actual_exits": 27
+        },
+        "margin-bin-0/queue-bin-1": {
+          "requests": 6,
+          "early_wrong_full_right": 1,
+          "harmful_actual_exits": 0,
+          "actual_exits": 0
+        },
+        "margin-bin-2/queue-bin-1": {
+          "requests": 3,
+          "early_wrong_full_right": 1,
+          "harmful_actual_exits": 0,
+          "actual_exits": 0
+        },
+        "margin-bin-3/queue-bin-0": {
+          "requests": 2,
+          "early_wrong_full_right": 0,
+          "harmful_actual_exits": 0,
+          "actual_exits": 2
+        },
+        "margin-bin-1/queue-bin-0": {
+          "requests": 3,
+          "early_wrong_full_right": 0,
+          "harmful_actual_exits": 0,
+          "actual_exits": 0
+        },
+        "margin-bin-0/queue-bin-0": {
+          "requests": 4,
+          "early_wrong_full_right": 2,
+          "harmful_actual_exits": 0,
+          "actual_exits": 0
+        },
+        "margin-bin-1/queue-bin-1": {
+          "requests": 4,
+          "early_wrong_full_right": 1,
+          "harmful_actual_exits": 0,
+          "actual_exits": 0
+        },
+        "margin-bin-2/queue-bin-0": {
+          "requests": 1,
+          "early_wrong_full_right": 1,
+          "harmful_actual_exits": 0,
+          "actual_exits": 0
+        }
+      }
+    },
+    "safeguarded_queue": {
+      "total": {
+        "requests": 960,
+        "potential_early_wrong_full_right": 125,
+        "harmful_actual_exits": 2,
+        "beneficial_actual_exits": 4,
+        "actual_exits": 396
+      },
+      "groups": {
+        "margin-bin-4/queue-bin-0": {
+          "requests": 2,
+          "early_wrong_full_right": 0,
+          "harmful_actual_exits": 0,
+          "actual_exits": 0
+        },
+        "margin-bin-4/queue-bin-2": {
+          "requests": 17,
+          "early_wrong_full_right": 0,
+          "harmful_actual_exits": 0,
+          "actual_exits": 17
+        },
+        "margin-bin-0/queue-bin-3": {
+          "requests": 213,
+          "early_wrong_full_right": 67,
+          "harmful_actual_exits": 0,
+          "actual_exits": 0
+        },
+        "margin-bin-0/queue-bin-2": {
+          "requests": 36,
+          "early_wrong_full_right": 12,
+          "harmful_actual_exits": 0,
+          "actual_exits": 0
+        },
+        "margin-bin-1/queue-bin-2": {
+          "requests": 31,
+          "early_wrong_full_right": 9,
+          "harmful_actual_exits": 0,
+          "actual_exits": 0
+        },
+        "margin-bin-2/queue-bin-2": {
+          "requests": 17,
+          "early_wrong_full_right": 0,
+          "harmful_actual_exits": 0,
+          "actual_exits": 5
+        },
+        "margin-bin-3/queue-bin-2": {
+          "requests": 27,
+          "early_wrong_full_right": 0,
+          "harmful_actual_exits": 0,
+          "actual_exits": 27
+        },
+        "margin-bin-2/queue-bin-3": {
+          "requests": 112,
+          "early_wrong_full_right": 7,
+          "harmful_actual_exits": 1,
+          "actual_exits": 24
+        },
+        "margin-bin-3/queue-bin-3": {
+          "requests": 216,
+          "early_wrong_full_right": 1,
+          "harmful_actual_exits": 1,
+          "actual_exits": 216
+        },
+        "margin-bin-4/queue-bin-3": {
+          "requests": 107,
+          "early_wrong_full_right": 0,
+          "harmful_actual_exits": 0,
+          "actual_exits": 107
+        },
+        "margin-bin-1/queue-bin-3": {
+          "requests": 158,
+          "early_wrong_full_right": 24,
+          "harmful_actual_exits": 0,
+          "actual_exits": 0
+        },
+        "margin-bin-0/queue-bin-1": {
+          "requests": 5,
+          "early_wrong_full_right": 1,
+          "harmful_actual_exits": 0,
+          "actual_exits": 0
+        },
+        "margin-bin-2/queue-bin-1": {
+          "requests": 3,
+          "early_wrong_full_right": 1,
+          "harmful_actual_exits": 0,
+          "actual_exits": 0
+        },
+        "margin-bin-3/queue-bin-0": {
+          "requests": 2,
+          "early_wrong_full_right": 0,
+          "harmful_actual_exits": 0,
+          "actual_exits": 0
+        },
+        "margin-bin-1/queue-bin-0": {
+          "requests": 3,
+          "early_wrong_full_right": 0,
+          "harmful_actual_exits": 0,
+          "actual_exits": 0
+        },
+        "margin-bin-0/queue-bin-0": {
+          "requests": 4,
+          "early_wrong_full_right": 2,
+          "harmful_actual_exits": 0,
+          "actual_exits": 0
+        },
+        "margin-bin-3/queue-bin-1": {
+          "requests": 4,
+          "early_wrong_full_right": 0,
+          "harmful_actual_exits": 0,
+          "actual_exits": 0
+        },
+        "margin-bin-1/queue-bin-1": {
+          "requests": 2,
+          "early_wrong_full_right": 0,
+          "harmful_actual_exits": 0,
+          "actual_exits": 0
+        },
+        "margin-bin-2/queue-bin-0": {
+          "requests": 1,
+          "early_wrong_full_right": 1,
+          "harmful_actual_exits": 0,
+          "actual_exits": 0
+        }
+      }
+    }
+  },
+  "steady": {
+    "best_fixed": {
+      "total": {
+        "requests": 960,
+        "potential_early_wrong_full_right": 125,
+        "harmful_actual_exits": 7,
+        "beneficial_actual_exits": 9,
+        "actual_exits": 477
+      },
+      "groups": {
+        "margin-bin-4/queue-bin-0": {
+          "requests": 126,
+          "early_wrong_full_right": 0,
+          "harmful_actual_exits": 0,
+          "actual_exits": 126
+        },
+        "margin-bin-0/queue-bin-0": {
+          "requests": 258,
+          "early_wrong_full_right": 82,
+          "harmful_actual_exits": 0,
+          "actual_exits": 0
+        },
+        "margin-bin-1/queue-bin-0": {
+          "requests": 194,
+          "early_wrong_full_right": 33,
+          "harmful_actual_exits": 0,
+          "actual_exits": 0
+        },
+        "margin-bin-2/queue-bin-0": {
+          "requests": 133,
+          "early_wrong_full_right": 9,
+          "harmful_actual_exits": 6,
+          "actual_exits": 102
+        },
+        "margin-bin-3/queue-bin-0": {
+          "requests": 249,
+          "early_wrong_full_right": 1,
+          "harmful_actual_exits": 1,
+          "actual_exits": 249
+        }
+      }
+    },
+    "fixed_confidence": {
+      "total": {
+        "requests": 960,
+        "potential_early_wrong_full_right": 125,
+        "harmful_actual_exits": 2,
+        "beneficial_actual_exits": 4,
+        "actual_exits": 404
+      },
+      "groups": {
+        "margin-bin-4/queue-bin-0": {
+          "requests": 126,
+          "early_wrong_full_right": 0,
+          "harmful_actual_exits": 0,
+          "actual_exits": 126
+        },
+        "margin-bin-0/queue-bin-0": {
+          "requests": 258,
+          "early_wrong_full_right": 82,
+          "harmful_actual_exits": 0,
+          "actual_exits": 0
+        },
+        "margin-bin-1/queue-bin-0": {
+          "requests": 194,
+          "early_wrong_full_right": 33,
+          "harmful_actual_exits": 0,
+          "actual_exits": 0
+        },
+        "margin-bin-2/queue-bin-0": {
+          "requests": 133,
+          "early_wrong_full_right": 9,
+          "harmful_actual_exits": 1,
+          "actual_exits": 29
+        },
+        "margin-bin-3/queue-bin-0": {
+          "requests": 249,
+          "early_wrong_full_right": 1,
+          "harmful_actual_exits": 1,
+          "actual_exits": 249
+        }
+      }
+    },
+    "safeguarded_queue": {
+      "total": {
+        "requests": 960,
+        "potential_early_wrong_full_right": 125,
+        "harmful_actual_exits": 0,
+        "beneficial_actual_exits": 0,
+        "actual_exits": 0
+      },
+      "groups": {
+        "margin-bin-4/queue-bin-0": {
+          "requests": 121,
+          "early_wrong_full_right": 0,
+          "harmful_actual_exits": 0,
+          "actual_exits": 0
+        },
+        "margin-bin-0/queue-bin-0": {
+          "requests": 255,
+          "early_wrong_full_right": 82,
+          "harmful_actual_exits": 0,
+          "actual_exits": 0
+        },
+        "margin-bin-1/queue-bin-0": {
+          "requests": 189,
+          "early_wrong_full_right": 33,
+          "harmful_actual_exits": 0,
+          "actual_exits": 0
+        },
+        "margin-bin-2/queue-bin-0": {
+          "requests": 132,
+          "early_wrong_full_right": 9,
+          "harmful_actual_exits": 0,
+          "actual_exits": 0
+        },
+        "margin-bin-3/queue-bin-0": {
+          "requests": 247,
+          "early_wrong_full_right": 1,
+          "harmful_actual_exits": 0,
+          "actual_exits": 0
+        },
+        "margin-bin-4/queue-bin-1": {
+          "requests": 5,
+          "early_wrong_full_right": 0,
+          "harmful_actual_exits": 0,
+          "actual_exits": 0
+        },
+        "margin-bin-0/queue-bin-1": {
+          "requests": 3,
+          "early_wrong_full_right": 0,
+          "harmful_actual_exits": 0,
+          "actual_exits": 0
+        },
+        "margin-bin-1/queue-bin-1": {
+          "requests": 5,
+          "early_wrong_full_right": 0,
+          "harmful_actual_exits": 0,
+          "actual_exits": 0
+        },
+        "margin-bin-2/queue-bin-1": {
+          "requests": 1,
+          "early_wrong_full_right": 0,
+          "harmful_actual_exits": 0,
+          "actual_exits": 0
+        },
+        "margin-bin-3/queue-bin-1": {
+          "requests": 2,
+          "early_wrong_full_right": 0,
+          "harmful_actual_exits": 0,
+          "actual_exits": 0
+        }
+      }
+    }
+  }
+}
