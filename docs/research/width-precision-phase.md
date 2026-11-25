@@ -1,6 +1,6 @@
 # Next research phase: width and precision action profiling
 
-**Status: the fixed width/precision storage grid and a compact-encoder control are complete. The compact FP32 model is the next fixed candidate for full-budget and fresh multi-load confirmation.** The frozen load sweep found no supported winning range for queue-aware confidence relaxation. Carry the calibrated fixed margin policy forward and return to the project's original representation question.
+**Status: the frozen compact multi-load latency validation is complete. Quality noninferiority remains inconclusive per load; fixed-baseline promotion awaits a larger independent quality panel.** The frozen load sweep found no supported winning range for queue-aware confidence relaxation. Carry the calibrated fixed margin policy forward and return to the project's original representation question.
 
 The [matched live PCA experiment](live-pca-comparison.md) selected 256D, halved vector bytes, but failed held-out quality preservation and live latency gates. Both paths still execute the same ResNet-18 graph. Target actual encoder computation next, with matched training and static quality/cost checks before adaptation. Native encoder precision changes remain untested in this phase.
 
@@ -26,3 +26,7 @@ Do quality-feasible width/precision configurations offer a measured cost or reso
 Do not build a new adaptive policy until action profiles show at least two compatible, quality-feasible choices with credible differences in cost or measured resource-budget feasibility. A latency win retains the existing 5% lower end-to-end p95 and at most one-point accuracy-loss criterion against the relevant strongest fixed comparator. A separate storage/memory result must state its own measured objective and must not be presented as a latency win.
 
 If the shared encoder dominates runtime, a smaller pooled representation may improve payload size without materially improving complete inference. Report that boundary honestly. The next implementation decision should follow the measured action surface, rather than more queue-threshold tuning on already evaluated traces.
+
+## Fresh compact architecture validation
+
+The [frozen multi-load study](compact-load-sweep.md) completes thirty matched sessions across five nominal load points plus a separately reported slow-load check. Compact clears every original latency comparison, but the original per-load quality bounds remain inconclusive. The supplemental low-load check exposed an unresolved encoder spike. No fixed-baseline promotion or controller is adopted; independent timing stability and larger quality validation are next.

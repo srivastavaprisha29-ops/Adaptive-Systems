@@ -1,0 +1,20 @@
+{
+  "frozen_candidate": "MobileNetV3-Small IMAGENET1K_V1 body plus existing 4000-image ridge head",
+  "comparators": ["full-width ResNet-18 FP32", "frozen reduced-width INT8 feature-storage grid winner with FP32 reconstruction"],
+  "seed": 2026112607,
+  "capacity_calibration": {"images": 24, "repeats": 3, "warmup": 6, "statistic": "median wall service time", "split": "original calibration only"},
+  "reference_utilizations": [0.65, 0.95, 1.15],
+  "compact_utilizations": [0.95, 1.15],
+  "sessions_per_level": 6,
+  "requests_per_session": 96,
+  "arrival_pattern": "constant open-loop relative schedule; session queue starts empty",
+  "ordering": "all six model permutations once per load, then seeded shuffle of jobs",
+  "image_selection": "2880 unique test IDs excluding prior live-PCA, load-sweep and channel-narrow saved held-out/trace IDs",
+  "timing_boundary": "scheduled arrival through completed scalar prediction, including preprocessing, monitor, dispatch, encoder, adapter and classifier",
+  "bootstrap_samples": 20000,
+  "simultaneous_one_sided_tail": 0.00125,
+  "comparison_family": "10 latency and 10 load-specific paired quality comparisons, conservative two-tail Bonferroni allowance",
+  "adoption": {"p95_improvement_lower_pct": 5, "accuracy_delta_lower_pp": -1, "required": "both references at every tested load"},
+  "embedding_bytes": {"resnet18": 2048, "grid_fixed": 256, "compact": 2304},
+  "no_tuning_on_evaluation": true
+}

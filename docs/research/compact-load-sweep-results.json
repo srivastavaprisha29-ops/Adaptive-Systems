@@ -1,0 +1,661 @@
+{
+  "original": {
+    "results": {
+      "reference_below": {
+        "comparisons": {
+          "resnet18": {
+            "timing": {
+              "mean": 88.21723458695669,
+              "interval_95": [
+                81.01916313499783,
+                95.41530603891556
+              ],
+              "adoption_lower": 77.2161128541717
+            },
+            "accuracy_delta_pp": {
+              "mean": 4.513888888888889,
+              "interval_95": [
+                1.0416666666666667,
+                7.986111111111111
+              ],
+              "adoption_lower": -0.8680555555555556
+            },
+            "passed": true
+          },
+          "grid_fixed": {
+            "timing": {
+              "mean": 81.78553150580083,
+              "interval_95": [
+                74.89299460227356,
+                89.87556021350623
+              ],
+              "adoption_lower": 72.94698114472463
+            },
+            "accuracy_delta_pp": {
+              "mean": 3.8194444444444446,
+              "interval_95": [
+                0.5208333333333334,
+                7.118055555555555
+              ],
+              "adoption_lower": -1.3888888888888888
+            },
+            "passed": false
+          }
+        },
+        "metrics": {
+          "resnet18": {
+            "accuracy_pct": 78.81944444444444,
+            "mean_encoder_ms": 70.94502737847222,
+            "mean_wait_ms": 650.9307018402777,
+            "p95_wait_ms": 1334.0787758333333,
+            "p95_response_ms": 1427.3049807083332,
+            "mean_service_ms": 73.71298030034723
+          },
+          "grid_fixed": {
+            "accuracy_pct": 79.51388888888889,
+            "mean_encoder_ms": 54.07694215972222,
+            "mean_wait_ms": 99.4508726857639,
+            "p95_wait_ms": 514.8265986250001,
+            "p95_response_ms": 577.2295853333333,
+            "mean_service_ms": 56.55208721875
+          },
+          "compact": {
+            "accuracy_pct": 83.33333333333333,
+            "mean_encoder_ms": 9.307606331597222,
+            "mean_wait_ms": 1.2013289322916667,
+            "p95_wait_ms": 6.569370916666666,
+            "p95_response_ms": 26.45338745833333,
+            "mean_service_ms": 11.85123726736111
+          }
+        }
+      },
+      "reference_near": {
+        "comparisons": {
+          "resnet18": {
+            "timing": {
+              "mean": 88.71184221959008,
+              "interval_95": [
+                80.78765341313446,
+                95.41168180211554
+              ],
+              "adoption_lower": 76.63534627254926
+            },
+            "accuracy_delta_pp": {
+              "mean": -0.5208333333333334,
+              "interval_95": [
+                -3.6458333333333335,
+                2.6041666666666665
+              ],
+              "adoption_lower": -5.208333333333333
+            },
+            "passed": false
+          },
+          "grid_fixed": {
+            "timing": {
+              "mean": 95.412210192751,
+              "interval_95": [
+                93.57890142612312,
+                97.13393693905911
+              ],
+              "adoption_lower": 92.65778207995012
+            },
+            "accuracy_delta_pp": {
+              "mean": -0.5208333333333334,
+              "interval_95": [
+                -3.6458333333333335,
+                2.6041666666666665
+              ],
+              "adoption_lower": -5.381944444444445
+            },
+            "passed": false
+          }
+        },
+        "metrics": {
+          "resnet18": {
+            "accuracy_pct": 82.11805555555556,
+            "mean_encoder_ms": 46.42738779513889,
+            "mean_wait_ms": 136.16456596875,
+            "p95_wait_ms": 271.8731750833333,
+            "p95_response_ms": 320.998342125,
+            "mean_service_ms": 48.115191260416665
+          },
+          "grid_fixed": {
+            "accuracy_pct": 82.11805555555556,
+            "mean_encoder_ms": 48.77488009722222,
+            "mean_wait_ms": 254.98875671180554,
+            "p95_wait_ms": 452.3609627916667,
+            "p95_response_ms": 507.568393875,
+            "mean_service_ms": 50.70568559375
+          },
+          "compact": {
+            "accuracy_pct": 81.59722222222221,
+            "mean_encoder_ms": 8.213062602430556,
+            "mean_wait_ms": 0.2881290538194444,
+            "p95_wait_ms": 0.49305183333333336,
+            "p95_response_ms": 16.000330083333335,
+            "mean_service_ms": 10.023973022569445
+          }
+        }
+      },
+      "reference_above": {
+        "comparisons": {
+          "resnet18": {
+            "timing": {
+              "mean": 98.67887215222169,
+              "interval_95": [
+                97.78454306247909,
+                99.4888883973759
+              ],
+              "adoption_lower": 97.31088507502776
+            },
+            "accuracy_delta_pp": {
+              "mean": 1.5625,
+              "interval_95": [
+                -1.7361111111111112,
+                4.861111111111111
+              ],
+              "adoption_lower": -3.4722222222222223
+            },
+            "passed": false
+          },
+          "grid_fixed": {
+            "timing": {
+              "mean": 97.65912496428014,
+              "interval_95": [
+                96.68571005797402,
+                98.48149864854287
+              ],
+              "adoption_lower": 96.14526141462008
+            },
+            "accuracy_delta_pp": {
+              "mean": 2.2569444444444446,
+              "interval_95": [
+                -0.8680555555555556,
+                5.381944444444445
+              ],
+              "adoption_lower": -2.4305555555555554
+            },
+            "passed": false
+          }
+        },
+        "metrics": {
+          "resnet18": {
+            "accuracy_pct": 83.15972222222223,
+            "mean_encoder_ms": 75.15764699131944,
+            "mean_wait_ms": 2384.8195974079863,
+            "p95_wait_ms": 3703.1111591249996,
+            "p95_response_ms": 3746.7094209166667,
+            "mean_service_ms": 77.65798289756944
+          },
+          "grid_fixed": {
+            "accuracy_pct": 82.46527777777779,
+            "mean_encoder_ms": 44.37714013888889,
+            "mean_wait_ms": 344.3536914965278,
+            "p95_wait_ms": 658.2380630833334,
+            "p95_response_ms": 706.7078939166666,
+            "mean_service_ms": 46.225275204861106
+          },
+          "compact": {
+            "accuracy_pct": 84.72222222222223,
+            "mean_encoder_ms": 6.965725137152778,
+            "mean_wait_ms": 0.5317242395833334,
+            "p95_wait_ms": 0.4344679166666666,
+            "p95_response_ms": 13.278813291666667,
+            "mean_service_ms": 8.845583598958333
+          }
+        }
+      },
+      "compact_near": {
+        "comparisons": {
+          "resnet18": {
+            "timing": {
+              "mean": 98.65479665595588,
+              "interval_95": [
+                96.91605724564974,
+                99.63810402854797
+              ],
+              "adoption_lower": 96.04040604273601
+            },
+            "accuracy_delta_pp": {
+              "mean": 2.951388888888889,
+              "interval_95": [
+                -0.1736111111111111,
+                6.076388888888889
+              ],
+              "adoption_lower": -1.9097222222222223
+            },
+            "passed": false
+          },
+          "grid_fixed": {
+            "timing": {
+              "mean": 98.08979073687021,
+              "interval_95": [
+                95.40922384480947,
+                99.57095469289808
+              ],
+              "adoption_lower": 94.04213326391226
+            },
+            "accuracy_delta_pp": {
+              "mean": 1.9097222222222223,
+              "interval_95": [
+                -1.3888888888888888,
+                5.034722222222222
+              ],
+              "adoption_lower": -2.951388888888889
+            },
+            "passed": false
+          }
+        },
+        "metrics": {
+          "resnet18": {
+            "accuracy_pct": 80.72916666666667,
+            "mean_encoder_ms": 58.062065437499996,
+            "mean_wait_ms": 2528.496953748264,
+            "p95_wait_ms": 4805.371231499999,
+            "p95_response_ms": 4852.795035041667,
+            "mean_service_ms": 61.02294299305555
+          },
+          "grid_fixed": {
+            "accuracy_pct": 81.77083333333334,
+            "mean_encoder_ms": 46.052031678819446,
+            "mean_wait_ms": 1826.5208955121527,
+            "p95_wait_ms": 3525.2573607083336,
+            "p95_response_ms": 3574.0470029166668,
+            "mean_service_ms": 47.90150068055556
+          },
+          "compact": {
+            "accuracy_pct": 83.68055555555556,
+            "mean_encoder_ms": 6.964001458333334,
+            "mean_wait_ms": 26.659838914930557,
+            "p95_wait_ms": 53.664933500000004,
+            "p95_response_ms": 62.67082333333333,
+            "mean_service_ms": 8.574912083333333
+          }
+        }
+      },
+      "compact_above": {
+        "comparisons": {
+          "resnet18": {
+            "timing": {
+              "mean": 96.00418009994046,
+              "interval_95": [
+                91.82444449899897,
+                98.61244773827232
+              ],
+              "adoption_lower": 89.44832149079019
+            },
+            "accuracy_delta_pp": {
+              "mean": 2.0833333333333335,
+              "interval_95": [
+                -1.0416666666666667,
+                5.208333333333333
+              ],
+              "adoption_lower": -3.125
+            },
+            "passed": false
+          },
+          "grid_fixed": {
+            "timing": {
+              "mean": 95.8429306376091,
+              "interval_95": [
+                91.38712678454917,
+                98.60704750310208
+              ],
+              "adoption_lower": 88.86764852257232
+            },
+            "accuracy_delta_pp": {
+              "mean": 1.5625,
+              "interval_95": [
+                -1.5625,
+                4.6875
+              ],
+              "adoption_lower": -3.125
+            },
+            "passed": false
+          }
+        },
+        "metrics": {
+          "resnet18": {
+            "accuracy_pct": 83.50694444444444,
+            "mean_encoder_ms": 52.226029078125,
+            "mean_wait_ms": 2214.7525085260418,
+            "p95_wait_ms": 4203.77343925,
+            "p95_response_ms": 4264.675995083333,
+            "mean_service_ms": 54.22775793923611
+          },
+          "grid_fixed": {
+            "accuracy_pct": 84.02777777777777,
+            "mean_encoder_ms": 50.401724199652776,
+            "mean_wait_ms": 2042.996353951389,
+            "p95_wait_ms": 4098.8956635,
+            "p95_response_ms": 4152.13970975,
+            "mean_service_ms": 52.34230837152778
+          },
+          "compact": {
+            "accuracy_pct": 85.59027777777779,
+            "mean_encoder_ms": 7.782222626736111,
+            "mean_wait_ms": 119.71002003298611,
+            "p95_wait_ms": 219.06542891666666,
+            "p95_response_ms": 228.17584045833334,
+            "mean_service_ms": 9.504991921875
+          }
+        }
+      }
+    },
+    "all_loads_passed": false,
+    "family_tail": 0.00125,
+    "accuracy_pct": {
+      "resnet18": 81.66666666666667,
+      "grid_fixed": 81.97916666666667,
+      "compact": 83.78472222222221
+    },
+    "fresh_examples": 2880,
+    "live_requests": 8640,
+    "lock_sha256": "2e6835086edfe86b37ef8b47e9831b1917d86ed51c4bf1658be31b4b01cd3f99",
+    "evidence_sha256": {
+      "lock.json": "2e6835086edfe86b37ef8b47e9831b1917d86ed51c4bf1658be31b4b01cd3f99",
+      "predictions.json": "bb952a038e84426a3edb5e410bbc823b6ab15d3b136197d89369552d1f38f847",
+      "sessions.json": "2fd4412a3275f976cbbf99437daa24f1954aaf86c63ac5a155d69fb8cbc06e0f",
+      "session-22/compact.json": "af2ccd6569966f33ae9044c0db662fa4531faea685fec98362aeebcbe1776308",
+      "session-22/resnet18.json": "e84055fd509de8a04fc54f70c739d833e3c2812dbc4bb94af6eafc2f14ab6e11",
+      "session-22/grid_fixed.json": "04ebff98a63aa4a590d8703858acceb29b28a932863d97215afbd41b8140dc5a",
+      "session-21/compact.json": "48273b91e19954ccc11fce99c892b7d7601b56440cf84eb9b1bdbb7d1da65bca",
+      "session-21/resnet18.json": "99f6ec80a50660e28552872ecc2f14f5f9cea82e196bee1d8230b5ae11f412c7",
+      "session-21/grid_fixed.json": "8abc5395927f22801ac20c14a2cf77dd7b120cbad38be2b2a846421234e0c5d9",
+      "session-8/compact.json": "bcc53afb34e378c730d2f7be64f15c7a1f00cc7cccc7606bfe0fa6d23726f912",
+      "session-8/resnet18.json": "4a366bdfcea8d07fa0956d52a98052314ae85d7fed3e8627f5f6b455b67936b5",
+      "session-8/grid_fixed.json": "298d5d25ee71ab79ac10523a5001b5966dcdc9c46cf14b157e1f9641a6d45908",
+      "session-14/compact.json": "9a45513684ddfe9051d25d5931bc62d632a8f492b5a8ad29978b1c490fe26ed1",
+      "session-14/resnet18.json": "276f804ef71075727d2f737502b4711e17430916f70904896c494c518be4716d",
+      "session-14/grid_fixed.json": "ad13e195ea85a0adfcdc87076bebe660fba93ebfbf4de7455590dada0a85ac0d",
+      "session-24/compact.json": "da9d60187572ca31b877e8b0e91beed9881bfdb7ecbc040bf182a7a3cb3f2d87",
+      "session-24/resnet18.json": "00ae50c058e3cb14e0c610cbec067cd4cbcb2f949b34f1343d0cdb4513f5f022",
+      "session-24/grid_fixed.json": "ef9398cfd50b37c97012c7724d283bdd9a24a3e933edb0aacae41f63e1b838e1",
+      "session-25/compact.json": "ee3de28843282d2cf50abc45637b66b23ca47f89c98cbe580c5ac642a9c33ebb",
+      "session-25/resnet18.json": "ce0f0f5676375bf7a775b55c05cb630a008b1b3789a0dff9d3494123fe59f02b",
+      "session-25/grid_fixed.json": "b94b80d200bed9e31928137e5586e129bcccda28142c4fcd70bbb50dd362ca42",
+      "session-20/compact.json": "a029482b5e0045518eb575435154384b565f3629336057e1019271ceb3558e1c",
+      "session-20/resnet18.json": "d0ea3fa146ff999d505e3004cb2846a95337e85c56688dcc09347fa26169a8da",
+      "session-20/grid_fixed.json": "c7df206982b84479ef674ad773462cb084ad7814c3f9d93f5590911e5ce007ca",
+      "session-13/compact.json": "0a4e364d661fc039a2746b2a92655122b28cf73dd7a1e09eb3433632e1f1792f",
+      "session-13/resnet18.json": "9d440bb2a4bcf135d984f6624a246f7b0dd4e35833306ecbe743895d61037778",
+      "session-13/grid_fixed.json": "a8dbe098945caa56e3c3a3fb34dc7d21cad051baf21617c1bfdcb0a6528b6d29",
+      "session-27/compact.json": "6fa6b5909bc0d1d4fcf4d0e57bb3427f58ed3e4a694189d7272498d54bfbf36a",
+      "session-27/resnet18.json": "9e878e15e4507e804bea9ccfe7910ea1c6f70b35cba8eefac5f8bd56d6f1f9f7",
+      "session-27/grid_fixed.json": "d961890f9af246efb9c02eae6769be8666c9b99d92dc496f9da63c296b36083d",
+      "session-29/compact.json": "3cf1e5478356096227bd54eedc5dd5a13b72ed20f6af74d597fee67f421a57bf",
+      "session-29/resnet18.json": "b2404e2de5620e4239b30756b9d482dd12a5a3f6a24543ba1ab9c8d297cbc5a6",
+      "session-29/grid_fixed.json": "b73de234c3c479f4729297766fa15a155733c7b57b4f026c2d9483f0bb2229d5",
+      "session-1/compact.json": "7cf2da10e5e83e3a7821c3db6b73f7dc205235f3fe75cd1c4b54106554ed2fd4",
+      "session-1/resnet18.json": "12910ab2354918dd31dc3027c737c5425c95b1a9f1f6a2e269cefbc9472c1abb",
+      "session-1/grid_fixed.json": "4ee57b752c6efcfba58d71efcf1fc1291e9b98d3cc2f5341ff5ba6823fcdc37b",
+      "session-23/compact.json": "1d6f0762cca77e982e0bc060e884c1aa47406ec5a9efcc52cbd92ae448b1fe25",
+      "session-23/resnet18.json": "db842113cf40d4241a541e7b99926eda1f136066bc02f6b8a1ee7f96c7ed7968",
+      "session-23/grid_fixed.json": "31ef69ed8043ac53c4c26d1bd9401bd5acc6921a7abc41744c608fc8a133b846",
+      "session-15/compact.json": "afad6a44e39c79b4719b28a6fe4359c4cc6621417ef6cbf3534df3115bf2be5b",
+      "session-15/resnet18.json": "812cea33c182cb42f9cba23b07fa60b5df832b7e449aafbf6f61e1f9b1e9d6dd",
+      "session-15/grid_fixed.json": "c7491bf1518c48fb4095d7776a9d6919658e778254ebd862754bd930b70b022f",
+      "session-0/compact.json": "af195a702208a58c3291b193cf79d146c85ba86a448c61e78ebb35ec9f6ccb4d",
+      "session-0/resnet18.json": "ec3ffc17c4521ed29cf356b2ac9e8c70df0b8b25a8c12985f38aa002749fe5f8",
+      "session-0/grid_fixed.json": "3a27a41a21b0e57920fedbc85f5d20b45776095115a53985eb285430ca5b5489",
+      "session-19/compact.json": "e96cbf968e7039980635f58d3c19e22a5d5b4949475308f101278878195f9d1e",
+      "session-19/resnet18.json": "a1dfc54a02a5f2a2564fe55984933b9d43d22f3266a52cb6c4f09fb31d97a069",
+      "session-19/grid_fixed.json": "122075410d52d72990cb8f8eac6a0d3d2e55d8e6e445215a9c9a0714ce652aa4",
+      "session-28/compact.json": "d73d86711b59ed10c328cbe97c87e173da975bfc579d1efe693f091a4330d02a",
+      "session-28/resnet18.json": "bf4af1e10cade70aaf78ad316e038bfcdebd99afbbaa161466b63337d09872a4",
+      "session-28/grid_fixed.json": "cea954c5615187755f73c61c341b42064378a4972b69ee876e4f913c27b7483e",
+      "session-6/compact.json": "b5e12ab214621fed8e4492d2c5686067619425c1c2b3e68db813d85fc459579b",
+      "session-6/resnet18.json": "6938ae21f74248a9c8590423a364ed8719d7952dfa337853f467c27d46a54f89",
+      "session-6/grid_fixed.json": "95569546769feec832262fc0daa6a54f9d876c499bec3e971e47eb9ce1e7efd3",
+      "session-2/compact.json": "ee642325bbc428be0a806021ca509c7b23cc3bb1e1e238a379bf7cbece0da915",
+      "session-2/resnet18.json": "5abb8ff79787a6a2a8167c6d5fda88362bc14b10f563eb10ebdbe202cbd65e7f",
+      "session-2/grid_fixed.json": "eebfbf9991a7ef7b1c2f14132cfaea4fc43f788eda70cb5b4a7a28fe129160aa",
+      "session-5/compact.json": "e917044c71c09c852f9b92a63fcbea7bdd9e542e712478baddcaec5e0bd90f9f",
+      "session-5/resnet18.json": "75cd19c5f492806831cfac6ffaf0eab5e800990b30f50d39a830f60d0d66d285",
+      "session-5/grid_fixed.json": "671ba50a9f4baa3f0bdd75678525096b2778f73fd2beed1116f8477ced09f1b5",
+      "session-10/compact.json": "75fac1dd7165d378685db710f86cced07809150e5f6429f4189cc3eef133189d",
+      "session-10/resnet18.json": "aa442ab2445e22f818071aac00eb36772b697d4cc1c61d9d96295ff5221840e2",
+      "session-10/grid_fixed.json": "5f540f024849a487e2d7a7d4bdc05bed04c14ec81ae9496e39da400642f8c1a7",
+      "session-26/compact.json": "73c21ca366072b30aba41adfe1da9f5dc0f17b89d1e77b420ea401a1fdc03851",
+      "session-26/resnet18.json": "75a3047a5461a334707122a7ebbf7588fab0f5b3128083111e9ffe6c2d3a4abc",
+      "session-26/grid_fixed.json": "0a87e47b610e69e766ac27f65740a516d7d88b92e76e9faa06f505618f05d185",
+      "session-3/compact.json": "ad5f58d5776bff264276f744acb9accb2f7f6bfbeb40933ff2fb34506d385534",
+      "session-3/resnet18.json": "66737cd184013b0714be0f4af8d2c2f5bbf4267c2c3aa1c5af4b9e48c38c9e09",
+      "session-3/grid_fixed.json": "f43b4c46da8381868019af2cf29962927a41710e5e6a79a6b3a57fdcfca13928",
+      "session-7/compact.json": "440b03af7fb050edf472b9ba8407434c9f01daed4b4e28e520595fcbd1706d23",
+      "session-7/resnet18.json": "1af5cb69fc388c714ae3a14087b9bb7b92678436afe3fd80a0a8e29a121c74ac",
+      "session-7/grid_fixed.json": "e9159dbb67dca424aae89034d8efc6f1a56e190242fbf41ba6734f11d4ff7dea",
+      "session-17/compact.json": "183acfd35d47d60409a876f97ba7e3f329bec513d6812ae827e4d3f99e0396b7",
+      "session-17/resnet18.json": "edb7c716cc101b20c838644e21e16bb9a697cac6c64096ef8078d4e796568548",
+      "session-17/grid_fixed.json": "dfbad09b4e06a80909656dfe31667e1b76bb95a003820b34272abde4b1608baf",
+      "session-4/compact.json": "0b8c2cee1eeb8b76a23143cd0694c31c0659864d7df7d61ade4219c7306de7d0",
+      "session-4/resnet18.json": "beb686f592de08b0a3733dc545d4528d08431e42881cd8f9ef69501cd653581e",
+      "session-4/grid_fixed.json": "63d773e0e1494e782fafb38b1575e43b680fbfa1e48a7c07486c8e5a8104844c",
+      "session-11/compact.json": "35f234d021f3415bd2e76b48a04e60f1e2efa8f6ed3b54e6f0cd16478329221e",
+      "session-11/resnet18.json": "972f40e20966a7ffd38a3972d52ac941a22b77dbadd35a8caa8d38e46ddcc06f",
+      "session-11/grid_fixed.json": "560c9a0b1c4fb0f2a24c790f5108aa2245715c8723f081c5ca496067ba8aa4cf",
+      "session-12/compact.json": "7d8ef27871061fecec1003d9d7848b3488561c7a8ff8250f5fa6eeff28a38bf1",
+      "session-12/resnet18.json": "11f7476c1d2c8e133375671608a35b567b97c8edeaa85174870ae709af3e93cc",
+      "session-12/grid_fixed.json": "c237a8a79b5dbccb95d2efd57b964c664d1f380ff81b3996558a8eb21e2168c5",
+      "session-16/compact.json": "2c9ead404a2d9f2312329e8b227c2c956030534778bb2945daa7c61a554eeb34",
+      "session-16/resnet18.json": "2bcfae6e98e9eb472f8dfae5cd67c9a1005572bee4a2c364e46e9dd680f03098",
+      "session-16/grid_fixed.json": "144a6b313b8ea194750a0e9c80d2b731f4ffc19ac7a077828ac3e13b4e770d4c",
+      "session-9/compact.json": "80d9a06340e54a4f7ccc276591b4fd098eef06ce6c75367c6376718280de01ad",
+      "session-9/resnet18.json": "23d5695c23b7e3f5674e7741dacbab79f25a8756ba681d138f412b9c42262595",
+      "session-9/grid_fixed.json": "e0e1b95afa9f6c322a41a9f0c55fef1b8aa2feb882f4db0ee1c9ba767073a5e4",
+      "session-18/compact.json": "bdb45ed9b8dba3513441ff3d48bf12d5d1ef68d9837af9cbd5dbf82444a541d8",
+      "session-18/resnet18.json": "3b969497c4a32c4eab88baf775a36476c1d01a426cc2763f713b98ae8d4c68cb",
+      "session-18/grid_fixed.json": "7fe9fb37a193333d89fefd66ace20d65b39caeb26be3e995a625bcae9e5f5c64"
+    },
+    "limitations": [
+      "One CPU host; finite 96-request overload sessions, duration affects queue latency.",
+      "Fresh IDs exclude saved prior trace/held-out sets; historical aggregate test exposure remains.",
+      "Frozen pretrained architecture comparison, not width-only causality."
+    ]
+  },
+  "supplemental_low_load": {
+    "results": {
+      "verified_low": {
+        "comparisons": {
+          "resnet18": {
+            "timing": {
+              "mean": -426.7385755483071,
+              "interval_95": [
+                -1424.3380496054108,
+                78.63965387737657
+              ],
+              "adoption_lower": -1924.6405678148105
+            },
+            "accuracy_delta_pp": {
+              "mean": 1.7361111111111112,
+              "interval_95": [
+                -2.7777777777777777,
+                6.25
+              ],
+              "adoption_lower": -4.861111111111111
+            },
+            "passed": false
+          },
+          "grid_fixed": {
+            "timing": {
+              "mean": -327.0389923359435,
+              "interval_95": [
+                -1124.929298828168,
+                77.8829410241202
+              ],
+              "adoption_lower": -1524.8700782511949
+            },
+            "accuracy_delta_pp": {
+              "mean": 3.4722222222222223,
+              "interval_95": [
+                -1.0416666666666667,
+                7.986111111111111
+              ],
+              "adoption_lower": -3.125
+            },
+            "passed": false
+          }
+        },
+        "metrics": {
+          "resnet18": {
+            "accuracy_pct": 84.375,
+            "mean_encoder_ms": 58.84843373263889,
+            "mean_wait_ms": 0.19669540277777778,
+            "p95_wait_ms": 0.5528393166666664,
+            "p95_response_ms": 84.24929714166666,
+            "mean_service_ms": 61.58696376736111
+          },
+          "grid_fixed": {
+            "accuracy_pct": 82.63888888888889,
+            "mean_encoder_ms": 54.30914076388889,
+            "mean_wait_ms": 0.2949175590277778,
+            "p95_wait_ms": 0.6493005083333332,
+            "p95_response_ms": 85.85660688333331,
+            "mean_service_ms": 57.55341689583334
+          },
+          "compact": {
+            "accuracy_pct": 86.11111111111111,
+            "mean_encoder_ms": 18.836030131944444,
+            "mean_wait_ms": 42.85103859722222,
+            "p95_wait_ms": 289.9547273666666,
+            "p95_response_ms": 350.6912019333333,
+            "mean_service_ms": 22.370604690972222
+          }
+        }
+      }
+    },
+    "all_loads_passed": false,
+    "family_tail": 0.00125,
+    "accuracy_pct": {
+      "resnet18": 84.375,
+      "grid_fixed": 82.63888888888889,
+      "compact": 86.11111111111111
+    },
+    "fresh_examples": 288,
+    "live_requests": 864,
+    "lock_sha256": "cf94f8f59aa7cbcc22c75a2493f52f5813f1efc934a5b966b5e8cb74cda790fe",
+    "evidence_sha256": {
+      "lock.json": "cf94f8f59aa7cbcc22c75a2493f52f5813f1efc934a5b966b5e8cb74cda790fe",
+      "predictions.json": "a54b1602a2033dfb1524a0807a049e31c434305410fc315e9f02a731a2695c03",
+      "sessions.json": "31aa4999193f037ee449965db209536d37782eb9dc732524e44ef75eb1312040",
+      "session-1/compact.json": "b3eac3fb08452d048f5ac3701cab3cbb2da0bc77dba0c3454419dc4c6639be47",
+      "session-1/resnet18.json": "51c9df7358f8babd9285b5d1411c66a177661bf9287b9998086d5e148c99ba60",
+      "session-1/grid_fixed.json": "79c336da8dff3474897d9ebea1fd45ffb471015534d63730962945101d867970",
+      "session-0/compact.json": "99d56a6cf987f83e4c5e514d737c765797b4784b43175b9acb012c5e83b9f50f",
+      "session-0/resnet18.json": "936c412d70653f2ea1a1aa7be43083e1618d3ac71905ee7ea46754e521a2a672",
+      "session-0/grid_fixed.json": "43ad1290491ff6543e063538df75b6e196f22d5b6096c4e2e3eddeeb62f2bf61",
+      "session-2/compact.json": "93b83ece8962d17572bc92937b56cb80852fd5227e2cb06f5bf983136d97b01f",
+      "session-2/resnet18.json": "b9c80e72d655afc5a7aac021c17a56c5c9129c499d2036652cb2ca7e5a2d3dd1",
+      "session-2/grid_fixed.json": "188fd45f9e85f2e95a2eed577e550e3316f7ccafffd22e8b01786e0464b6ffd8",
+      "session-5/compact.json": "e8b8b4c61c86be0b3f69528e2442297a6fbcb48e0cf625d6845fd0f9cd680133",
+      "session-5/resnet18.json": "ab5820a81187612ea3e4d6749317cc680988d1bc47625222370bb9f202798e96",
+      "session-5/grid_fixed.json": "ecd63bd4f4e076e442cdb7a91dd434c8c614ac325a7a5fa214d7695c80a0ac7f",
+      "session-3/compact.json": "a2a3b2f6324b4414766eba9eb0712d88343a73cf273ac0f8e6dc6524f5d46f83",
+      "session-3/resnet18.json": "9f88d7a2a92dab772fc9b91036a87d9470561b8615b3daad0801577799bc6449",
+      "session-3/grid_fixed.json": "9d1826bf339013eda1235a2d47ea8924b6f2712ebc7e5b8f75cdcf4f5ffebc38",
+      "session-4/compact.json": "fbfa72754d88b22c91a7ed332428c019d15f214f719d7856d12ebab14dabf691",
+      "session-4/resnet18.json": "ce5e02fb7ea065ee87985b340e5e0bbae55203a593681e1a58ffdfe9d8f60435",
+      "session-4/grid_fixed.json": "37fe1067660f982befed8a10d45f09cfa8705db99a32e7b409606b3fec21136f"
+    },
+    "limitations": [
+      "One CPU host; finite 96-request overload sessions, duration affects queue latency.",
+      "Fresh IDs exclude saved prior trace/held-out sets; historical aggregate test exposure remains.",
+      "Frozen pretrained architecture comparison, not width-only causality."
+    ]
+  },
+  "diagnostic_anomaly_replay": {
+    "results": {
+      "verified_low": {
+        "comparisons": {
+          "resnet18": {
+            "timing": {
+              "mean": 70.58884476270293,
+              "interval_95": [
+                70.58884476270293,
+                70.58884476270293
+              ],
+              "adoption_lower": 70.58884476270293
+            },
+            "accuracy_delta_pp": {
+              "mean": -2.0833333333333335,
+              "interval_95": [
+                -14.583333333333334,
+                10.416666666666666
+              ],
+              "adoption_lower": -20.833333333333332
+            },
+            "passed": false
+          },
+          "grid_fixed": {
+            "timing": {
+              "mean": 84.40429693596519,
+              "interval_95": [
+                84.40429693596519,
+                84.40429693596519
+              ],
+              "adoption_lower": 84.40429693596519
+            },
+            "accuracy_delta_pp": {
+              "mean": 6.25,
+              "interval_95": [
+                -4.166666666666667,
+                16.666666666666668
+              ],
+              "adoption_lower": -8.333333333333334
+            },
+            "passed": false
+          }
+        },
+        "metrics": {
+          "resnet18": {
+            "accuracy_pct": 89.58333333333334,
+            "mean_encoder_ms": 46.45057179166667,
+            "mean_wait_ms": 0.15165795833333334,
+            "p95_wait_ms": 0.18307045,
+            "p95_response_ms": 52.900473049999995,
+            "mean_service_ms": 48.55451760416667
+          },
+          "grid_fixed": {
+            "accuracy_pct": 81.25,
+            "mean_encoder_ms": 53.920338125,
+            "mean_wait_ms": 0.5790554583333334,
+            "p95_wait_ms": 1.0950111499999988,
+            "p95_response_ms": 99.76235239999998,
+            "mean_service_ms": 57.47657458333333
+          },
+          "compact": {
+            "accuracy_pct": 87.5,
+            "mean_encoder_ms": 9.304833125,
+            "mean_wait_ms": 0.1567339375,
+            "p95_wait_ms": 0.3205322499999999,
+            "p95_response_ms": 15.558640249999998,
+            "mean_service_ms": 11.941327
+          }
+        }
+      }
+    },
+    "all_loads_passed": false,
+    "family_tail": 0.00125,
+    "accuracy_pct": {
+      "resnet18": 89.58333333333334,
+      "grid_fixed": 81.25,
+      "compact": 87.5
+    },
+    "fresh_examples": 48,
+    "live_requests": 144,
+    "lock_sha256": "026a93f4a9d59c5054ae7731f64760200b0a06d9f3afe61c27e232365a4d5f5f",
+    "evidence_sha256": {
+      "lock.json": "026a93f4a9d59c5054ae7731f64760200b0a06d9f3afe61c27e232365a4d5f5f",
+      "predictions.json": "029cf3c04d5f593e41fbb7128d682473640062fdf9e5a1db54b739334b878da4",
+      "sessions.json": "86c8db124d864b183e336e2cf7b149538ce9c9cb0ae2ced980e12ab752da3deb",
+      "session-0/compact.json": "aa5245896fef23b5e27a39c8b2b44abac4a7acac3d10310ab62a46f8a3459edd",
+      "session-0/resnet18.json": "1837f3a38af02e8c009b16783bdd6e00f8df79a5992a5d5a575f23e7ec112d2c",
+      "session-0/grid_fixed.json": "40861c6dbd109fe31b2b1fd31a2d65fa8543117c1d00a4dad7ebfac52d1fde01"
+    },
+    "limitations": [
+      "One CPU host; finite 96-request overload sessions, duration affects queue latency.",
+      "Fresh IDs exclude saved prior trace/held-out sets; historical aggregate test exposure remains.",
+      "Frozen pretrained architecture comparison, not width-only causality."
+    ]
+  }
+}

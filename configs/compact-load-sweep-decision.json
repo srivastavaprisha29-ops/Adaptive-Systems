@@ -1,0 +1,10 @@
+{
+  "compact_promoted": false,
+  "new_fixed_baseline": null,
+  "production_changed": false,
+  "controller_built": false,
+  "latency_all_original_loads_passed": true,
+  "quality_all_original_loads_passed": false,
+  "reason": "Original latency gates pass, but per-load quality remains inconclusive and a supplemental low-load encoder spike prevents reliable across-load latency validation. No supported switching regime.",
+  "next": "Investigate low-load wall/CPU stalls and repeat independent host sessions; enlarge reserved quality panel; keep compact frozen."
+}

@@ -464,3 +464,7 @@ Major risks: encoder dominates cost; conversion erases savings; unsupported low-
 A matched three-seed pilot implements temperature-scaled teacher-to-student distillation for the stage-three exit. See [the paper fundamentals and reproduction guide](docs/research/knowledge-distillation.md) for the objective, supervised control, split boundaries and limitations. The default inference policy remains unchanged.
 
 The [full-training distillation follow-up](docs/research/distillation-full.md) reports a 3.43 pp mean gain over its matched supervised control across three seeds. The existing ridge early head remains stronger. Training traces and compact evidence are included.
+
+### Frozen compact encoder across loads
+
+[Fresh matched multi-load validation](docs/research/compact-load-sweep.md): all original latency gates pass against both full ResNet-18 FP32 and the frozen grid winner. Compact averages 83.78% accuracy versus 81.98% for the grid, but per-load uncertainty does not establish the one-point limit. A separate low-load check also exposed an unresolved 2.44-second encoder spike. No baseline promotion or switching controller is adopted. Raw request timings and frozen checkpoints accompany the report.
