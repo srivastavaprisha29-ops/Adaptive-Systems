@@ -1,0 +1,240 @@
+{
+  "grid_means": {
+    "below": {
+      "full_fp32": {
+        "mean_service_ms": 51.20377726171875,
+        "p95_wait_ms": 114.87579203749998,
+        "p95_response_ms": 183.94188679999996,
+        "accuracy_pct": 82.2265625,
+        "stages_mean_ms": {
+          "preprocess": 1.843038267578125,
+          "backbone": 49.16563645117188,
+          "projection": 0.0024792128906249997,
+          "quantize": 0.0,
+          "dequantize": 0.0,
+          "classifier": 0.08114116015625
+        },
+        "feature_bytes": 2048,
+        "scale_format_bytes": 0
+      },
+      "reduced_fp32": {
+        "mean_service_ms": 51.47327089648438,
+        "p95_wait_ms": 277.540235775,
+        "p95_response_ms": 342.321292825,
+        "accuracy_pct": 82.6171875,
+        "stages_mean_ms": {
+          "preprocess": 1.7548039140625,
+          "backbone": 49.445092171875,
+          "projection": 0.10925551171875,
+          "quantize": 0.0,
+          "dequantize": 0.0,
+          "classifier": 0.05473979296875
+        },
+        "feature_bytes": 1024,
+        "scale_format_bytes": 0
+      },
+      "full_int8_storage": {
+        "mean_service_ms": 54.54103673242187,
+        "p95_wait_ms": 260.48370284999993,
+        "p95_response_ms": 325.53350349999994,
+        "accuracy_pct": 81.8359375,
+        "stages_mean_ms": {
+          "preprocess": 2.1577571640625,
+          "backbone": 52.099913248046875,
+          "projection": 0.002479787109375,
+          "quantize": 0.064568306640625,
+          "dequantize": 0.024576888671875,
+          "classifier": 0.08745280078125
+        },
+        "feature_bytes": 512,
+        "scale_format_bytes": 4
+      },
+      "reduced_int8_storage": {
+        "mean_service_ms": 50.13545137109375,
+        "p95_wait_ms": 63.87113667499996,
+        "p95_response_ms": 129.50172413749996,
+        "accuracy_pct": 82.421875,
+        "stages_mean_ms": {
+          "preprocess": 1.739,
+          "backbone": 48.10304925,
+          "projection": 0.08512766796875,
+          "quantize": 0.0516389140625,
+          "dequantize": 0.024695357421875,
+          "classifier": 0.041129076171875
+        },
+        "feature_bytes": 256,
+        "scale_format_bytes": 4
+      }
+    },
+    "near": {
+      "full_fp32": {
+        "mean_service_ms": 73.65140404101562,
+        "p95_wait_ms": 3343.293545575,
+        "p95_response_ms": 3394.68021065,
+        "accuracy_pct": 82.2265625,
+        "stages_mean_ms": {
+          "preprocess": 4.102006224609375,
+          "backbone": 69.06680585546874,
+          "projection": 0.0032564023437499996,
+          "quantize": 0.0,
+          "dequantize": 0.0,
+          "classifier": 0.29796218359375
+        },
+        "feature_bytes": 2048,
+        "scale_format_bytes": 0
+      },
+      "reduced_fp32": {
+        "mean_service_ms": 46.65597472851562,
+        "p95_wait_ms": 125.038426425,
+        "p95_response_ms": 177.14775357499994,
+        "accuracy_pct": 82.6171875,
+        "stages_mean_ms": {
+          "preprocess": 1.499078994140625,
+          "backbone": 44.97283568945312,
+          "projection": 0.077116318359375,
+          "quantize": 0.0,
+          "dequantize": 0.0,
+          "classifier": 0.04030730859375
+        },
+        "feature_bytes": 1024,
+        "scale_format_bytes": 0
+      },
+      "full_int8_storage": {
+        "mean_service_ms": 48.25615958398438,
+        "p95_wait_ms": 164.99775762499988,
+        "p95_response_ms": 227.23099558749988,
+        "accuracy_pct": 81.8359375,
+        "stages_mean_ms": {
+          "preprocess": 1.5953129257812502,
+          "backbone": 46.46634751171875,
+          "projection": 0.001697373046875,
+          "quantize": 0.0483023828125,
+          "dequantize": 0.023135166015625,
+          "classifier": 0.059268970703125
+        },
+        "feature_bytes": 512,
+        "scale_format_bytes": 4
+      },
+      "reduced_int8_storage": {
+        "mean_service_ms": 88.2722727109375,
+        "p95_wait_ms": 5186.8980985875,
+        "p95_response_ms": 5235.573888212501,
+        "accuracy_pct": 82.421875,
+        "stages_mean_ms": {
+          "preprocess": 2.541883048828125,
+          "backbone": 85.11685893554687,
+          "projection": 0.14358479296875,
+          "quantize": 0.11127222070312501,
+          "dequantize": 0.031227212890625,
+          "classifier": 0.07617855078124999
+        },
+        "feature_bytes": 256,
+        "scale_format_bytes": 4
+      }
+    },
+    "above": {
+      "full_fp32": {
+        "mean_service_ms": 64.55481086328125,
+        "p95_wait_ms": 3126.5955223375,
+        "p95_response_ms": 3170.1357853875,
+        "accuracy_pct": 82.2265625,
+        "stages_mean_ms": {
+          "preprocess": 2.345305935546875,
+          "backbone": 62.048042263671874,
+          "projection": 0.00225168359375,
+          "quantize": 0.0,
+          "dequantize": 0.0,
+          "classifier": 0.0883517890625
+        },
+        "feature_bytes": 2048,
+        "scale_format_bytes": 0
+      },
+      "reduced_fp32": {
+        "mean_service_ms": 45.21201341796875,
+        "p95_wait_ms": 639.967016175,
+        "p95_response_ms": 686.8873464874999,
+        "accuracy_pct": 82.6171875,
+        "stages_mean_ms": {
+          "preprocess": 1.441921044921875,
+          "backbone": 43.613934808593754,
+          "projection": 0.06670885546875,
+          "quantize": 0.0,
+          "dequantize": 0.0,
+          "classifier": 0.035615634765625
+        },
+        "feature_bytes": 1024,
+        "scale_format_bytes": 0
+      },
+      "full_int8_storage": {
+        "mean_service_ms": 44.773136060546875,
+        "p95_wait_ms": 542.0808939249998,
+        "p95_response_ms": 591.055146975,
+        "accuracy_pct": 81.8359375,
+        "stages_mean_ms": {
+          "preprocess": 1.39892594140625,
+          "backbone": 43.20259064257812,
+          "projection": 0.00149303515625,
+          "quantize": 0.038881734375000004,
+          "dequantize": 0.016051414062499998,
+          "classifier": 0.04904954296875
+        },
+        "feature_bytes": 512,
+        "scale_format_bytes": 4
+      },
+      "reduced_int8_storage": {
+        "mean_service_ms": 45.34512816796875,
+        "p95_wait_ms": 664.6310671374999,
+        "p95_response_ms": 711.2258492,
+        "accuracy_pct": 82.421875,
+        "stages_mean_ms": {
+          "preprocess": 1.4293551132812499,
+          "backbone": 43.6901042734375,
+          "projection": 0.073750275390625,
+          "quantize": 0.04293334765625,
+          "dequantize": 0.018069919921875,
+          "classifier": 0.036406974609375
+        },
+        "feature_bytes": 256,
+        "scale_format_bytes": 4
+      }
+    }
+  },
+  "compact_means": {
+    "resnet18": {
+      "mean_service_ms": 51.5297773984375,
+      "p95_wait_ms": 723.7959178499999,
+      "p95_response_ms": 777.8734083749999,
+      "stages_mean_ms": {
+        "preprocess": 1.54312119921875,
+        "backbone": 49.860311197265624,
+        "adapter": 0.0076151796875,
+        "classifier": 0.05542865625
+      },
+      "feature_bytes": 2048
+    },
+    "grid_fixed": {
+      "mean_service_ms": 45.717493236328124,
+      "p95_wait_ms": 32.49571444999996,
+      "p95_response_ms": 85.74749998749995,
+      "stages_mean_ms": {
+        "preprocess": 1.449226376953125,
+        "backbone": 44.0356484375,
+        "adapter": 0.14210631640625,
+        "classifier": 0.028774935546875
+      },
+      "feature_bytes": 256
+    },
+    "compact": {
+      "mean_service_ms": 9.336245873046876,
+      "p95_wait_ms": 0.3151118624999992,
+      "p95_response_ms": 15.095307837499982,
+      "stages_mean_ms": {
+        "preprocess": 1.6525992421875,
+        "backbone": 7.53220625390625,
+        "adapter": 0.007208951171875,
+        "classifier": 0.045013587890625
+      },
+      "feature_bytes": 2304
+    }
+  }
+}

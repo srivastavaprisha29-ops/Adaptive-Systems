@@ -1,6 +1,6 @@
 # Resource-Aware Adaptive Feature Representations for AI Inference
 
-> **Status:** Initial FP32 PCA action profiling is complete. Encoder-work reduction is next; broader adaptive-controller validation remains incomplete.
+> **Status:** The fixed width/precision storage grid and compact-encoder pilot are complete. A compact FP32 fixed candidate awaits full-budget/multi-load confirmation; broader controller validation remains incomplete.
 > **Research question:** Can inference-time selection of feature width and numerical precision reduce *measured end-to-end* latency, feature memory and energy while preserving an acceptable quality floor?
 
 
@@ -21,6 +21,10 @@ The [machine-calibrated frozen-policy load sweep](docs/research/frozen-load-swee
 ## Live PCA versus full-width FP32
 
 The [matched-head live comparison](docs/research/live-pca-comparison.md) selects PCA 256D using calibration only and evaluates 2,000 held-out images plus six paired live sessions. Vector bytes fall from 2,048 to 1,024, but PCA p95 is worse in all sessions and held-out quality uncertainty fails the one-point gate. The unchanged backbone contributes about 96% of service time. The next candidate reduces actual encoder work in FP32; the earlier production fixed-gating checkpoint remains unchanged.
+
+## Width/precision grid and actual encoder work
+
+The [four fixed configurations](docs/research/width-precision-grid.md) compare 512D/256D features in FP32 and INT8 storage on matched traces at three loads. INT8 is reconstructed to FP32 inside timing. Raw feature payloads are 2,048/1,024/512/256 bytes; no supported performance crossover establishes a controller case. The conditional MobileNetV3-Small architecture control then reduces actual encoder work: 83.65% held-out accuracy versus 82.50% for matched ResNet, with 80.04% lower paired p95 versus the calibration-selected grid reference. This is a one-load matched-head pilot, not a pure ResNet-width ablation or a production adoption. The compact FP32 model is the next fixed candidate to validate.
 
 ## Runnable static feasibility pilot
 

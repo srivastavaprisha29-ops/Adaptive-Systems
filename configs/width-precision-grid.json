@@ -1,0 +1,13 @@
+{
+  "seed": 20261129,
+  "repeats": 4,
+  "loads": {"below": 0.65, "near": 0.95, "above": 1.15},
+  "profile_examples": 24,
+  "profile_repeats": 3,
+  "warmup": 3,
+  "bootstrap_samples": 8000,
+  "quality_tolerance_pp": 1.0,
+  "p95_target_pct": 5.0,
+  "family_alpha": 0.05,
+  "preparation_workers": 8
+}

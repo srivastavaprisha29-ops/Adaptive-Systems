@@ -1,0 +1,10 @@
+{
+  "controller_built": false,
+  "supported_format_crossovers": [],
+  "supported_universal_format": [],
+  "compact_control_executed": true,
+  "compact_matched_pilot_gate_passed": true,
+  "next_fixed_candidate": "FP32 MobileNetV3-Small with matched ridge head",
+  "deployment_changed": false,
+  "next_validation": "Full-training-budget comparison and fresh multiple-load trials against the strongest fixed model; no controller until a supported switching case exists"
+}

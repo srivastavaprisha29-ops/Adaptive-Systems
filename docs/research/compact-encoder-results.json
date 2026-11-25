@@ -1,0 +1,77 @@
+{
+  "status": "compact_encoder_architecture_control",
+  "research_validated": false,
+  "quality": {
+    "examples": 2000,
+    "reference_accuracy_pct": 82.5,
+    "compact_accuracy_pct": 83.65,
+    "delta_pp": 1.149999976158142,
+    "interval_95_pp": [
+      -0.699999988079071,
+      2.950000047683716
+    ],
+    "quality_pass": true
+  },
+  "timing": {
+    "mean": 85.28254120729807,
+    "interval_95": [
+      76.23291582372687,
+      94.38678289780883
+    ],
+    "adoption_lower": 76.23291582372687
+  },
+  "timing_vs_grid_fixed": {
+    "mean": 80.03829364656409,
+    "interval_95": [
+      75.83030436013759,
+      86.5540754998348
+    ],
+    "adoption_lower": 75.83030436013759
+  },
+  "quality_vs_grid_fixed": {
+    "reference_accuracy_pct": 82.05,
+    "delta_pp": 1.600000023841858,
+    "interval_95_pp": [
+      -0.20000000298023224,
+      3.3499999046325684
+    ],
+    "quality_pass": true
+  },
+  "grid_fixed_action": "reduced_int8_storage",
+  "latency_pass": true,
+  "adopted": false,
+  "matched_pilot_gate_passed": true,
+  "encoder_parameters": {
+    "resnet18": 11176512,
+    "compact": 927008
+  },
+  "feature_bytes": {
+    "resnet18": 2048,
+    "compact": 2304
+  },
+  "lock_sha256": "be48b8fa5d2679504ae157c7e8e6b66a8187d63b932b9b50e2228c43c144dd35",
+  "evidence_sha256": {
+    "compact.pt": "75a13a3dc889c98b4616207de9ee81a65f0e7e9332407b53219c571a7a4299aa",
+    "lock.json": "be48b8fa5d2679504ae157c7e8e6b66a8187d63b932b9b50e2228c43c144dd35",
+    "predictions.json": "afe98be3ded9a6b597c457143f28df4bcdbf4f7bb2f2acef2b9eea63543c50fe",
+    "sessions.json": "fd8770ed8b1a16aed7f2782c819d4f52949f293af92d84678cba57880c9ac031",
+    "session-1/compact.json": "d40922c1f679d1f75b229e9636da02777835d08e71df032897b5dc7c1e59c2bd",
+    "session-1/resnet18.json": "2b1af87a81e902765fb2abdc3220f33887a7f38256985c8f791349361a1d86da",
+    "session-1/grid_fixed.json": "bec225d4d26ab3a38bf520c62bf25a5cea605114a41ad5da644005e7cb306493",
+    "session-0/compact.json": "4f3027d76243cfa8558b79d2842cf83f6df0f1cd3e96f5388d6cf94792775a14",
+    "session-0/resnet18.json": "dda00dc3f14e1267dcce636c3b5483916ae16deb5bbdc9817e7c716f7e0b93a9",
+    "session-0/grid_fixed.json": "30d0b75bcb6be2f7435a703bcafd0bc5637f8654e20b8415148a5849953eab08",
+    "session-2/compact.json": "1559fbc176eb8b671969439d3a378998b652d6056df7245e1025b864bcf686ae",
+    "session-2/resnet18.json": "d633d55a3a9c2ffeb6edca0bb2198be27dfb16e91a5c87baaa838b88cf54be38",
+    "session-2/grid_fixed.json": "c4b0adc2c3f34cb7258bd0823cbecadb6d1611e45d08c08acbb3d0e367dfe7d1",
+    "session-3/compact.json": "de8f62cb677544011f12d0a1031e4d0913db5adb80431e1ba693843f345344bd",
+    "session-3/resnet18.json": "2e83650bcf99cfa25d7a55f84c24fdeab7ec7624be2e58d92c0e7224e0bbb67f",
+    "session-3/grid_fixed.json": "b21c0199b33deb4699886b401eb98a1361cf894d7f862bb837e833795aa2264e"
+  },
+  "limitations": [
+    "Different pretrained architectures; not a causal isolation of ResNet channel-width reduction.",
+    "Frozen pretrained bodies and same 4000 fitting images/ridge parameter for the two heads.",
+    "Four paired sessions at the prior single load, one host; broader deployment is unvalidated.",
+    "This test changes encoder work in FP32 and does not assert any INT8 arithmetic acceleration."
+  ]
+}

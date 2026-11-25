@@ -1,0 +1,840 @@
+{
+  "status": "fixed_width_precision_storage_grid",
+  "research_validated": false,
+  "selected_width": 256,
+  "quality": {
+    "full_fp32": {
+      "accuracy_pct": 82.5,
+      "pairwise": {
+        "reduced_fp32": {
+          "delta_pp": 0.6499999761581421,
+          "interval_95_pp": [
+            -0.5,
+            1.7999999523162842
+          ],
+          "simultaneous_lower_pp": -1.2445138941208522
+        },
+        "full_int8_storage": {
+          "delta_pp": 0.44999998807907104,
+          "interval_95_pp": [
+            0.0,
+            0.8999999761581421
+          ],
+          "simultaneous_lower_pp": -0.2722569497509135
+        },
+        "reduced_int8_storage": {
+          "delta_pp": 0.44999998807907104,
+          "interval_95_pp": [
+            -0.699999988079071,
+            1.600000023841858
+          ],
+          "simultaneous_lower_pp": -1.4500000476837158
+        }
+      }
+    },
+    "reduced_fp32": {
+      "accuracy_pct": 81.85,
+      "pairwise": {
+        "full_fp32": {
+          "delta_pp": -0.6499999761581421,
+          "interval_95_pp": [
+            -1.7999999523162842,
+            0.5
+          ],
+          "simultaneous_lower_pp": -2.422257018586
+        },
+        "full_int8_storage": {
+          "delta_pp": -0.20000000298023224,
+          "interval_95_pp": [
+            -1.350000023841858,
+            1.0
+          ],
+          "simultaneous_lower_pp": -2.0222569232185683
+        },
+        "reduced_int8_storage": {
+          "delta_pp": -0.20000000298023224,
+          "interval_95_pp": [
+            -0.550000011920929,
+            0.15000000596046448
+          ],
+          "simultaneous_lower_pp": -0.800000011920929
+        }
+      }
+    },
+    "full_int8_storage": {
+      "accuracy_pct": 82.05,
+      "pairwise": {
+        "full_fp32": {
+          "delta_pp": -0.44999998807907104,
+          "interval_95_pp": [
+            -0.8999999761581421,
+            0.0
+          ],
+          "simultaneous_lower_pp": -1.2000000476837158
+        },
+        "reduced_fp32": {
+          "delta_pp": 0.20000000298023224,
+          "interval_95_pp": [
+            -1.0,
+            1.350000023841858
+          ],
+          "simultaneous_lower_pp": -1.772256923218568
+        },
+        "reduced_int8_storage": {
+          "delta_pp": 0.0,
+          "interval_95_pp": [
+            -1.2000000476837158,
+            1.2000000476837158
+          ],
+          "simultaneous_lower_pp": -1.972256970902284
+        }
+      }
+    },
+    "reduced_int8_storage": {
+      "accuracy_pct": 82.05,
+      "pairwise": {
+        "full_fp32": {
+          "delta_pp": -0.44999998807907104,
+          "interval_95_pp": [
+            -1.600000023841858,
+            0.699999988079071
+          ],
+          "simultaneous_lower_pp": -2.2722569232185683
+        },
+        "reduced_fp32": {
+          "delta_pp": 0.20000000298023224,
+          "interval_95_pp": [
+            -0.15000000596046448,
+            0.550000011920929
+          ],
+          "simultaneous_lower_pp": -0.30000001192092896
+        },
+        "full_int8_storage": {
+          "delta_pp": 0.0,
+          "interval_95_pp": [
+            -1.2000000476837158,
+            1.2000000476837158
+          ],
+          "simultaneous_lower_pp": -1.872256947060426
+        }
+      }
+    }
+  },
+  "baseline": "reduced_int8_storage",
+  "results": {
+    "loads": {
+      "below": {
+        "comparisons": {
+          "full_fp32_vs_reduced_fp32": {
+            "latency": {
+              "mean": -141.59027711609704,
+              "interval_95": [
+                -437.5790512513321,
+                52.21154902526051
+              ],
+              "adoption_lower": -581.4642398695637
+            },
+            "quality_delta_pp": 0.6500000000000057,
+            "quality_interval_95_pp": [
+              -0.5,
+              1.7999999523162842
+            ],
+            "quality_adoption_lower_pp": -1.2445138941208522,
+            "passes_latency_quality": false
+          },
+          "full_fp32_vs_full_int8_storage": {
+            "latency": {
+              "mean": -149.22689796204048,
+              "interval_95": [
+                -425.649765415086,
+                41.92248476140384
+              ],
+              "adoption_lower": -564.1989276419936
+            },
+            "quality_delta_pp": 0.45000000000000284,
+            "quality_interval_95_pp": [
+              0.0,
+              0.8999999761581421
+            ],
+            "quality_adoption_lower_pp": -0.2722569497509135,
+            "passes_latency_quality": false
+          },
+          "full_fp32_vs_reduced_int8_storage": {
+            "latency": {
+              "mean": -151.63025725783285,
+              "interval_95": [
+                -457.74086759981947,
+                43.42274201604151
+              ],
+              "adoption_lower": -598.4210020995272
+            },
+            "quality_delta_pp": 0.45000000000000284,
+            "quality_interval_95_pp": [
+              -0.699999988079071,
+              1.600000023841858
+            ],
+            "quality_adoption_lower_pp": -1.4500000476837158,
+            "passes_latency_quality": false
+          },
+          "reduced_fp32_vs_full_fp32": {
+            "latency": {
+              "mean": -352.22599838992863,
+              "interval_95": [
+                -1145.9451900965325,
+                65.39234438149003
+              ],
+              "adoption_lower": -1541.979410344548
+            },
+            "quality_delta_pp": -0.6500000000000057,
+            "quality_interval_95_pp": [
+              -1.7999999523162842,
+              0.5
+            ],
+            "quality_adoption_lower_pp": -2.422257018586,
+            "passes_latency_quality": false
+          },
+          "reduced_fp32_vs_full_int8_storage": {
+            "latency": {
+              "mean": -16.64122791195521,
+              "interval_95": [
+                -77.69920137298728,
+                27.022195529286925
+              ],
+              "adoption_lower": -104.44345549816201
+            },
+            "quality_delta_pp": -0.20000000000000284,
+            "quality_interval_95_pp": [
+              -1.350000023841858,
+              1.0
+            ],
+            "quality_adoption_lower_pp": -2.0222569232185683,
+            "passes_latency_quality": false
+          },
+          "reduced_fp32_vs_reduced_int8_storage": {
+            "latency": {
+              "mean": -89.33005597156586,
+              "interval_95": [
+                -257.56546447178715,
+                6.691374506265129
+              ],
+              "adoption_lower": -342.59119146282853
+            },
+            "quality_delta_pp": -0.20000000000000284,
+            "quality_interval_95_pp": [
+              -0.550000011920929,
+              0.15000000596046448
+            ],
+            "quality_adoption_lower_pp": -0.800000011920929,
+            "passes_latency_quality": false
+          },
+          "full_int8_storage_vs_full_fp32": {
+            "latency": {
+              "mean": -344.3574797935251,
+              "interval_95": [
+                -1130.5112674210084,
+                69.38316641791891
+              ],
+              "adoption_lower": -1525.2890443133751
+            },
+            "quality_delta_pp": -0.45000000000000284,
+            "quality_interval_95_pp": [
+              -0.8999999761581421,
+              0.0
+            ],
+            "quality_adoption_lower_pp": -1.2000000476837158,
+            "passes_latency_quality": false
+          },
+          "full_int8_storage_vs_reduced_fp32": {
+            "latency": {
+              "mean": -1.9148713905528614,
+              "interval_95": [
+                -42.61832915998275,
+                37.66518522114942
+              ],
+              "adoption_lower": -57.16326501315956
+            },
+            "quality_delta_pp": 0.20000000000000284,
+            "quality_interval_95_pp": [
+              -1.0,
+              1.350000023841858
+            ],
+            "quality_adoption_lower_pp": -1.772256923218568,
+            "passes_latency_quality": false
+          },
+          "full_int8_storage_vs_reduced_int8_storage": {
+            "latency": {
+              "mean": -84.5320593696825,
+              "interval_95": [
+                -254.85735652111728,
+                19.947286112976464
+              ],
+              "adoption_lower": -338.09234760330804
+            },
+            "quality_delta_pp": 0.0,
+            "quality_interval_95_pp": [
+              -1.2000000476837158,
+              1.2000000476837158
+            ],
+            "quality_adoption_lower_pp": -1.972256970902284,
+            "passes_latency_quality": false
+          },
+          "reduced_int8_storage_vs_full_fp32": {
+            "latency": {
+              "mean": -31.93916465726303,
+              "interval_95": [
+                -195.43290202721775,
+                70.83856242390664
+              ],
+              "adoption_lower": -270.99233830604857
+            },
+            "quality_delta_pp": -0.45000000000000284,
+            "quality_interval_95_pp": [
+              -1.600000023841858,
+              0.699999988079071
+            ],
+            "quality_adoption_lower_pp": -2.2722569232185683,
+            "passes_latency_quality": false
+          },
+          "reduced_int8_storage_vs_reduced_fp32": {
+            "latency": {
+              "mean": 20.727925413046353,
+              "interval_95": [
+                -8.663050028829236,
+                58.66130745518747
+              ],
+              "adoption_lower": -18.865122186724626
+            },
+            "quality_delta_pp": 0.20000000000000284,
+            "quality_interval_95_pp": [
+              -0.15000000596046448,
+              0.550000011920929
+            ],
+            "quality_adoption_lower_pp": -0.30000001192092896,
+            "passes_latency_quality": false
+          },
+          "reduced_int8_storage_vs_full_int8_storage": {
+            "latency": {
+              "mean": 11.714994002001383,
+              "interval_95": [
+                -38.594470640522275,
+                59.10530197578828
+              ],
+              "adoption_lower": -59.58208777258329
+            },
+            "quality_delta_pp": 0.0,
+            "quality_interval_95_pp": [
+              -1.2000000476837158,
+              1.2000000476837158
+            ],
+            "quality_adoption_lower_pp": -1.872256947060426,
+            "passes_latency_quality": false
+          }
+        },
+        "supported_vs_calibration_fixed": [],
+        "point_fastest": "reduced_int8_storage"
+      },
+      "near": {
+        "comparisons": {
+          "full_fp32_vs_reduced_fp32": {
+            "latency": {
+              "mean": -1848.5380052119103,
+              "interval_95": [
+                -5468.221326275575,
+                29.80959467952043
+              ],
+              "adoption_lower": -7295.748519704431
+            },
+            "quality_delta_pp": 0.6500000000000057,
+            "quality_interval_95_pp": [
+              -0.5,
+              1.7999999523162842
+            ],
+            "quality_adoption_lower_pp": -1.2445138941208522,
+            "passes_latency_quality": false
+          },
+          "full_fp32_vs_full_int8_storage": {
+            "latency": {
+              "mean": -2802.879763162382,
+              "interval_95": [
+                -8395.690569790582,
+                30.44766288804524
+              ],
+              "adoption_lower": -11192.50334710927
+            },
+            "quality_delta_pp": 0.45000000000000284,
+            "quality_interval_95_pp": [
+              0.0,
+              0.8999999761581421
+            ],
+            "quality_adoption_lower_pp": -0.2722569497509135,
+            "passes_latency_quality": false
+          },
+          "full_fp32_vs_reduced_int8_storage": {
+            "latency": {
+              "mean": -55.510622377829826,
+              "interval_95": [
+                -217.85973789873233,
+                80.05192996912831
+              ],
+              "adoption_lower": -310.9167790931039
+            },
+            "quality_delta_pp": 0.45000000000000284,
+            "quality_interval_95_pp": [
+              -0.699999988079071,
+              1.600000023841858
+            ],
+            "quality_adoption_lower_pp": -1.4500000476837158,
+            "passes_latency_quality": false
+          },
+          "reduced_fp32_vs_full_fp32": {
+            "latency": {
+              "mean": 15.111290798458484,
+              "interval_95": [
+                -49.72321361345306,
+                79.94579521037002
+              ],
+              "adoption_lower": -82.67821540522024
+            },
+            "quality_delta_pp": -0.6500000000000057,
+            "quality_interval_95_pp": [
+              -1.7999999523162842,
+              0.5
+            ],
+            "quality_adoption_lower_pp": -2.422257018586,
+            "passes_latency_quality": false
+          },
+          "reduced_fp32_vs_full_int8_storage": {
+            "latency": {
+              "mean": -1.789532113267044,
+              "interval_95": [
+                -37.79513811197236,
+                34.21607388543827
+              ],
+              "adoption_lower": -52.68912020227228
+            },
+            "quality_delta_pp": -0.20000000000000284,
+            "quality_interval_95_pp": [
+              -1.350000023841858,
+              1.0
+            ],
+            "quality_adoption_lower_pp": -2.0222569232185683,
+            "passes_latency_quality": false
+          },
+          "reduced_fp32_vs_reduced_int8_storage": {
+            "latency": {
+              "mean": 70.17494367606999,
+              "interval_95": [
+                44.230891381140296,
+                96.11899597099968
+              ],
+              "adoption_lower": 33.63778587721604
+            },
+            "quality_delta_pp": -0.20000000000000284,
+            "quality_interval_95_pp": [
+              -0.550000011920929,
+              0.15000000596046448
+            ],
+            "quality_adoption_lower_pp": -0.800000011920929,
+            "passes_latency_quality": true
+          },
+          "full_int8_storage_vs_full_fp32": {
+            "latency": {
+              "mean": -11.719535351362557,
+              "interval_95": [
+                -135.445542039092,
+                75.58337847589974
+              ],
+              "adoption_lower": -195.39971318381086
+            },
+            "quality_delta_pp": -0.45000000000000284,
+            "quality_interval_95_pp": [
+              -0.8999999761581421,
+              0.0
+            ],
+            "quality_adoption_lower_pp": -1.2000000476837158,
+            "passes_latency_quality": false
+          },
+          "full_int8_storage_vs_reduced_fp32": {
+            "latency": {
+              "mean": -12.995131140704949,
+              "interval_95": [
+                -52.56088692235747,
+                26.570624640947564
+              ],
+              "adoption_lower": -61.70494797562463
+            },
+            "quality_delta_pp": 0.20000000000000284,
+            "quality_interval_95_pp": [
+              -1.0,
+              1.350000023841858
+            ],
+            "quality_adoption_lower_pp": -1.772256923218568,
+            "passes_latency_quality": false
+          },
+          "full_int8_storage_vs_reduced_int8_storage": {
+            "latency": {
+              "mean": 65.21538717096287,
+              "interval_95": [
+                27.709352756824938,
+                96.3970633253306
+              ],
+              "adoption_lower": 4.825418928654079
+            },
+            "quality_delta_pp": 0.0,
+            "quality_interval_95_pp": [
+              -1.2000000476837158,
+              1.2000000476837158
+            ],
+            "quality_adoption_lower_pp": -1.972256970902284,
+            "passes_latency_quality": false
+          },
+          "reduced_int8_storage_vs_full_fp32": {
+            "latency": {
+              "mean": -2055.6519641685663,
+              "interval_95": [
+                -6125.647975156384,
+                58.631522233829116
+              ],
+              "adoption_lower": -8181.396924317086
+            },
+            "quality_delta_pp": -0.45000000000000284,
+            "quality_interval_95_pp": [
+              -1.600000023841858,
+              0.699999988079071
+            ],
+            "quality_adoption_lower_pp": -2.2722569232185683,
+            "passes_latency_quality": false
+          },
+          "reduced_int8_storage_vs_reduced_fp32": {
+            "latency": {
+              "mean": -1576.2965227762309,
+              "interval_95": [
+                -3355.332747618878,
+                -86.0223090546532
+              ],
+              "adoption_lower": -4433.32484442501
+            },
+            "quality_delta_pp": 0.20000000000000284,
+            "quality_interval_95_pp": [
+              -0.15000000596046448,
+              0.550000011920929
+            ],
+            "quality_adoption_lower_pp": -0.30000001192092896,
+            "passes_latency_quality": false
+          },
+          "reduced_int8_storage_vs_full_int8_storage": {
+            "latency": {
+              "mean": -1382.174629325864,
+              "interval_95": [
+                -2675.789400688139,
+                -88.55985796358964
+              ],
+              "adoption_lower": -2703.4546259576196
+            },
+            "quality_delta_pp": 0.0,
+            "quality_interval_95_pp": [
+              -1.2000000476837158,
+              1.2000000476837158
+            ],
+            "quality_adoption_lower_pp": -1.872256947060426,
+            "passes_latency_quality": false
+          }
+        },
+        "supported_vs_calibration_fixed": [
+          "reduced_fp32"
+        ],
+        "point_fastest": "reduced_fp32"
+      },
+      "above": {
+        "comparisons": {
+          "full_fp32_vs_reduced_fp32": {
+            "latency": {
+              "mean": -369.3138910201209,
+              "interval_95": [
+                -1165.535231834259,
+                59.417745719932036
+              ],
+              "adoption_lower": -1555.4595199504092
+            },
+            "quality_delta_pp": 0.6500000000000057,
+            "quality_interval_95_pp": [
+              -0.5,
+              1.7999999523162842
+            ],
+            "quality_adoption_lower_pp": -1.2445138941208522,
+            "passes_latency_quality": false
+          },
+          "full_fp32_vs_full_int8_storage": {
+            "latency": {
+              "mean": -477.33318327403214,
+              "interval_95": [
+                -1438.0537027130958,
+                51.23776420020887
+              ],
+              "adoption_lower": -1928.1621856382476
+            },
+            "quality_delta_pp": 0.45000000000000284,
+            "quality_interval_95_pp": [
+              0.0,
+              0.8999999761581421
+            ],
+            "quality_adoption_lower_pp": -0.2722569497509135,
+            "passes_latency_quality": false
+          },
+          "full_fp32_vs_reduced_int8_storage": {
+            "latency": {
+              "mean": -753.3570572642666,
+              "interval_95": [
+                -2361.7394713973586,
+                69.65003166931729
+              ],
+              "adoption_lower": -3170.55542017997
+            },
+            "quality_delta_pp": 0.45000000000000284,
+            "quality_interval_95_pp": [
+              -0.699999988079071,
+              1.600000023841858
+            ],
+            "quality_adoption_lower_pp": -1.4500000476837158,
+            "passes_latency_quality": false
+          },
+          "reduced_fp32_vs_full_fp32": {
+            "latency": {
+              "mean": -88.5477797904911,
+              "interval_95": [
+                -336.4487960124146,
+                69.36324728136499
+              ],
+              "adoption_lower": -451.034919020017
+            },
+            "quality_delta_pp": -0.6500000000000057,
+            "quality_interval_95_pp": [
+              -1.7999999523162842,
+              0.5
+            ],
+            "quality_adoption_lower_pp": -2.422257018586,
+            "passes_latency_quality": false
+          },
+          "reduced_fp32_vs_full_int8_storage": {
+            "latency": {
+              "mean": -31.912194229932318,
+              "interval_95": [
+                -67.20494786361152,
+                5.909108779014976
+              ],
+              "adoption_lower": -70.22233186271542
+            },
+            "quality_delta_pp": -0.20000000000000284,
+            "quality_interval_95_pp": [
+              -1.350000023841858,
+              1.0
+            ],
+            "quality_adoption_lower_pp": -2.0222569232185683,
+            "passes_latency_quality": false
+          },
+          "reduced_fp32_vs_reduced_int8_storage": {
+            "latency": {
+              "mean": -14.02289085889397,
+              "interval_95": [
+                -69.62362782979494,
+                40.73944672660186
+              ],
+              "adoption_lower": -97.56178757411973
+            },
+            "quality_delta_pp": -0.20000000000000284,
+            "quality_interval_95_pp": [
+              -0.550000011920929,
+              0.15000000596046448
+            ],
+            "quality_adoption_lower_pp": -0.800000011920929,
+            "passes_latency_quality": false
+          },
+          "full_int8_storage_vs_full_fp32": {
+            "latency": {
+              "mean": -35.66126815046729,
+              "interval_95": [
+                -165.32294179756641,
+                70.30843110263991
+              ],
+              "adoption_lower": -235.61306718378933
+            },
+            "quality_delta_pp": -0.45000000000000284,
+            "quality_interval_95_pp": [
+              -0.8999999761581421,
+              0.0
+            ],
+            "quality_adoption_lower_pp": -1.2000000476837158,
+            "passes_latency_quality": false
+          },
+          "full_int8_storage_vs_reduced_fp32": {
+            "latency": {
+              "mean": 14.332917873644615,
+              "interval_95": [
+                -21.27052657862812,
+                40.173674419141335
+              ],
+              "adoption_lower": -41.39205120211689
+            },
+            "quality_delta_pp": 0.20000000000000284,
+            "quality_interval_95_pp": [
+              -1.0,
+              1.350000023841858
+            ],
+            "quality_adoption_lower_pp": -1.772256923218568,
+            "passes_latency_quality": false
+          },
+          "full_int8_storage_vs_reduced_int8_storage": {
+            "latency": {
+              "mean": 3.231195144126745,
+              "interval_95": [
+                -42.26122464613066,
+                55.25527469862614
+              ],
+              "adoption_lower": -61.2570948881364
+            },
+            "quality_delta_pp": 0.0,
+            "quality_interval_95_pp": [
+              -1.2000000476837158,
+              1.2000000476837158
+            ],
+            "quality_adoption_lower_pp": -1.972256970902284,
+            "passes_latency_quality": false
+          },
+          "reduced_int8_storage_vs_full_fp32": {
+            "latency": {
+              "mean": -100.41939795024726,
+              "interval_95": [
+                -238.46267203463293,
+                37.62387613413841
+              ],
+              "adoption_lower": -293.5719993035601
+            },
+            "quality_delta_pp": -0.45000000000000284,
+            "quality_interval_95_pp": [
+              -1.600000023841858,
+              0.699999988079071
+            ],
+            "quality_adoption_lower_pp": -2.2722569232185683,
+            "passes_latency_quality": false
+          },
+          "reduced_int8_storage_vs_reduced_fp32": {
+            "latency": {
+              "mean": -36.06938066795621,
+              "interval_95": [
+                -147.12999291039802,
+                38.97938774997874
+              ],
+              "adoption_lower": -205.69860768628874
+            },
+            "quality_delta_pp": 0.20000000000000284,
+            "quality_interval_95_pp": [
+              -0.15000000596046448,
+              0.550000011920929
+            ],
+            "quality_adoption_lower_pp": -0.30000001192092896,
+            "passes_latency_quality": false
+          },
+          "reduced_int8_storage_vs_full_int8_storage": {
+            "latency": {
+              "mean": -95.51782846302834,
+              "interval_95": [
+                -310.8808914693015,
+                27.78277709614271
+              ],
+              "adoption_lower": -420.3672984754549
+            },
+            "quality_delta_pp": 0.0,
+            "quality_interval_95_pp": [
+              -1.2000000476837158,
+              1.2000000476837158
+            ],
+            "quality_adoption_lower_pp": -1.872256947060426,
+            "passes_latency_quality": false
+          }
+        },
+        "supported_vs_calibration_fixed": [],
+        "point_fastest": "full_int8_storage"
+      }
+    },
+    "supported_crossovers": [],
+    "supported_universal_fixed": []
+  },
+  "controller_case": false,
+  "decision": "test a narrower encoder before the final embedding",
+  "lock_sha256": "af7f5fd55b6fdb1ec2aa025fec10ff7f877b91f89e7d7e5c5118e7c07ac82e50",
+  "evidence_sha256": {
+    "lock.json": "af7f5fd55b6fdb1ec2aa025fec10ff7f877b91f89e7d7e5c5118e7c07ac82e50",
+    "held-out-predictions.json": "91829ecf606a018c6f07465c7de9992968f974fbc1c859f3b36dfc0e6f9fdfac",
+    "heads.pt": "9ac440793a16cef94e685697d0e2ba68adaa7d40a25f1008e742c2b83229eefd",
+    "prior-pca-lock.json": "c09a99b7978ba1306288e43524ebaac769f3558bca15c1bd869c4452e3fbd6a3",
+    "sessions.json": "8f504fd15cccc86f1a8191bd43eeae896ca42db6f7c1520c88e8ee05f87927b1",
+    "session-1/below/reduced_fp32.json": "c4814a3fb246e64468f7a247424c5fa7b97511b498c5d236f774b25f5b305cf5",
+    "session-1/below/full_fp32.json": "a18332556eadcb0306c563c134a02ef83bc55ae0a93dad2c37b35262cdd70b41",
+    "session-1/below/reduced_int8_storage.json": "02662cebcbb958416965c39cf341ecdb6a89be696730a91005a0beba20617b8d",
+    "session-1/below/full_int8_storage.json": "5f4092051876774a4ba2afacd459c0edd220cc99476ab0c3bf4c8ddc66a98cd1",
+    "session-1/above/reduced_fp32.json": "cca7247c4b579e3b2317d7bc38d796f8b0e9c435d143e437ebf6bc16e36a065f",
+    "session-1/above/full_fp32.json": "2dab79057880b3ae5d021126a285115162c810a108b898764f22e820c41ac78f",
+    "session-1/above/reduced_int8_storage.json": "9747870a824342989cd7a804046e78280aba09327ec52eee07731b6b0dc2637c",
+    "session-1/above/full_int8_storage.json": "c422c13e031ef162063525cc87cc0cbf6b986ca639104845a45234ec2876589c",
+    "session-1/near/reduced_fp32.json": "9789c38481aa8d792bfe697459fcbee55a80fa789653b3c29f410a675f73c25a",
+    "session-1/near/full_fp32.json": "58c8f9a788b719855974ebc81f21245dfbfa8ea9109875906b9a563a255c222d",
+    "session-1/near/reduced_int8_storage.json": "a11a3a5e08b1e9cb85f4412e94310ae396454bdfda1ad8e7002a81d02c0be7f4",
+    "session-1/near/full_int8_storage.json": "31e71578a9bf7472fecc04df40151189ff1cf24667eb23298c23bc9a4cfb92b5",
+    "session-0/below/reduced_fp32.json": "2b063cdb00c12006324b826df831e1b14a6a44346c332c422876fb77bdbcee96",
+    "session-0/below/full_fp32.json": "837f7f61aa3550be5a071058c61a26026ceea0868508eda25a02377c385ed8c4",
+    "session-0/below/reduced_int8_storage.json": "c9fb95844ad30a9a656ade595a9e4be976f5797b17b67587083ccb8d4c0a7ecb",
+    "session-0/below/full_int8_storage.json": "45f62959941bc9f8b5bd3a83c62bfe5d2766bde3e3d53740226d495dd8b8690a",
+    "session-0/above/reduced_fp32.json": "897fceaae6990c4c82da78a2c298eb6f20640ecd4c366a3c10652ae95b84bb1d",
+    "session-0/above/full_fp32.json": "fe4a9087cde5ce8fdf853964b36f143ab7a10abc9ca9f3bb54311d4bb593900b",
+    "session-0/above/reduced_int8_storage.json": "ea18a0b9ebca3bca0b2925f75ddfe3d7d01d87b1ad85294254ad2c853f4814b6",
+    "session-0/above/full_int8_storage.json": "5327ba457c42261cd539323f9cafb0c23894bb9e632f7c44f8e3d785cba7af30",
+    "session-0/near/reduced_fp32.json": "e80e613107104a4bb825bee14365a5865b1f7b467bb13989f88d65d804111d91",
+    "session-0/near/full_fp32.json": "597f5c68c99a7e3d653c05a26d5aeb34fcdcd55939aa71e3c29c9dff53cc067e",
+    "session-0/near/reduced_int8_storage.json": "e6e9854cd2b1eba2216adb7df8d71e754aa24424b8f307eea98db1331bdc2b9f",
+    "session-0/near/full_int8_storage.json": "19cfa01303e3b96c71fa73067129ded358d2af31316e48438fb2f7c5811a54f6",
+    "session-2/below/reduced_fp32.json": "72e75cc063ed0b921e4a61c99470c95643940099e6463d75685cc455dff78020",
+    "session-2/below/full_fp32.json": "879095ae888c75ebe21787b97bab0ef5007de158a5eef5107e07cd1b0acfded1",
+    "session-2/below/reduced_int8_storage.json": "affcd5a9bfdc9e7c6e9b1b44bee2d6db56162588b9d4c2e858ea4ead87d1dd08",
+    "session-2/below/full_int8_storage.json": "eed8dfba24e35f5faa5efe987af2090bb44aecf9b69ac106ffceed8cfdc64d27",
+    "session-2/above/reduced_fp32.json": "fd15fb3c78bd8e077e6ccc9c3c9378177d3fabf09682d8c332be1798e0cccbbc",
+    "session-2/above/full_fp32.json": "62575c0b450393eb2f65b6965fdfe6ee4b35e494e98001ee4951404072d8e7f0",
+    "session-2/above/reduced_int8_storage.json": "22b7a4d0ff8b9299c1a0728fb41462d7c02bbd28bea55d1b4c419cd5d768a156",
+    "session-2/above/full_int8_storage.json": "15492617f2dc9838e4fce299214a82315800abcb656a6a25816da80fe248be0d",
+    "session-2/near/reduced_fp32.json": "37325be259f5436a57b0f1e1a3782f51f24285e0c6a8fe2ac509efa54625b594",
+    "session-2/near/full_fp32.json": "10b813f5c268201f798b37a4b1be722fa8abec8ce1553faf3ddb5a5e80fea2c8",
+    "session-2/near/reduced_int8_storage.json": "6a240f380d42d29ab4c374a5867daa0b33ff49af34c50e5e9c539f2716f96765",
+    "session-2/near/full_int8_storage.json": "e433dd0f5699e809e7d071ab8182ab2f8e9eebe5c5ea8e7d2c5638027ff5ee8e",
+    "session-3/below/reduced_fp32.json": "be4d4717928cb8fa9f73b2702c5637d69d051c90ab53bc82c3176b8eef905430",
+    "session-3/below/full_fp32.json": "21fbac4a8082d878d5f250e33fd4a28878da95fdcfeda2ba8a7294abed52e122",
+    "session-3/below/reduced_int8_storage.json": "4164337cc9805c961d0f7137bc13402456ce4a6794143d92fcc182b73ef8be75",
+    "session-3/below/full_int8_storage.json": "46543f7d0cece01b0d9c4ec9fba976fdb468fbe451233d431eaee279b37081eb",
+    "session-3/above/reduced_fp32.json": "bd6b77e6e66a6c9eb3c93d4702ba5bf04adbfdbcd4febee6851f717b029de43b",
+    "session-3/above/full_fp32.json": "1c95d04bcbc7c03b2f1c6cdadf5cf68c10bfc9904b9af568bf4f1fc9d5dd5016",
+    "session-3/above/reduced_int8_storage.json": "f4fc59786390259e02a02fb8adc3d99a658f73b633b7be20afeeb3622d605e99",
+    "session-3/above/full_int8_storage.json": "b1cdf3856f746206686ea8a1188b72d887e9a8db7da6a2fddf29a7a1690b347c",
+    "session-3/near/reduced_fp32.json": "27b58c2b8f3bbf90ec47bde7ca37b8f1a7efff7b4dfe996309084da8a492ab20",
+    "session-3/near/full_fp32.json": "8ad938fe100420750ab73f5d244ebeae390cf73199c2b277c8130d2babc854f1",
+    "session-3/near/reduced_int8_storage.json": "ac5fd9787d55f40d7a41d9469c20e3aef918796c529cfc76c545148f9916559f",
+    "session-3/near/full_int8_storage.json": "90953a76bade63d4bf5caa7e37ce55e2056170216feb3f0f9b9572fab4c95cb6",
+    "calibration-profile/0/reduced_fp32.json": "759eb5ffbf02b6e378f6b005fe269ede9117cbd5c2d1eae87f82b751d2240746",
+    "calibration-profile/0/full_fp32.json": "527d13464ec35506f249f57562ca1e6d218b7259ed0eceb7faf6a833c4cf14e8",
+    "calibration-profile/0/reduced_int8_storage.json": "5cd926e1962460351223644fbae8c573b80d56e3757bd273ccb9d33372924040",
+    "calibration-profile/0/full_int8_storage.json": "efe0ae74850123f357661c213012178aa1ab3c1062237fbf6ee5ccdb6efdc300",
+    "calibration-profile/1/reduced_fp32.json": "2b4945bde646ee17e2f8407390d23ec9feead32d898d5a7522365c1197972070",
+    "calibration-profile/1/full_fp32.json": "3f430c20543fbd846afbe91cfb954a59c59cc4d6b8908a67687beeddcb2b6988",
+    "calibration-profile/1/reduced_int8_storage.json": "495252a3286112d3e0abf3b811a2e5cf8b7121d7f972e80d12ba4ce51c1c70fd",
+    "calibration-profile/1/full_int8_storage.json": "18fec734b1496a0612b57474c76fa19c2ba011d31c3cd7ca29fee6dc42218a8e",
+    "calibration-profile/2/reduced_fp32.json": "7fd73ef36db3d5823a283385fcf8c538a62430d29e37a3334ddb9c90fa7d594e",
+    "calibration-profile/2/full_fp32.json": "1e0d2cbebdaeb88f3a4cf42b91fd570c87486c64246ca17956ebf62afa1f0bc3",
+    "calibration-profile/2/reduced_int8_storage.json": "1c55d4fa3c5d40dc412e8c97458df72f793fb90b5f2507e94ab75575f45ccc4c",
+    "calibration-profile/2/full_int8_storage.json": "834f9eb0a0dd9696493a2b37c7a73acbc170cdc186704fb5b2ef068675a9b9b2"
+  },
+  "limitations": [
+    "INT8 is compressed feature storage followed by FP32 classification, not INT8 acceleration.",
+    "Four paired repetitions per load on one shared host; bootstrap bounds are approximate.",
+    "Same 2000 test images, heads and PCA width as the previous experiment; no retuning on test accuracy.",
+    "First four prior live panels repeat across loads, so loads are not independent image sets.",
+    "Calibration selects the strongest fixed reference before evaluation.",
+    "All ordered-pair/load claims use a conservative family adjustment over 72 endpoints."
+  ]
+}
