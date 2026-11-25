@@ -6,6 +6,8 @@ A [replacement reproducible live burst benchmark](live-burst-smoke.md) now compl
 
 A [six-session confidence-safeguard study](confidence-safeguard.md) now tests prediction failures, a calibration-frozen confidence floor, a fixed confidence-gate ablation and steady load. The guarded controller fails the joint target: burst p95 is 21.16% worse on average than the historical best fixed comparator, with unchanged mean accuracy. It is not promoted.
 
+A [controlled relaxation replay](calibration-bounded-relaxation.md) now keeps the default gate active and permits a calibration-bounded relaxation under pressure. It restores exits but fails the adoption target: burst p95 is 3.16% worse than best fixed. The original anomalous steady panel was also replayed with its original policies.
+
 ## Audit of the saved live queue matrix
 
 The executable audit verifies the policy-lock checksum, disjoint session image panels, stored request counts and summary arithmetic. It recomputes paired accuracy intervals relative to both the full model and the saved calibration-selected fixed comparator. It identifies aliased matched-fixed records so they are not counted as independent executions.

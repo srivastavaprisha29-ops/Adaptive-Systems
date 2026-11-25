@@ -10,6 +10,10 @@ See the [controller validation audit and next live protocol](docs/research/contr
 
 [Six paired burst sessions plus steady checks](docs/research/confidence-safeguard.md) now log per-request confidence and queue-conditioned errors. Calibration freezes the confidence floor before evaluation. Harmful burst exits fall from 7 to 2, but mean accuracy is unchanged and safeguarded queue-aware p95 is 21.16% worse than the historical best fixed comparator. The joint 5% latency/one-point accuracy target fails. The fixed confidence-gate ablation shows no demonstrated benefit from queue awareness in this design. Full raw evidence, grouped errors and an independent verifier are available.
 
+## Controlled relaxation replay
+
+[Always-active default with calibration-bounded queue relaxation](docs/research/calibration-bounded-relaxation.md) restores early exits on the exact prior model/image/arrival traces. Across six burst replays, queue-aware p95 is 3.16% worse than best fixed and 7.81% better than the always-active confidence gate by point estimate, with unchanged average accuracy. The adoption target fails. The exact original steady anomaly does not recur, but other long-service outliers remain. Retain fixed gating; no queue-aware candidate is promoted.
+
 ## Runnable static feasibility pilot
 
 The repository includes CPU experiment code and recorded results for CIFAR-10 with a frozen ResNet-18. See the [completed experiment summary and reproduction commands](docs/reproducing-followups.md).

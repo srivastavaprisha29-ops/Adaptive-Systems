@@ -1,0 +1,89 @@
+{
+  "mean_session_metrics": {
+    "burst": {
+      "best_fixed": {
+        "exit_pct": 49.6875,
+        "mean_service_ms": 54.54365288229167,
+        "p95_wait_ms": 1578.016381383333,
+        "p95_response_ms": 1633.991317033333,
+        "accuracy_pct": 83.4375
+      },
+      "fixed_confidence": {
+        "exit_pct": 42.083333333333336,
+        "mean_service_ms": 55.879112192708334,
+        "p95_wait_ms": 1784.313411833333,
+        "p95_response_ms": 1838.7755991249996,
+        "accuracy_pct": 83.4375
+      },
+      "safeguarded_queue": {
+        "exit_pct": 52.1875,
+        "mean_service_ms": 54.893215267708335,
+        "p95_wait_ms": 1623.1186876749998,
+        "p95_response_ms": 1679.1660869416664,
+        "accuracy_pct": 83.4375
+      }
+    },
+    "steady": {
+      "best_fixed": {
+        "exit_pct": 49.6875,
+        "mean_service_ms": 54.85966033645833,
+        "p95_wait_ms": 0.18908264999999988,
+        "p95_response_ms": 66.02034061666666,
+        "accuracy_pct": 83.4375
+      },
+      "fixed_confidence": {
+        "exit_pct": 42.083333333333336,
+        "mean_service_ms": 55.88246060833333,
+        "p95_wait_ms": 0.19163796666666463,
+        "p95_response_ms": 66.52826040833332,
+        "accuracy_pct": 83.4375
+      },
+      "safeguarded_queue": {
+        "exit_pct": 42.1875,
+        "mean_service_ms": 57.42222788125,
+        "p95_wait_ms": 35.05592261666663,
+        "p95_response_ms": 103.28997124166662,
+        "accuracy_pct": 83.4375
+      }
+    }
+  },
+  "fixed_comparator_predictions_exits_unchanged": 3840,
+  "original_policy_anomaly_replay": [
+    {
+      "policy": "best_fixed",
+      "p95_wait_ms": 0.12241915,
+      "maximum_service_ms": 69.073673,
+      "maximum_inference_cpu_ms": 67.407058
+    },
+    {
+      "policy": "fixed_confidence",
+      "p95_wait_ms": 0.26196749999999874,
+      "maximum_service_ms": 89.363419,
+      "maximum_inference_cpu_ms": 89.262617
+    },
+    {
+      "policy": "safeguarded_queue",
+      "p95_wait_ms": 0.10660804999999997,
+      "maximum_service_ms": 82.767982,
+      "maximum_inference_cpu_ms": 82.701175
+    }
+  ],
+  "additional_steady_outliers": [
+    {
+      "session": 0,
+      "policy": "safeguarded_queue",
+      "p95_wait_ms": 58.82437559999996,
+      "request_id": 25,
+      "service_ms": 113.622694,
+      "inference_thread_cpu_ms": 113.549675
+    },
+    {
+      "session": 3,
+      "policy": "safeguarded_queue",
+      "p95_wait_ms": 150.8603677499998,
+      "request_id": 138,
+      "service_ms": 337.561565,
+      "inference_thread_cpu_ms": 337.512831
+    }
+  ]
+}

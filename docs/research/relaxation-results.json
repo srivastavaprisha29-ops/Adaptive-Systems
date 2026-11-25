@@ -1,0 +1,375 @@
+{
+  "status": "six_session_controlled_relaxation_replay",
+  "research_validated": false,
+  "comparisons": {
+    "burst": {
+      "safeguarded_queue_vs_best_fixed": {
+        "latency_reduction_pct": {
+          "mean": -3.161342356169572,
+          "interval_95": [
+            -8.962961495931447,
+            2.8426136304238088
+          ]
+        },
+        "accuracy_delta_pp": {
+          "mean": 0.0,
+          "interval_95": [
+            -0.4166666666666667,
+            0.5208333333333334
+          ]
+        },
+        "per_session_gain_pct": [
+          -11.458731388942777,
+          4.900243012743399,
+          -11.543898370257356,
+          -9.961593214877084,
+          6.906842066627716,
+          2.18908375768867
+        ],
+        "per_session_accuracy_delta_pp": [
+          0.0,
+          -0.625,
+          0.0,
+          0.0,
+          1.25,
+          -0.625
+        ],
+        "joint_lower_bound_pass": false
+      },
+      "safeguarded_queue_vs_fixed_confidence": {
+        "latency_reduction_pct": {
+          "mean": 7.813037811538825,
+          "interval_95": [
+            0.20011514568794775,
+            16.44848287131393
+          ]
+        },
+        "accuracy_delta_pp": {
+          "mean": 0.0,
+          "interval_95": [
+            -0.7291666666666666,
+            0.8333333333333334
+          ]
+        },
+        "per_session_gain_pct": [
+          9.082537397783986,
+          8.58691165368195,
+          3.1238533465257623,
+          -6.696079089322016,
+          27.0995643335563,
+          5.681439227006968
+        ],
+        "per_session_accuracy_delta_pp": [
+          -1.25,
+          -0.625,
+          0.0,
+          -0.625,
+          1.875,
+          0.625
+        ],
+        "joint_lower_bound_pass": false
+      },
+      "fixed_confidence_vs_best_fixed": {
+        "latency_reduction_pct": {
+          "mean": -12.704893106692989,
+          "interval_95": [
+            -20.648623720015202,
+            -5.4500501025885955
+          ]
+        },
+        "accuracy_delta_pp": {
+          "mean": 0.0,
+          "interval_95": [
+            -0.625,
+            0.625
+          ]
+        },
+        "per_session_gain_pct": [
+          -22.593315078093788,
+          -4.032976795370513,
+          -15.140725785935349,
+          -3.060575565125778,
+          -27.69904196364543,
+          -3.7027234519870778
+        ],
+        "per_session_accuracy_delta_pp": [
+          1.25,
+          0.0,
+          0.0,
+          0.625,
+          -0.625,
+          -1.25
+        ],
+        "joint_lower_bound_pass": false
+      }
+    },
+    "steady": {
+      "safeguarded_queue_vs_best_fixed": {
+        "latency_reduction_pct": {
+          "mean": -57.568324708573655,
+          "interval_95": [
+            -141.07382824186396,
+            -0.18385783230180364
+          ]
+        },
+        "accuracy_delta_pp": {
+          "mean": 0.0,
+          "interval_95": [
+            -0.625,
+            0.625
+          ]
+        },
+        "per_session_gain_pct": [
+          -92.80119705564395,
+          -1.5467533749037532,
+          1.7458854266495738,
+          -250.4636844489934,
+          -1.6402331248946078,
+          -0.7039656736558042
+        ],
+        "per_session_accuracy_delta_pp": [
+          1.25,
+          0.0,
+          0.0,
+          0.625,
+          -0.625,
+          -1.25
+        ],
+        "joint_lower_bound_pass": false
+      },
+      "safeguarded_queue_vs_fixed_confidence": {
+        "latency_reduction_pct": {
+          "mean": -55.67796346219384,
+          "interval_95": [
+            -136.86963803374047,
+            0.17523556223440817
+          ]
+        },
+        "accuracy_delta_pp": {
+          "mean": 0.0,
+          "interval_95": [
+            0.0,
+            0.0
+          ]
+        },
+        "per_session_gain_pct": [
+          -87.94070772118596,
+          -4.319553618571503,
+          -0.21540020243016045,
+          -243.50484035151388,
+          4.459920344823509,
+          -2.5471992242850128
+        ],
+        "per_session_accuracy_delta_pp": [
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "joint_lower_bound_pass": false
+      },
+      "fixed_confidence_vs_best_fixed": {
+        "latency_reduction_pct": {
+          "mean": -0.764071273438303,
+          "interval_95": [
+            -3.5181296537926583,
+            1.5268914338620727
+          ]
+        },
+        "accuracy_delta_pp": {
+          "mean": 0.0,
+          "interval_95": [
+            -0.625,
+            0.625
+          ]
+        },
+        "per_session_gain_pct": [
+          -2.586182308980467,
+          2.6579870671284422,
+          1.957070096130975,
+          -2.025835819477373,
+          -6.3849156204755175,
+          1.7974489450441222
+        ],
+        "per_session_accuracy_delta_pp": [
+          1.25,
+          0.0,
+          0.0,
+          0.625,
+          -0.625,
+          -1.25
+        ],
+        "joint_lower_bound_pass": false
+      }
+    }
+  },
+  "adoption": {
+    "one_sided_confidence_pct": 98.75,
+    "lower_bounds": {
+      "best_fixed_gain_lower": -10.738551295681457,
+      "best_fixed_quality_lower": -0.5208333333333334,
+      "fixed_confidence_gain_lower": -0.4493388401252278,
+      "fixed_confidence_quality_lower": -0.8333333333333334
+    },
+    "queue_awareness_supported": false
+  },
+  "anomaly_replay": {
+    "best_fixed": {
+      "requests": 160,
+      "accuracy_pct": 86.25,
+      "p95_response_ms": 63.06820175,
+      "p50_response_ms": 49.66636,
+      "p95_wait_ms": 0.12241915,
+      "mean_service_ms": 53.41705441875,
+      "mean_monitor_us": 8.85060625,
+      "mean_decision_us": 3.75899375,
+      "max_pending_depth": 0,
+      "policy_state_changes": 0,
+      "exit_pct": 51.24999999999999
+    },
+    "safeguarded_queue": {
+      "requests": 160,
+      "accuracy_pct": 85.0,
+      "p95_response_ms": 66.00073399999998,
+      "p50_response_ms": 61.0923895,
+      "p95_wait_ms": 0.10660804999999997,
+      "mean_service_ms": 61.57276046875,
+      "mean_monitor_us": 4.75480625,
+      "mean_decision_us": 3.2702875000000002,
+      "max_pending_depth": 0,
+      "policy_state_changes": 0,
+      "exit_pct": 0
+    },
+    "fixed_confidence": {
+      "requests": 160,
+      "accuracy_pct": 85.0,
+      "p95_response_ms": 71.05109635,
+      "p50_response_ms": 59.5538545,
+      "p95_wait_ms": 0.26196749999999874,
+      "mean_service_ms": 55.7458895625,
+      "mean_monitor_us": 5.0944,
+      "mean_decision_us": 2.38383125,
+      "max_pending_depth": 0,
+      "policy_state_changes": 0,
+      "exit_pct": 45.0
+    }
+  },
+  "frozen_threshold": 0.2750557065010071,
+  "relaxation_limit": 0.20296822488307953,
+  "calibration": {
+    "examples": 1000,
+    "exit_pct": 40.0,
+    "accuracy_pct": 83.39999999999999,
+    "baseline_accuracy_pct": 83.7,
+    "delta_pp": -0.30000001192092896,
+    "delta_95ci_pp": [
+      -0.8999999761581421,
+      0.20000000298023224
+    ],
+    "quality_pass": true
+  },
+  "lock_sha256": "158824d12688030709dfe6fa1956113df6ed2e1a8b0548d647f460ef5e68a2fa",
+  "evidence_sha256": {
+    "lock.json": "158824d12688030709dfe6fa1956113df6ed2e1a8b0548d647f460ef5e68a2fa",
+    "anomaly-summary.json": "376307eb403cb2102d1a4eced0462f34ab4613ae49ab460e344d8a093dbca4ef",
+    "evaluation-frozen.json": "21f05d3efa0a8d8253b98dd936c871ab0a6309e968b44b3d8d40279c0f4916f3",
+    "sessions.json": "c974d8022ef9e94f79744bd3d4886013482cce55f72cc7d87ff7ee9bacb46787",
+    "anomaly-original-replay/fixed_confidence-host.json": "7cdda34ec5875bbadce41595f16a22c7d838a0bd735c74be5e9df801f373162f",
+    "anomaly-original-replay/safeguarded_queue-host.json": "7b5a2a60190bddf2256c2e6d75c08766d7cf0989e173195c9d85201b16b86fa9",
+    "anomaly-original-replay/best_fixed-host.json": "13914281a2a8275afa07418ec2d07e96f6a95ee5c720ff39227fe4f6d1bbfc25",
+    "anomaly-original-replay/fixed_confidence.json": "18b2f39eaa1a2492ac247643ba7a13c4d4f0cee7d4d430cf8cb510adb60eb44c",
+    "anomaly-original-replay/safeguarded_queue.json": "819cb6c3017bf6d431ef5a8bbb47a24260b709d1e95e6906002594fea2ca9b2e",
+    "anomaly-original-replay/best_fixed.json": "72e6eee4ab06a936d57f72c06e891071a44ce485ed52454fc74f64b6b4f93b0d",
+    "calibration-live/fixed_confidence-host.json": "aff440107a6afae4ab059db6aa289d5bf51dbe966f60a0f9df7b5b7e90db820a",
+    "calibration-live/safeguarded_queue-host.json": "0302d0d8912bbaa5fd01df0e63186d7ccd2924d56eeec35dd7777d911384f16f",
+    "calibration-live/best_fixed-host.json": "c2cd86dfea25c02e06dd177317d2998a5843e33a087fcce7fa51063c89b2f98d",
+    "calibration-live/fixed_confidence.json": "39105264a8918edd521ccf1db1beb033390e1603cf0bbe084234a5b2a50baffd",
+    "calibration-live/safeguarded_queue.json": "960e2e5807c757f71130cf7f50f4bcf1038c38f917b9cd44b723d7712b125e7d",
+    "calibration-live/best_fixed.json": "c231f6170598b0dc35eb81e4a073e38c23f87aaf2496b27dc6a9e48eea4dae0d",
+    "session-1/steady/fixed_confidence-host.json": "fa5d17e278700fb487890f79dbec604e2a2b201dc07b4ca031154f5a6f29b841",
+    "session-1/steady/safeguarded_queue-host.json": "046debbbb8e9dfed863e5b52e37cfb385735f41a02abc709d75a06797d359546",
+    "session-1/steady/best_fixed-host.json": "76f558a2421ecda4c64b175f6d06fa24906f74cca1620546d446af348d94d022",
+    "session-1/steady/fixed_confidence.json": "a3e1d5ad56cf98afa7f68af52686fd0cc4fa176f2b4f36f4c46cae9a1222d833",
+    "session-1/steady/safeguarded_queue.json": "7ce5656cfe096274f9053f21e71e2cbd4bce0a83396ba7f2c30e34c6bb21e7b8",
+    "session-1/steady/best_fixed.json": "4ae704ebbc499578af6feb1c63488fd3f4638d1c63a742f3f18046bf231f2baa",
+    "session-1/burst/fixed_confidence-host.json": "f447ccd1571cd1d4592fb847f40bbc3c50fa6d1621dc7d3466765b46648dcb96",
+    "session-1/burst/safeguarded_queue-host.json": "6f4a0b06a9c8e8931eddd0bfc9a93cf9d7114012e06f296e8dbcb71f208e9794",
+    "session-1/burst/best_fixed-host.json": "fb17466761684a4ad8ccb1203114c693d879397d60b244f5892a7310cbfcb93f",
+    "session-1/burst/fixed_confidence.json": "52d593f4877d2b1519795830e0e3ad121a82c9bb26d48e81f8e764e9aa0e85ba",
+    "session-1/burst/safeguarded_queue.json": "819d8d1bfc019fb8cd35ce55816edf69260ec30ee53965c5a2fcedbbd5277450",
+    "session-1/burst/best_fixed.json": "07cad12b8f16a65e5a8c574d702347219abdfee75039548aff59739d8f937ccc",
+    "session-0/steady/fixed_confidence-host.json": "ef806271219977dbb19504f776dd69f5867446b0d919d1b8a51f492d4aca7e1e",
+    "session-0/steady/safeguarded_queue-host.json": "79817488bbc049e751c63086551a661e71d4c4c8f9bdf0756f987d076bf297b5",
+    "session-0/steady/best_fixed-host.json": "e96bf25e7ca175f5feeca2294dfe514057f9eb525aa98ceaa53d57e78e7af3c9",
+    "session-0/steady/fixed_confidence.json": "e6f1f7354ae10158bdb88495fc96835d6d0434459238359570173ac708f6c916",
+    "session-0/steady/safeguarded_queue.json": "46099fee44bfc1618b9cfc83a68f9df0ab18bdf2bcd5cbc3ad4013828c3a97c3",
+    "session-0/steady/best_fixed.json": "fc1bf927268dc64719b9d89b9f242b7030b68a6fb147452b4d5f7bd79772350d",
+    "session-0/burst/fixed_confidence-host.json": "33737a8224269570c639ab6506b829a798d8faebc454426da31d68c8a8f8aa42",
+    "session-0/burst/safeguarded_queue-host.json": "b22c9abaeb79c7039b56e8846dd0dce79832de0bbe9fa945fd658a0c6e1304fa",
+    "session-0/burst/best_fixed-host.json": "78dcf9c34966ec23ae5fe245b71833fa2649a21d960e65197d16807a17bd5f36",
+    "session-0/burst/fixed_confidence.json": "71d6d69516e9043164276aa96dd82fa4d481da04e7eeade307ba50bc18515761",
+    "session-0/burst/safeguarded_queue.json": "9b904209c0d5f9762e9a51ae78ac26b03f3521de8b61fd13f2ef6ec7defec93d",
+    "session-0/burst/best_fixed.json": "5ed9df440fdaaee7c3152578804b65d94ab191ba148190dae43b54c585b29f39",
+    "session-2/steady/fixed_confidence-host.json": "be63ef52f6504579da75a27ccf2cebe2e60309d7b509fc6ded86e61c708d0630",
+    "session-2/steady/safeguarded_queue-host.json": "2a812093440f98595542b7b13b314e8b60058417a2ca6f7646e9692480c903cd",
+    "session-2/steady/best_fixed-host.json": "5c39345907e7308cf3f2ab92eac6cd8a7ea8689269b9cde7ac7c6818c2eb09c1",
+    "session-2/steady/fixed_confidence.json": "b993289b79530038e69dfda96eb4ba43a44f86278f4382f2bfc8439be150a48e",
+    "session-2/steady/safeguarded_queue.json": "cfde2313df7b87420217e2b5616417d24a842b7784365c85ab5f09c6d5edf485",
+    "session-2/steady/best_fixed.json": "678bdc982da7e6166e31a291649b245fd3ac9ba33a70a3ceab42d5144bb40a1c",
+    "session-2/burst/fixed_confidence-host.json": "f447ccd1571cd1d4592fb847f40bbc3c50fa6d1621dc7d3466765b46648dcb96",
+    "session-2/burst/safeguarded_queue-host.json": "17857229f00b6018b5e7d299c04ff1b7bf61359806369787309aab78b489aae4",
+    "session-2/burst/best_fixed-host.json": "1df1682862b0c047fe5dfc6c1400e417a2170bb566b6ad7ed6517099428fedcf",
+    "session-2/burst/fixed_confidence.json": "aaa894c5ae1640ca7333a730046ab730fa73dfcd0ff0df78c1fc38bf1c833bb1",
+    "session-2/burst/safeguarded_queue.json": "a7c9e0cb495889c0fee3f28f07494a1ed10aba40cbfc4b262c1e5d0b0c07c433",
+    "session-2/burst/best_fixed.json": "4e1c6e2fe5389bbfe6c20636e95aa1244e89ec4782fc657ec686e728ae8de6e5",
+    "session-5/steady/fixed_confidence-host.json": "6f4e1f8a92bd48bdd6d73ea14de24662e584ddca1a79270e4a2ba7d01353ae2d",
+    "session-5/steady/safeguarded_queue-host.json": "bc3a2767088606055175aba203263394d7ce0c2481daa5fdc51071ec6864e194",
+    "session-5/steady/best_fixed-host.json": "253e069e4d3d87d75f903aa8823bcc5e732f2bf33661595ffac838ecb286eed2",
+    "session-5/steady/fixed_confidence.json": "a068a1beb3a09735177649cb0aec7444138d3c18f441b64dea83fbfcf4f8e978",
+    "session-5/steady/safeguarded_queue.json": "378fa0b9e1f4b50d2c1ac18b86beb547c6c5db16dfcc701b03e4e73d0dc49b80",
+    "session-5/steady/best_fixed.json": "066d952a48238ffb102cea35309017f63563ba2f20469ff9101b5c730872a216",
+    "session-5/burst/fixed_confidence-host.json": "5b5c81731e52011394436204dc1c42d42350cc9cacadb96d9c0389bf325ef59f",
+    "session-5/burst/safeguarded_queue-host.json": "87d8819bf56c20edc4c2dad15f95e8c64a62e24e1c51a5d170b9d8991c5d53d7",
+    "session-5/burst/best_fixed-host.json": "2d9eae869f6fab856ab6b8b9c61a82fe0d852fa72a27f3921bdb0c6990a83bfc",
+    "session-5/burst/fixed_confidence.json": "37ab8e32367c6b3ca40e81007533c1d121078b12d6851eaa894851c9d14f4aec",
+    "session-5/burst/safeguarded_queue.json": "473bf9ea822d634b28e423c69ed85d064d755509f9fef30ded1406925eec4185",
+    "session-5/burst/best_fixed.json": "43ff7654224e61113e645ac9f112f8864ad5230b25cd205a3a361258583f4b74",
+    "session-3/steady/fixed_confidence-host.json": "0c543a5ebc640d4cb988583dc68dd9415f461e2d6d6eb80bfc0d91af8dd4fcfe",
+    "session-3/steady/safeguarded_queue-host.json": "c3a5e1fc52d3f943f61d2f4a3512b82ace08a88e56ca60a2f34c50c80b15081f",
+    "session-3/steady/best_fixed-host.json": "9a71a774b68e6ae3ab21d13b0dd34d4e6b9c20f24d7934c8df99fda2ba40c05b",
+    "session-3/steady/fixed_confidence.json": "c5c3a34f0d83b75b713d3186bcff4c285d6777770c8bb3ebacf74cb6cf9e5c32",
+    "session-3/steady/safeguarded_queue.json": "eb336196e1519d74ea0e7a07d0b0bdd661d57e1a82e9f3bbcbcb27d1124d9dd7",
+    "session-3/steady/best_fixed.json": "131e9ee1c9de28375aa0cc4d03a99bf7fe708b04235149b3db2212f6481e9fb5",
+    "session-3/burst/fixed_confidence-host.json": "03a3260f37bab625be40fc91f1a30bf15f6532b0bfc65e000bd684d46c26c4ec",
+    "session-3/burst/safeguarded_queue-host.json": "5cda0494f42e1aff1cf9495ec1710707c92828506338533652be7900270dad23",
+    "session-3/burst/best_fixed-host.json": "8285bafa3389bfc452cd35ca77dfa50f8af06267a17407314c60107985207cbd",
+    "session-3/burst/fixed_confidence.json": "c9468c50c926ae52ee0b7484bdfb3f45cae20eb4c6f51234370944f510125b86",
+    "session-3/burst/safeguarded_queue.json": "809ed01f1e12792e348f6d4c04fc842b0839656e23cb09b4c72ee8b333c6f73a",
+    "session-3/burst/best_fixed.json": "26e3404d8832bcc401b7c37bbcc8278132b9378e8e16c8266a2a67a0a65bb09a",
+    "session-4/steady/fixed_confidence-host.json": "9affed0b6bce106d5bc7af4dfe074df08c0b861d75967008a190a647ecb599e0",
+    "session-4/steady/safeguarded_queue-host.json": "4826d6a93ec3fd2dfb937eee32e621c813d5f265680e02cae0450c43a77a7a42",
+    "session-4/steady/best_fixed-host.json": "6313797d4dd1a6203158ed69f9c41a0d358807bf3dff6a785321a6e8c5ba80b2",
+    "session-4/steady/fixed_confidence.json": "50406090e64b18e1700a1b5d98924b5b4ddf710dd93a7084ecafcd2afd9ae4c6",
+    "session-4/steady/safeguarded_queue.json": "e7e22d1b6f286054514f888c72944c0f1f77f12fc6ba017b537f04f754357d2d",
+    "session-4/steady/best_fixed.json": "523dcc974dd73c1cbe5380005035f3fa74b90283d587a54faabd452499b3b34d",
+    "session-4/burst/fixed_confidence-host.json": "29ddeb8493f892923021e34b36d33d6d57608e7c42f2e285de85fcd61cf5e1b8",
+    "session-4/burst/safeguarded_queue-host.json": "aee1d7fab8af40dd246972473431a1ccceb70a6cadccaf9b17ec9b8fae5780d1",
+    "session-4/burst/best_fixed-host.json": "9fa1d6439d6c87d14beed26017a156c7f25054688241130a74e96a48cf6fbc6a",
+    "session-4/burst/fixed_confidence.json": "cf57bcd8b5a344dc91f6ca0515b82f387aaf51fe6c7db2743396493dcb66d971",
+    "session-4/burst/safeguarded_queue.json": "d26ac1ad0b08dcee9e728a193aac2a09fcbded6acf18fbafd777795853b53e7f",
+    "session-4/burst/best_fixed.json": "1022653a299dedfe1316485e39cf9eeeffbccf9672be08ba88da1538279a5c78"
+  },
+  "limitations": [
+    "Six balanced sessions on one host; bootstrap uncertainty remains unstable at this sample size.",
+    "Same images reused for burst and steady within a session; panels disjoint across sessions.",
+    "Cached features used only for offline calibration and post-run diagnostics, never timed inference.",
+    "Top softmax probability from ridge scores is logged but is not a calibrated probability.",
+    "Best fixed is historical calibration-selected; no exhaustive current-machine reoptimization.",
+    "All evaluation images and arrivals deliberately replay the previously studied panels.",
+    "Adoption uses four Bonferroni one-sided 98.75% bounds; six-session bootstrap is approximate.",
+    "Timing includes confidence diagnostics and scalar switching; no format switching/energy claim.",
+    "The calibration limit uses an adverse routing subset relative to best fixed, not a formal out-of-sample guarantee."
+  ]
+}
