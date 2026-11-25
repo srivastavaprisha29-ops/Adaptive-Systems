@@ -1,8 +1,10 @@
 # Resource-Aware Adaptive Feature Representations for AI Inference
 
-> **Status:** CPU experiments completed · fixed early-exit and representation baselines evaluated
+> **Status:** Fixed early-exit and representation baselines evaluated. Broader adaptive-controller validation remains incomplete.
 > **Research question:** Can inference-time selection of feature width and numerical precision reduce *measured end-to-end* latency, feature memory and energy while preserving an acceptable quality floor?
 
+
+See the [controller validation audit and next live protocol](docs/research/controller-validation.md). Saved burst trials improve p95 latency in 6/6 runs, but only 2/6 meet the quality tolerance. Monitoring/switching boundaries and the original live generator remain unresolved.
 
 ## Runnable static feasibility pilot
 
