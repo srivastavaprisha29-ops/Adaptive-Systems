@@ -1,0 +1,15 @@
+{
+  "seed": 20261128,
+  "training_per_class": 400,
+  "candidate_widths": [64, 128, 256, 384],
+  "held_out_examples": 2000,
+  "sessions": 6,
+  "requests": 128,
+  "nominal_load": 0.8,
+  "profile_examples": 32,
+  "warmup": 3,
+  "bootstrap_samples": 8000,
+  "quality_tolerance_pp": 1.0,
+  "p95_target_pct": 5.0,
+  "preparation_workers": 8
+}

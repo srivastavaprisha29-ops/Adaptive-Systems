@@ -1,0 +1,36 @@
+{
+  "means": {
+    "full_fp32": {
+      "accuracy_pct": 82.29166666666667,
+      "mean_service_ms": 43.39114815364584,
+      "p95_wait_ms": 2.200348158333325,
+      "p95_response_ms": 56.25336894166665,
+      "stages_mean_ms": {
+        "preprocess": 1.4850503502604167,
+        "backbone": 41.803900091145834,
+        "projection": 0.0,
+        "classifier": 0.04265180859375
+      },
+      "backbone_fraction_of_service_pct": 96.34200031564124
+    },
+    "pca_fp32": {
+      "accuracy_pct": 82.8125,
+      "mean_service_ms": 46.836402390625,
+      "p95_wait_ms": 54.582055674999985,
+      "p95_response_ms": 109.98399124166666,
+      "stages_mean_ms": {
+        "preprocess": 1.5343112552083333,
+        "backbone": 45.13889346875,
+        "projection": 0.06648298307291667,
+        "classifier": 0.029737290364583332
+      },
+      "backbone_fraction_of_service_pct": 96.37566329771141
+    }
+  },
+  "feature_bytes": {
+    "full_fp32": 2048,
+    "pca_fp32": 1024
+  },
+  "pca_parameter_bytes": 526336,
+  "note": "Mean session p95s are descriptive; timing target uses the mean paired relative reductions."
+}

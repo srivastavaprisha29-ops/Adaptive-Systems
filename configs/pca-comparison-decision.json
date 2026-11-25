@@ -1,0 +1,12 @@
+{
+  "experiment": "matched PCA FP32 live comparison",
+  "selected_reduced_width": 256,
+  "calibration_qualified": true,
+  "held_out_quality_pass": false,
+  "latency_target_pass": false,
+  "pca_adopted": false,
+  "current_experiment_reference": "full-width FP32 matched head",
+  "production_carry_forward_unchanged": true,
+  "next_candidate": "trained narrower encoder with actual channel/operator work reduction; FP32 first",
+  "note": "A smaller vector is not reduced encoder work or total-memory evidence."
+}

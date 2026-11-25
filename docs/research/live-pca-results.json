@@ -1,0 +1,69 @@
+{
+  "status": "matched_PCA_FP32_live_comparison",
+  "research_validated": false,
+  "quality": {
+    "examples": 2000,
+    "full_accuracy_pct": 82.5,
+    "pca_accuracy_pct": 81.85,
+    "delta_pp": -0.6499999761581421,
+    "interval_95_pp": [
+      -1.899999976158142,
+      0.5012500002980164
+    ],
+    "quality_pass": false
+  },
+  "timing": {
+    "mean_p95_reduction_pct": -92.75059139405326,
+    "interval_95_pct": [
+      -235.8048429065922,
+      -7.705297393104224
+    ],
+    "per_session_reduction_pct": [
+      -437.8575533751163,
+      -1.7190294896236136,
+      -13.726026940220738,
+      -17.851474479291852,
+      -81.68589334528885,
+      -3.6635707347781876
+    ],
+    "latency_target_pass": false,
+    "interval_within_plus_minus_5pct": false
+  },
+  "selected_width": 256,
+  "calibration_qualified": true,
+  "feature_bytes": {
+    "full_fp32": 2048,
+    "pca_fp32": 1024
+  },
+  "feature_reduction_pct": 50.0,
+  "lock_sha256": "c09a99b7978ba1306288e43524ebaac769f3558bca15c1bd869c4452e3fbd6a3",
+  "evidence_sha256": {
+    "lock.json": "c09a99b7978ba1306288e43524ebaac769f3558bca15c1bd869c4452e3fbd6a3",
+    "calibration.json": "e53ae39ebdd1c45be045345077061f17e1bbade9cb51eee637b2910dc1d01db0",
+    "held-out-predictions.json": "c6fe476632fd4ab412018c7540db9d00e2d7761c7dea515bfa7698ce7972f5ad",
+    "heads.pt": "9ac440793a16cef94e685697d0e2ba68adaa7d40a25f1008e742c2b83229eefd",
+    "prior-sweep-lock.json": "23c41594d658a0c650ed8ac3aa0c621febf76f42e20f1e24bdaefff69634f065",
+    "sessions.json": "692c3c45f71fe57a128c29afc7d0be697d70c9381fea88f3ab7addac98254db8",
+    "session-1/full_fp32.json": "b7d3156b7e0e1e6aac8ce1c4583ff97a9c9b446bcc62070346ba41349773c35f",
+    "session-1/pca_fp32.json": "69bd777c9e90985b1fb6125c6b48f1e3e969aebf985491f98d4ccc12089b3ac3",
+    "session-0/full_fp32.json": "bb7928f240e525e352ae2b4016c1162664853c0d5a152a934a48d67716bcc805",
+    "session-0/pca_fp32.json": "df2e5760a787fe8695126770d5a6336d58feb3c05fa65504c4bb485b457cef35",
+    "session-2/full_fp32.json": "fbff3457447041f84d4da479a10ef8116e72ddab2340abb7d90c48b7ce4638b2",
+    "session-2/pca_fp32.json": "9e448a057b0123f90a752f52765225bfba5428a1657cc61eefe726ddd5f70261",
+    "session-5/full_fp32.json": "73e1d05980e9d5d0aa4e231a6c2db43e4cebd129a357e5a994e099aa85dd5876",
+    "session-5/pca_fp32.json": "1f5ba64f7dd6a06ee013acb72c3135b27094678b0294bd383e87503db36cf5ed",
+    "session-3/full_fp32.json": "69d8faad178f595aa0c17a16d46555c108fc5cbb6c5175cc87ef563bf526cd5f",
+    "session-3/pca_fp32.json": "9175ce33245ae3d683d4070c4767611f31b73acd75ca41e12153fffdb97d33ef",
+    "session-4/full_fp32.json": "02861b6bd5cd814cfae40878c8001b5cff952ff273037e88a790e1624e7ed961",
+    "session-4/pca_fp32.json": "a930895bbfe4072e7187ecd9144271577edec06b4f717956fea06563f73da758"
+  },
+  "next_candidate": "reduce actual encoder work; post-pooling PCA leaves the backbone unchanged",
+  "limitations": [
+    "Both heads and PCA fit the same 4,000-image training subset, not the previous 44,000-image heads.",
+    "Calibration selects width; 2,000 separate official-test images estimate held-out quality.",
+    "Prior static aggregate test results exist; these dynamic panels exclude the latest load sweep.",
+    "One shared CPU host, six paired sessions, no energy or peak-memory measurement.",
+    "Feature bytes describe the selected vector, not total RAM: the 512D backbone output and PCA parameters still exist.",
+    "Preparation uses parallel extraction; timed inference is single-thread, batch one, with no feature cache."
+  ]
+}

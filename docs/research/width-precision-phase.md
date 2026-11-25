@@ -1,6 +1,8 @@
 # Next research phase: width and precision action profiling
 
-**Status: next phase selected; these experiments have not yet been run.** The frozen load sweep found no supported winning range for queue-aware confidence relaxation. Carry the calibrated fixed margin policy forward and return to the project's original representation question.
+**Status: the initial post-pooling FP32 PCA comparison is complete; encoder-side work reduction is the next candidate.** The frozen load sweep found no supported winning range for queue-aware confidence relaxation. Carry the calibrated fixed margin policy forward and return to the project's original representation question.
+
+The [matched live PCA experiment](live-pca-comparison.md) selected 256D, halved vector bytes, but failed held-out quality preservation and live latency gates. Both paths still execute the same ResNet-18 graph. Target actual encoder computation next, with matched training and static quality/cost checks before adaptation. Native encoder precision changes remain untested in this phase.
 
 ## Research question
 

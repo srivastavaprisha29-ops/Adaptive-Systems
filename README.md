@@ -1,6 +1,6 @@
 # Resource-Aware Adaptive Feature Representations for AI Inference
 
-> **Status:** Fixed gating retained after a frozen load sweep. Width/precision action profiling is the next phase; broader controller validation remains incomplete.
+> **Status:** Initial FP32 PCA action profiling is complete. Encoder-work reduction is next; broader adaptive-controller validation remains incomplete.
 > **Research question:** Can inference-time selection of feature width and numerical precision reduce *measured end-to-end* latency, feature memory and energy while preserving an acceptable quality floor?
 
 
@@ -17,6 +17,10 @@ See the [controller validation audit and next live protocol](docs/research/contr
 ## Frozen load sweep and current research direction
 
 The [machine-calibrated frozen-policy load sweep](docs/research/frozen-load-sweep.md) compares six matched sessions at each of three offered loads using 2,304 fresh dynamic-controller test images. No load range clears the quality/latency evidence bar. Above-capacity point estimates improve p95 by 5.33% with 0.52 points accuracy loss, but the uncertainty bounds fail the target. Carry [the selected fixed configuration](configs/carry-forward-fixed.json) forward and shift to [width/precision action profiling](docs/research/width-precision-phase.md). The two confidence gates were not retuned during evaluation.
+
+## Live PCA versus full-width FP32
+
+The [matched-head live comparison](docs/research/live-pca-comparison.md) selects PCA 256D using calibration only and evaluates 2,000 held-out images plus six paired live sessions. Vector bytes fall from 2,048 to 1,024, but PCA p95 is worse in all sessions and held-out quality uncertainty fails the one-point gate. The unchanged backbone contributes about 96% of service time. The next candidate reduces actual encoder work in FP32; the earlier production fixed-gating checkpoint remains unchanged.
 
 ## Runnable static feasibility pilot
 
